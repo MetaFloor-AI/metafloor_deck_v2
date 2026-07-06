@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MetaFloor — Deck</title>
+<style>
+    *, *::before, *::after { box-sizing: border-box; }
+    body, html {
+        margin: 0; padding: 0; width: 100%; height: 100%;
+        background-color: #161616; overflow: hidden;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    }
+    #viewer-container { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; position: relative; }
+    #slide-scaler { position: relative; flex-shrink: 0; overflow: hidden; }
+    #slide-frame {
+        width: 1360px; height: 780px; border: none; background: transparent;
+        display: block; transform-origin: top left;
+    }
+
+    #menu-btn {
+        position: absolute; top: 16px; right: 16px; width: 36px; height: 36px;
+        background: transparent; border: none; border-radius: 50%; cursor: pointer;
+        display: flex; align-items: center; justify-content: center;
+        color: rgba(255,255,255,0.35); font-size: 20px; z-index: 300;
+        transition: background 0.18s, color 0.18s;
+    }
+    #menu-btn:hover { background: rgba(255,255,255,0.14); color: rgba(255,255,255,0.9); }
+
+    #menu-dropdown {
+        position: absolute; top: 58px; right: 16px;
+        background: rgba(20,20,20,0.97); border: 1px solid rgba(255,255,255,0.07);
+        border-radius: 10px; padding: 6px 6px 4px; display: none; flex-direction: column;
+        z-index: 300; width: 268px; max-height: calc(100vh - 80px); overflow: hidden;
+        box-shadow: 0 16px 40px rgba(0,0,0,0.7); max-width: calc(100vw - 32px);
+    }
+    #menu-dropdown.show { display: flex; }
+    #menu-deck-label {
+        padding: 8px 10px 6px; font-size: 9.5px; font-weight: 700; letter-spacing: 0.11em;
+        text-transform: uppercase; color: rgba(255,255,255,0.22); flex-shrink: 0; user-select: none;
+    }
+    #menu-slide-list { overflow-y: auto; flex: 1; min-height: 0; scrollbar-width: thin; scrollbar-color: rgba(255,255,255,0.1) transparent; }
+    .slide-jump-item {
+        display: flex; align-items: center; gap: 9px; padding: 7px 8px; border-radius: 6px;
+        cursor: pointer; transition: background 0.1s; border: none; background: none; width: 100%; text-align: left;
+    }
+    .slide-jump-item:hover { background: rgba(255,255,255,0.065); }
+    .slide-jump-item.active { background: rgba(255,255,255,0.09); }
+    .slide-jump-num { font-size: 10px; font-weight: 700; color: rgba(255,255,255,0.22); min-width: 16px; text-align: right; flex-shrink: 0; font-variant-numeric: tabular-nums; }
+    .slide-jump-item.active .slide-jump-num { color: rgba(255,255,255,0.5); }
+    .slide-jump-dot { width: 5px; height: 5px; border-radius: 50%; background: rgba(255,255,255,0.13); flex-shrink: 0; transition: background 0.2s, box-shadow 0.2s; }
+    .slide-jump-item.active .slide-jump-dot { background: #43A06B; box-shadow: 0 0 6px rgba(67,160,107,0.55); }
+    .slide-jump-text { flex: 1; min-width: 0; }
+    .slide-jump-title { font-size: 12px; font-weight: 600; color: rgba(255,255,255,0.7); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; line-height: 1.3; display: block; }
+    .slide-jump-item.active .slide-jump-title { color: rgba(255,255,255,0.95); }
+    .slide-jump-desc { font-size: 10px; color: rgba(255,255,255,0.27); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; line-height: 1.3; display: block; margin-top: 1px; }
+
+    .nav-btn {
+        position: absolute; top: 50%; transform: translateY(-50%);
+        width: clamp(36px, 3.75vw, 56px); height: clamp(36px, 3.75vw, 56px);
+        background: rgba(255,255,255,0.09); border: none; border-radius: 50%; cursor: pointer;
+        display: flex; align-items: center; justify-content: center;
+        color: rgba(255,255,255,0.6); font-size: clamp(14px, 1.5vw, 22px);
+        transition: background 0.18s, color 0.18s, transform 0.15s; z-index: 100;
+    }
+    .nav-btn:hover { background: rgba(255,255,255,0.18); color: white; transform: translateY(-50%) scale(1.08); }
+    .nav-btn.disabled { opacity: 0.2; cursor: not-allowed; pointer-events: none; }
+    #prev-btn { left: 16px; }
+    #next-btn { right: 16px; }
+
+    .click-zone { position: absolute; top: 0; height: 100%; width: 10%; z-index: 50; cursor: pointer; }
+    #left-zone { left: 0; } #right-zone { right: 0; }
+
+    #status-bar {
+        position: absolute; left: 50%; bottom: 14px; transform: translateX(-50%);
+        max-width: min(420px, calc(100vw - 160px));
+        background: rgba(0,0,0,0.52); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+        color: white; padding: 5px 14px; border-radius: 20px; font-size: 12px;
+        pointer-events: none; z-index: 200;
+        display: flex; align-items: center; gap: 9px; white-space: nowrap; overflow: hidden;
+    }
+    #status-counter { font-weight: 700; font-size: 10.5px; letter-spacing: 0.06em; color: rgba(255,255,255,0.45); flex-shrink: 0; font-variant-numeric: tabular-nums; }
+    #status-sep { width: 1px; height: 11px; background: rgba(255,255,255,0.18); flex-shrink: 0; }
+    #status-title { font-weight: 600; font-size: 12px; color: rgba(255,255,255,0.88); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; flex: 1; min-width: 0; }
+</style>
+</head>
+<body>
+
+<div id="viewer-container">
+    <button id="menu-btn" title="Slides">&#8942;</button>
+    <div id="menu-dropdown">
+        <div id="menu-deck-label">MetaFloor</div>
+        <div id="menu-slide-list"></div>
+    </div>
+    <div id="slide-scaler">
+        <iframe id="slide-frame" src="" title="Slide"></iframe>
+    </div>
+    <div id="left-zone" class="click-zone"></div>
+    <div id="right-zone" class="click-zone"></div>
+    <button id="prev-btn" class="nav-btn" title="Previous (←)">&#10094;</button>
+    <button id="next-btn" class="nav-btn" title="Next (→)">&#10095;</button>
+    <div id="status-bar">
+        <span id="status-counter">1 / 9</span>
+        <span id="status-sep"></span>
+        <span id="status-title">MetaFloor</span>
+    </div>
+</div>
+
+<script>
+'use strict';
+
+let slides = [];
+let currentIndex = 0;
+const CB = '?v=' + Date.now();
+/* native canvas: 1280×720 stage + breathing room so the window shadow shows */
+const NATIVE_W = 1360;
+const NATIVE_H = 780;
+
+const frame         = document.getElementById('slide-frame');
+const prevBtn       = document.getElementById('prev-btn');
+const nextBtn       = document.getElementById('next-btn');
+const statusCounter = document.getElementById('status-counter');
+const statusTitle   = document.getElementById('status-title');
+const slideList     = document.getElementById('menu-slide-list');
+const menuDropdown  = document.getElementById('menu-dropdown');
+const menuBtn       = document.getElementById('menu-btn');
+
+(function bootstrap() {
+    fetch('slides.json' + CB, { cache: 'no-store' })
+        .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
+        .then(cfg => init(cfg))
+        .catch(() => init(null));
+})();
+
+function init(cfg) {
+    let allSlides = (cfg && Array.isArray(cfg.slides)) ? cfg.slides : [
+        { id: 'cover',   path: 'slides/01-cover.html',   title: 'MetaFloor', visible: true },
+        { id: 'problem', path: 'slides/02-problem.html', title: 'The Decision Tax', visible: true },
+        { id: 'product', path: 'slides/03-product.html', title: 'The Product', visible: true },
+        { id: 'value',   path: 'slides/04-value.html',   title: 'The Value', visible: true },
+        { id: 'numbers', path: 'slides/05-numbers.html', title: 'The Numbers', visible: true },
+        { id: 'moat',    path: 'slides/06-moat.html',    title: 'Why Us', visible: true },
+        { id: 'market',  path: 'slides/07-market.html',  title: 'Market & Motion', visible: true },
+        { id: 'ask',     path: 'slides/08-ask.html',     title: 'The Ask & Team', visible: true },
+        { id: 'close',   path: 'slides/09-close.html',   title: 'Thank You', visible: true }
+    ];
+    if (cfg && cfg.deck && cfg.deck.title) {
+        document.getElementById('menu-deck-label').textContent = cfg.deck.title;
+    }
+    slides = allSlides.filter(s => s.visible !== false);
+    buildJumpList();
+    initFromHash();
+}
+
+function buildJumpList() {
+    slideList.innerHTML = '';
+    slides.forEach((slide, i) => {
+        const btn = document.createElement('button');
+        btn.className = 'slide-jump-item';
+        btn.innerHTML = `
+            <span class="slide-jump-num">${i + 1}</span>
+            <span class="slide-jump-dot"></span>
+            <span class="slide-jump-text">
+                <span class="slide-jump-title">${slide.title}</span>
+                ${slide.description ? `<span class="slide-jump-desc">${slide.description}</span>` : ''}
+            </span>`;
+        btn.addEventListener('click', () => { loadSlide(i); closeMenu(); });
+        slideList.appendChild(btn);
+    });
+}
+
+function syncJumpList(idx) {
+    slideList.querySelectorAll('.slide-jump-item')
+        .forEach((el, i) => el.classList.toggle('active', i === idx));
+}
+
+function loadSlide(idx) {
+    idx = Math.max(0, Math.min(slides.length - 1, idx));
+    currentIndex = idx;
+    const slide = slides[idx];
+    const target = slide.path + CB;
+    if (frame.getAttribute('data-current') !== target) {
+        frame.src = target;
+        frame.setAttribute('data-current', target);
+    }
+    statusCounter.textContent = `${idx + 1} / ${slides.length}`;
+    statusTitle.textContent = slide.title;
+    prevBtn.classList.toggle('disabled', idx === 0);
+    nextBtn.classList.toggle('disabled', idx === slides.length - 1);
+    syncJumpList(idx);
+    history.replaceState(null, '', '#' + (slide.id || idx + 1));
+    frame.onload = () => { attachIframeKeys(); };
+}
+
+function nextSlide() { if (currentIndex < slides.length - 1) loadSlide(currentIndex + 1); }
+function prevSlide() { if (currentIndex > 0) loadSlide(currentIndex - 1); }
+
+function initFromHash() {
+    const hash = window.location.hash.replace('#', '').trim();
+    let target = 0;
+    if (hash) {
+        const n = parseInt(hash, 10);
+        if (!isNaN(n) && n >= 1 && n <= slides.length) target = n - 1;
+        else {
+            const byId = slides.findIndex(s => s.id === hash);
+            if (byId !== -1) target = byId;
+        }
+    }
+    loadSlide(target);
+}
+
+function toggleMenu() { menuDropdown.classList.toggle('show'); }
+function closeMenu()  { menuDropdown.classList.remove('show'); }
+menuBtn.addEventListener('click', e => { e.stopPropagation(); toggleMenu(); });
+document.addEventListener('click', e => {
+    if (!menuDropdown.contains(e.target) && e.target !== menuBtn) closeMenu();
+});
+
+function handleKey(e) {
+    if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); nextSlide(); }
+    else if (e.key === 'ArrowLeft')              { e.preventDefault(); prevSlide(); }
+    else if (e.key === 'Escape')                 { closeMenu(); }
+}
+document.addEventListener('keydown', handleKey);
+function attachIframeKeys() {
+    try { frame.contentWindow.document.addEventListener('keydown', handleKey); } catch (_) {}
+}
+
+document.getElementById('left-zone').addEventListener('click', prevSlide);
+document.getElementById('right-zone').addEventListener('click', nextSlide);
+prevBtn.addEventListener('click', prevSlide);
+nextBtn.addEventListener('click', nextSlide);
+
+const NAV_RESERVE = 74;
+function resizeViewer() {
+    const scaler = document.getElementById('slide-scaler');
+    const availW = window.innerWidth - NAV_RESERVE * 2;
+    const availH = window.innerHeight - 24;
+    const scale = Math.min(availW / NATIVE_W, availH / NATIVE_H);
+    scaler.style.width  = Math.round(NATIVE_W * scale) + 'px';
+    scaler.style.height = Math.round(NATIVE_H * scale) + 'px';
+    frame.style.transform = `scale(${scale})`;
+}
+window.addEventListener('resize', resizeViewer);
+resizeViewer();
+</script>
+</body>
+</html>

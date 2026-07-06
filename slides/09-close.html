@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="green">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>MetaFloor — Close</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="../theme.css"/>
+<style>
+.cl { align-items: center; justify-content: center; text-align: center; position: relative; }
+
+/* ambient constellation behind the close */
+.cl-bg { position: absolute; inset: 0; pointer-events: none; }
+.cl-bg svg { width: 100%; height: 100%; }
+
+.cl-brand { display: flex; align-items: center; gap: 16px; margin-bottom: 30px; position: relative; }
+.cl-brand .wordmark { font-size: 34px; }
+.cl h2 { font-size: 42px; max-width: 22ch; position: relative; }
+.cl .sub2 { max-width: 58ch; margin: 16px auto 0; font-size: 15px; color: var(--text-dim); line-height: 1.5; position: relative; }
+.cl .sub2 b { color: var(--text); font-weight: 600; }
+
+.cl-recap { display: flex; gap: 0; margin-top: 30px; position: relative;
+  border: 1px solid var(--hairline); border-radius: var(--r-card); overflow: hidden;
+  background: var(--paper); box-shadow: var(--sh-card); }
+.cl-recap .it { padding: 12px 26px; border-right: 1px solid var(--hairline); }
+.cl-recap .it:last-child { border-right: none; }
+.cl-recap b { display: block; font-size: 19px; font-weight: 750; letter-spacing: -0.03em; color: var(--ac-ink); }
+.cl-recap span { font-family: var(--mono); font-size: 8.5px; letter-spacing: .1em; text-transform: uppercase; color: var(--text-faint); }
+
+.cl-cta { margin-top: 28px; display: flex; align-items: center; gap: 12px; position: relative; }
+.cl-cta .btn { display: inline-flex; align-items: center; gap: 9px;
+  background: var(--ac); color: var(--ac-on); border-radius: var(--r-pill);
+  padding: 10px 22px; font-size: 13.5px; font-weight: 600; box-shadow: var(--sh-lift); }
+.cl-cta .btn .d { width: 7px; height: 7px; border-radius: 50%; background: var(--ac-on); opacity: .85; }
+.cl-cta .alt { font-family: var(--mono); font-size: 11px; color: var(--text-dim); letter-spacing: .02em; }
+.cl-cta .alt b { color: var(--text); font-weight: 600; }
+</style>
+</head>
+<body>
+<div class="deck">
+<section class="slide">
+  <div class="stage">
+    <div class="titlebar">
+      <span class="tl"><i></i><i></i><i></i></span>
+      <span class="tb-label">metafloor &middot; thank you</span>
+      <span class="tb-right"><b>09</b> / 09</span>
+    </div>
+    <div class="canvas cl col">
+      <div class="cl-bg">
+        <svg viewBox="0 0 1200 640" preserveAspectRatio="xMidYMid slice">
+          <g fill="var(--hairline)">
+            <circle cx="80" cy="90" r="1.4"/><circle cx="220" cy="60" r="1.4"/><circle cx="360" cy="110" r="1.4"/>
+            <circle cx="880" cy="70" r="1.4"/><circle cx="1020" cy="120" r="1.4"/><circle cx="1130" cy="60" r="1.4"/>
+            <circle cx="100" cy="540" r="1.4"/><circle cx="260" cy="580" r="1.4"/><circle cx="960" cy="560" r="1.4"/>
+            <circle cx="1100" cy="520" r="1.4"/><circle cx="620" cy="600" r="1.4"/><circle cx="480" cy="60" r="1.4"/>
+          </g>
+          <g fill="none" stroke="var(--hairline)" stroke-width="1">
+            <path d="M80 90 L220 60 L360 110"/><path d="M880 70 L1020 120 L1130 60"/>
+            <path d="M100 540 L260 580"/><path d="M960 560 L1100 520"/>
+          </g>
+          <circle cx="220" cy="60" r="3" fill="var(--ac-glow)" opacity=".7"><animate attributeName="opacity" values=".3;.9;.3" dur="3.4s" repeatCount="indefinite"/></circle>
+          <circle cx="1020" cy="120" r="3" fill="var(--ac-glow)" opacity=".7"><animate attributeName="opacity" values=".9;.3;.9" dur="4.1s" repeatCount="indefinite"/></circle>
+          <circle cx="260" cy="580" r="3" fill="var(--ac-glow)" opacity=".7"><animate attributeName="opacity" values=".4;1;.4" dur="3s" repeatCount="indefinite"/></circle>
+        </svg>
+      </div>
+
+      <div class="r cl-brand">
+        <span class="mark lg anim">
+          <span></span><span></span><span></span>
+          <span></span><span class="core"></span><span></span>
+          <span></span><span></span><span></span>
+        </span>
+        <span class="wordmark">metafloor</span>
+      </div>
+
+      <h2 class="r">Your next decision is already <em>assembling itself.</em></h2>
+      <p class="r sub2">Every company in your portfolio pays the decision tax today.
+        The ones that stop paying it first <b>compound the advantage — every single decision.</b></p>
+
+      <div class="r cl-recap">
+        <div class="it"><b>3 days &#8594; 40 min</b><span>per decision</span></div>
+        <div class="it"><b>8 &#8594; 2 people</b><span>per decision</span></div>
+        <div class="it"><b>&#8811;10&#215;</b><span>illustrative return</span></div>
+        <div class="it"><b>$2M</b><span>seed &middot; open</span></div>
+      </div>
+
+      <div class="r cl-cta">
+        <span class="btn"><span class="d pulse"></span>See it on your data — 6-week pilot</span>
+        <span class="alt">or a 20-minute live walkthrough &middot; <b>hello@metafloor.com</b></span>
+      </div>
+    </div>
+  </div>
+</section>
+</div>
+<script src="../deck.js"></script>
+</body>
+</html>
