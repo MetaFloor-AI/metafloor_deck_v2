@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="green">
+<html lang="en" data-theme="sage">
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -10,7 +10,9 @@
 <link rel="stylesheet" href="../theme.css"/>
 <style>
 .vgrid { display: grid; grid-template-columns: repeat(3,1fr); grid-template-rows: 1fr 1fr; gap: 11px; flex: 1; min-height: 0; }
-.vtile { display: flex; flex-direction: column; padding: 11px 14px 10px; min-height: 0; }
+.vtile { display: flex; flex-direction: column; padding: 11px 14px 10px; min-height: 0; position: relative; }
+.wt-val { display: flex; align-items: center; gap: 7px; margin-top: 3px; }
+.wt-val .n { font-size: 16px; font-weight: 750; color: var(--ac-ink); letter-spacing: -0.02em; }
 .vtile .tag {
   font-family: var(--mono); font-size: 8.5px; letter-spacing: .12em; text-transform: uppercase;
   color: var(--text-faint); display: flex; align-items: center; justify-content: space-between; gap: 7px; margin-bottom: 6px;
@@ -52,7 +54,7 @@
     <div class="titlebar">
       <span class="tl"><i></i><i></i><i></i></span>
       <span class="tb-label">the value &middot; what you get</span>
-      <span class="tb-right"><b>04</b> / 09</span>
+      <span class="tb-right"><b>05</b> / 11</span>
     </div>
     <div class="canvas">
       <div class="r head" style="margin-bottom:12px">
@@ -105,7 +107,7 @@
               <path class="vf" d="M 172 22 H 214 M 208 16 L 216 22 L 208 28" fill="none" stroke="var(--ac)" stroke-width="1.8" style="animation-delay:.9s"/>
             </svg>
           </div>
-          <span class="why">Your senior people <b>decide instead of collect</b>. The scramble stops being a job.</span>
+          <span class="why">Two people decide; the other six are <b>consulted, not conscripted</b>. The scramble stops being a job.</span>
         </div>
 
         <!-- 3 · CONSISTENCY -->
@@ -182,6 +184,7 @@
 
         <!-- 6 · FRICTION -->
         <div class="card hov vtile">
+          <div class="witcloud tr" style="bottom:9px; right:9px; --wd:1.5s; max-width:19ch; font-size:9px;"><span class="lead">friction</span>no new tab. <b>your team already lives here.</b></div>
           <span class="tag">Friction<span class="metric">zero new tabs</span></span>
           <div class="viz">
             <svg viewBox="0 0 300 60" width="100%" height="72" preserveAspectRatio="xMidYMid meet">
@@ -211,7 +214,8 @@
       <div class="r wt">
         <div class="wt-lead">
           <b>Before anything breaks — the watchtower.</b>
-          <span>subscribed readiness &middot; working daily</span>
+          <span class="wt-val"><span class="n">&#8776;$0.7M/yr</span><span class="fi">illustrative</span></span>
+          <span>standing value &middot; surprises pre-empted, not billed hours</span>
         </div>
         <div class="wt-items">
           <div class="wt-it">

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="sage">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>MetaFloor — The Proof</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="../theme.css"/>
+<style>
+.pf { display: grid; grid-template-columns: 1.42fr .58fr; gap: 16px; flex: 1; min-height: 0; }
+.pf .card { display: flex; flex-direction: column; min-height: 0; position: relative; }
+
+/* replay lanes */
+.lanes { flex: 1; min-height: 0; display: flex; flex-direction: column; justify-content: space-evenly; padding: 4px 0; }
+.lane { display: grid; grid-template-columns: 150px 1fr 92px; gap: 12px; align-items: center; }
+.lane.hot { background: var(--ac-fill); border: 1px solid var(--ac-bd); border-radius: var(--r-sm); margin: 0 -8px; padding: 5px 8px; }
+.lane .lab b { display: block; font-size: 12px; font-weight: 650; color: var(--text); line-height: 1.15; }
+.lane.hot .lab b { color: var(--ac-ink); }
+.lane .lab span { font-family: var(--mono); font-size: 8px; letter-spacing: .05em; text-transform: uppercase; color: var(--text-faint); }
+.lane .lab .cb { color: var(--ac-ink); }
+.trk { position: relative; height: 40px; }
+.trk svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.lane .val { text-align: right; }
+.lane .val b { font-family: var(--mono); font-size: 12.5px; font-weight: 600; color: var(--ac-ink); }
+.lane .val span { display: block; font-family: var(--mono); font-size: 7px; letter-spacing: .06em; text-transform: uppercase; color: var(--text-faint); }
+.axis { display: grid; grid-template-columns: 150px 1fr 92px; gap: 12px; margin-top: 4px; }
+.axis .sc { grid-column: 2; display: flex; justify-content: space-between; font-family: var(--mono); font-size: 8px; letter-spacing: .06em; color: var(--text-faint); }
+.legend { grid-column: 2; display: flex; gap: 16px; margin-top: 5px; }
+.legend span { font-family: var(--mono); font-size: 8px; letter-spacing: .04em; color: var(--text-dim); display: inline-flex; align-items: center; gap: 5px; }
+.legend .d { width: 8px; height: 8px; border-radius: 50%; }
+
+/* scorecard */
+.score { flex: 1; min-height: 0; display: flex; flex-direction: column; justify-content: space-evenly; }
+.sc-row { padding: 9px 0; border-bottom: 1px solid var(--hairline); }
+.sc-row:last-of-type { border-bottom: none; }
+.sc-row .n { font-size: 23px; font-weight: 750; letter-spacing: -0.03em; color: var(--ac-ink); line-height: 1; font-variant-numeric: tabular-nums; }
+.sc-row .k { font-size: 11px; color: var(--text); font-weight: 600; margin-top: 3px; }
+.sc-row .s { font-size: 9.5px; color: var(--text-dim); line-height: 1.3; margin-top: 1px; }
+.pill { display: inline-flex; align-items: center; gap: 5px; font-family: var(--mono); font-size: 7.5px; letter-spacing: .06em;
+  text-transform: uppercase; color: var(--ac-ink); background: var(--ac-soft); border: 1px dashed var(--ac-bd); padding: 2px 7px; border-radius: 5px; margin-left: 6px; vertical-align: middle; }
+
+/* trust band */
+.trust { margin-top: 13px; flex: 0 0 auto; display: flex; align-items: center; gap: 15px;
+  background: var(--dark); color: var(--on-dark); border-radius: var(--r-card); padding: 12px 20px; box-shadow: var(--sh-card); }
+.trust .mk { width: 8px; height: 8px; border-radius: 50%; background: var(--ac-glow); flex: 0 0 auto; animation: mf-pulse 2.6s ease-in-out infinite; }
+.trust p { margin: 0; font-size: 13px; line-height: 1.4; color: #C9C9CE; }
+.trust p b { color: var(--on-dark); font-weight: 600; }
+.trust .tag { margin-left: auto; font-family: var(--mono); font-size: 8.5px; letter-spacing: .1em; text-transform: uppercase;
+  color: var(--ac-glow); border: 1px solid #3A3A3E; border-radius: 6px; padding: 4px 10px; flex: 0 0 auto; }
+@media (prefers-reduced-motion: reduce){ .trust .mk { animation: none; } }
+</style>
+</head>
+<body>
+<div class="deck">
+<section class="slide">
+  <div class="stage">
+    <div class="titlebar">
+      <span class="tl"><i></i><i></i><i></i></span>
+      <span class="tb-label">the proof &middot; graded on your own year</span>
+      <span class="tb-right"><b>04</b> / 11</span>
+    </div>
+    <div class="canvas">
+      <div class="r head" style="margin-bottom:12px">
+        <span class="eyebrow"><span class="dot"></span>the proof</span>
+        <h2>Don't trust it forward. <em>Prove it backward.</em></h2>
+        <p class="sub">Before MetaFloor backs a single call, it earns trust on a year you already lived. Week 1 of the pilot: <b>we replay your last 12 months</b> and show the events your team scrambled on — and exactly what it would have flagged, and how early.</p>
+      </div>
+
+      <div class="r pf">
+        <!-- the replay -->
+        <div class="card">
+          <div class="card-tb">
+            <span class="t"><span class="dot"></span>The replay &middot; your last 12 months</span>
+            <span class="meta">SIGNAL vs SCRAMBLE</span>
+          </div>
+          <div class="lanes">
+            <div class="lane">
+              <div class="lab"><b>Allocation cut</b><span>supplier goes short</span></div>
+              <div class="trk"><svg viewBox="0 0 400 40" preserveAspectRatio="none">
+                <line x1="6" y1="20" x2="394" y2="20" stroke="var(--hairline-2)" stroke-width="1"/>
+                <line x1="150" y1="20" x2="330" y2="20" stroke="var(--ac-bd)" stroke-width="2" stroke-dasharray="4 3"/>
+                <circle cx="150" cy="20" r="5.5" fill="var(--ac)"/><circle cx="330" cy="20" r="5.5" fill="var(--tl-red)"/>
+                <text x="240" y="13" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8.5" fill="var(--ac-ink)">3 mo early</text>
+              </svg></div>
+              <div class="val"><b>$2.4M</b><span>on the table</span></div>
+            </div>
+
+            <div class="lane hot">
+              <div class="lab"><b>Memory-price run</b><span class="cb">&#9664; the cover hook, 2025</span></div>
+              <div class="trk"><svg viewBox="0 0 400 40" preserveAspectRatio="none">
+                <line x1="6" y1="20" x2="394" y2="20" stroke="var(--hairline-2)" stroke-width="1"/>
+                <line x1="92" y1="20" x2="352" y2="20" stroke="var(--ac)" stroke-width="2.4" stroke-dasharray="4 3"/>
+                <circle cx="92" cy="20" r="6" fill="var(--ac)"/><circle cx="352" cy="20" r="6" fill="var(--tl-red)"/>
+                <text x="222" y="13" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9" font-weight="600" fill="var(--ac-ink)">5 mo before spot spiked</text>
+              </svg></div>
+              <div class="val"><b>$3.1M</b><span>protectable</span></div>
+            </div>
+
+            <div class="lane">
+              <div class="lab"><b>Lane closure</b><span>port / route goes down</span></div>
+              <div class="trk"><svg viewBox="0 0 400 40" preserveAspectRatio="none">
+                <line x1="6" y1="20" x2="394" y2="20" stroke="var(--hairline-2)" stroke-width="1"/>
+                <line x1="210" y1="20" x2="340" y2="20" stroke="var(--ac-bd)" stroke-width="2" stroke-dasharray="4 3"/>
+                <circle cx="210" cy="20" r="5.5" fill="var(--ac)"/><circle cx="340" cy="20" r="5.5" fill="var(--tl-red)"/>
+                <text x="275" y="13" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8.5" fill="var(--ac-ink)">2 mo early</text>
+              </svg></div>
+              <div class="val"><b>$0.9M</b><span>on the table</span></div>
+            </div>
+
+            <div class="axis">
+              <div class="sc"><span>12 MONTHS AGO</span><span>TODAY</span></div>
+            </div>
+            <div class="axis">
+              <div class="legend">
+                <span><span class="d" style="background:var(--ac)"></span>MetaFloor signal fired</span>
+                <span><span class="d" style="background:var(--tl-red)"></span>when your team actually scrambled</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- the scorecard -->
+        <div class="card accent" style="background:var(--ac-fill); border-color:var(--ac-bd);">
+          <div class="card-tb" style="background:var(--ac-soft); border-color:var(--ac-bd);">
+            <span class="t"><span class="dot"></span>The scorecard</span>
+            <span class="meta">YOUR PILOT FILLS THIS IN</span>
+          </div>
+          <div class="score">
+            <div class="sc-row">
+              <div class="n">4 of 5<span class="pill">your events</span></div>
+              <div class="k">Known events caught</div>
+              <div class="s">the ones you already know the ending to</div>
+            </div>
+            <div class="sc-row">
+              <div class="n">~3 mo</div>
+              <div class="k">Average head start</div>
+              <div class="s">while the cheaper options were still open</div>
+            </div>
+            <div class="sc-row">
+              <div class="n">$6M+<span class="pill">illustrative</span></div>
+              <div class="k">That was on the table</div>
+              <div class="s">protectable margin, one replayed year</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="r trust">
+        <span class="mk"></span>
+        <p>You grade it against outcomes <b>you already lived</b> — no forward bet, no integration risk. If the replay doesn't convince you, there's nothing to argue about.</p>
+        <span class="tag">week 1 of the pilot</span>
+      </div>
+    </div>
+  </div>
+</section>
+</div>
+<script src="../deck.js"></script>
+</body>
+</html>

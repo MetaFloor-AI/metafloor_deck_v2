@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="green">
+<html lang="en" data-theme="sage">
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -11,6 +11,16 @@
 <style>
 .ask { display: grid; grid-template-columns: 1.12fr .88fr; gap: 14px; flex: 1; min-height: 0; }
 .ask .card { display: flex; flex-direction: column; min-height: 0; }
+
+/* funnel line — how the champions become ARR */
+.funnel { display: flex; align-items: center; gap: 7px; flex-wrap: wrap; margin: 10px 0 2px;
+  padding: 7px 11px; background: var(--surface-2); border: 1px solid var(--hairline); border-radius: var(--r-sm); }
+.funnel .fn { font-family: var(--mono); font-size: 9px; letter-spacing: .01em; color: var(--text-dim);
+  display: inline-flex; align-items: center; gap: 5px; }
+.funnel .fn b { color: var(--text); font-weight: 600; }
+.funnel .fn.strong { color: var(--ac-ink); font-weight: 700; font-size: 10px; }
+.funnel .ar { color: var(--text-faint); font-size: 11px; }
+.funnel .fi { font-size: 7px; padding: 2px 5px; }
 
 /* ---- left: ask + gates + funds ---- */
 .ask-head { display: flex; align-items: center; gap: 16px; padding-bottom: 10px; border-bottom: 1px solid var(--hairline); }
@@ -96,14 +106,13 @@
     <div class="titlebar">
       <span class="tl"><i></i><i></i><i></i></span>
       <span class="tb-label">the ask &middot; the team</span>
-      <span class="tb-right"><b>08</b> / 09</span>
+      <span class="tb-right"><b>10</b> / 11</span>
     </div>
     <div class="canvas">
       <div class="r head" style="margin-bottom:11px">
         <span class="eyebrow"><span class="dot"></span>the ask &middot; team</span>
-        <h2>Raising <em>$2M seed</em> — the oldest B2B playbook there is.</h2>
-        <p class="sub">Experts vouch the problem, champions clear IT/security and sponsor the pilot —
-          <b>run by a team that has lived it.</b></p>
+        <h2>Raising <em>$2M</em> to turn 10 champions into <em>paid design partners.</em></h2>
+        <p class="sub">Not Series-A metrics we can't yet promise — <b>the seed milestones that earn them:</b> design partners signed, the backtest validated on their data, security passed.</p>
       </div>
 
       <div class="r ask">
@@ -112,28 +121,34 @@
           <div class="ask-head">
             <div class="ask-amt"><b>$2M</b><span>seed round</span></div>
             <div class="ask-to">
-              <b>&#8594; $3M+ ARR in 18 months</b>
-              <span>NRR &gt; 120% &middot; Series-A ready</span>
+              <b>&#8594; the proof that earns the Series A</b>
+              <span>paid design partners &middot; validated on their data &middot; 18 months</span>
             </div>
+          </div>
+          <div class="funnel">
+            <span class="fn"><b>10</b> named champions</span><span class="ar">&#8594;</span>
+            <span class="fn"><b>3&ndash;4</b> paid design partners</span><span class="ar">&#8594;</span>
+            <span class="fn">validated on their data</span><span class="ar">&#8594;</span>
+            <span class="fn strong">Series-A ready</span>
           </div>
           <div class="gates">
             <div class="gate">
               <span class="n">1</span>
-              <b>Clear the gate</b>
-              <span>pass IT / security review</span>
-              <span class="tm">~0&ndash;3 mo</span>
+              <b>Land partners</b>
+              <span>3&ndash;4 paid design partners</span>
+              <span class="tm">~0&ndash;6 mo</span>
             </div>
             <div class="gate">
               <span class="n">2</span>
-              <b>Convert pilots</b>
-              <span>the champions in motion</span>
-              <span class="tm">~3&ndash;9 mo</span>
+              <b>Prove it</b>
+              <span>backtests + security passed</span>
+              <span class="tm">~6&ndash;12 mo</span>
             </div>
             <div class="gate hot">
               <span class="n">3</span>
-              <b>Scale the vertical</b>
-              <span>land &#8594; expand on one memory</span>
-              <span class="tm">~9&ndash;18 mo</span>
+              <b>Series-A ready</b>
+              <span>reference logos + real proof</span>
+              <span class="tm">~12&ndash;18 mo</span>
             </div>
           </div>
           <div class="funds">
@@ -141,7 +156,7 @@
             <div class="fbar"><i></i><i></i><i></i></div>
             <div class="fkeys">
               <div class="fkey"><span class="sw" style="background:var(--ac)"></span><b>60%</b><span class="t">Engineering</span><span>decision engine &middot; AI depth &middot; integrations</span></div>
-              <div class="fkey"><span class="sw" style="background:var(--ac-glow);opacity:.75"></span><b>25%</b><span class="t">Go-to-market</span><span>scale to $3M ARR in 18 mo</span></div>
+              <div class="fkey"><span class="sw" style="background:var(--ac-glow);opacity:.75"></span><b>25%</b><span class="t">Design-partner success</span><span>land + prove on their data</span></div>
               <div class="fkey"><span class="sw" style="background:var(--surface-3)"></span><b>15%</b><span class="t">Operations</span><span>founding sales eng &middot; infra</span></div>
             </div>
           </div>
@@ -164,7 +179,7 @@
             </div>
             <div class="fdr">
               <img src="../assets/team/arun.png" alt="Arun CS Kumar"/>
-              <div class="tx"><b>Arun CS Kumar</b><span class="rl">Head AI / product &middot; architect</span><span>PhD AI/CV &middot; 12+ yrs production ML</span></div>
+              <div class="tx"><b>Arun CS Kumar</b><span class="rl">Head AI / product &middot; architect</span><span>PhD AI/CV &middot; 12+ yrs production ML &middot; ships agentic LLM systems in production</span></div>
             </div>
           </div>
           <div class="pedigree">

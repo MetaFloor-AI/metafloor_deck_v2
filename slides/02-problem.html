@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="green">
+<html lang="en" data-theme="sage">
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -43,8 +43,24 @@
   padding: 12px 20px; box-shadow: var(--sh-card);
 }
 .take .mk { width: 8px; height: 8px; border-radius: 50%; background: var(--ac-glow); flex: 0 0 auto; }
-.take p { margin: 0; font-size: 13.5px; line-height: 1.4; color: #C9C9CE; }
+.take p { margin: 0; font-size: 13px; line-height: 1.4; color: #C9C9CE; }
 .take p b { color: var(--on-dark); font-weight: 600; }
+
+/* chart cards host the wit clouds */
+.tax .card { position: relative; }
+
+/* the global bleed band — world scale → your tax */
+.bleed { margin: 0 0 11px; flex: 0 0 auto; display: flex; align-items: center; gap: 14px;
+  background: var(--surface-2); border: 1px solid var(--hairline); border-radius: var(--r-card); padding: 7px 15px; }
+.bleed .bl-lb { font-family: var(--mono); font-size: 8px; letter-spacing: .12em; text-transform: uppercase;
+  color: var(--ac-ink); background: var(--ac-soft); border: 1px solid var(--ac-bd); border-radius: 6px;
+  padding: 3px 8px; flex: 0 0 auto; }
+.bleed .bl-st { font-size: 11.5px; color: var(--text-dim); line-height: 1.25; }
+.bleed .bl-st b { color: var(--text); font-weight: 700; font-size: 13px; }
+.bleed .bl-st i { font-family: var(--mono); font-size: 8px; font-style: normal; letter-spacing: .03em; color: var(--text-faint); }
+.bleed .bl-sep { width: 1px; height: 22px; background: var(--hairline-2); flex: 0 0 auto; }
+.bleed .bl-tail { margin-left: auto; font-family: var(--mono); font-size: 9px; letter-spacing: .03em;
+  color: var(--ac-ink); text-align: right; flex: 0 0 auto; max-width: 21ch; line-height: 1.3; }
 </style>
 </head>
 <body>
@@ -54,14 +70,22 @@
     <div class="titlebar">
       <span class="tl"><i></i><i></i><i></i></span>
       <span class="tb-label">the problem &middot; the decision tax</span>
-      <span class="tb-right"><b>02</b> / 09</span>
+      <span class="tb-right"><b>02</b> / 11</span>
     </div>
     <div class="canvas">
-      <div class="r head">
+      <div class="r head" style="margin-bottom:10px">
         <span class="eyebrow"><span class="dot"></span>the problem</span>
         <h2>Every consequential decision is a project.<br/><em>You pay for it every week.</em></h2>
         <p class="sub">The information to decide <b>already exists inside your company</b> — spread across five systems
           and ten heads. Reassembling it, every single time, is the tax.</p>
+      </div>
+
+      <div class="r bleed">
+        <span class="bl-lb">the global bleed</span>
+        <span class="bl-st"><b>$1.2T</b> lost to supply-chain disruption in 2025 <i>&middot; S&amp;P Global</i></span>
+        <span class="bl-sep"></span>
+        <span class="bl-st"><b>~45%</b> of a year's EBITDA erased per decade <i>&middot; McKinsey</i></span>
+        <span class="bl-tail">your company's share is a tax you pay every week &#8595;</span>
       </div>
 
       <div class="tax">
@@ -71,6 +95,7 @@
             <span class="t"><span class="dot" style="background:var(--tl-red)"></span>The scramble &middot; when it breaks</span>
             <span class="meta">COST OF EVERY HOUR</span>
           </div>
+          <div class="witcloud tr" style="top:46px; right:16px; --wd:2.7s;"><span class="lead">day 3</span>the cheap options <b>left yesterday.</b></div>
           <div class="viz">
             <svg viewBox="0 0 560 300" role="img" aria-label="Over three days, eight people converge into a war room while the cost of the remaining options climbs steeply. The cheap-options window closes within hours; the decision arrives on day three.">
               <defs>
@@ -149,6 +174,7 @@
             <span class="t"><span class="dot"></span>The drift &middot; long before it breaks</span>
             <span class="meta">T&#8722;6 MONTHS &#8594; T&#8722;0</span>
           </div>
+          <div class="witcloud" style="bottom:86px; left:18px; --wd:2.9s;"><span class="lead">the drift</span>three warnings. <b>zero people connecting them.</b></div>
           <div class="viz">
             <svg viewBox="0 0 560 300" role="img" aria-label="Three signals — commodity price, lead-time slippage, supplier stress — drift upward over six months before the crisis flare. Each had a first-visible marker months earlier; nobody was assigned to watch.">
               <!-- axes -->
@@ -209,7 +235,7 @@
           <div class="mstats">
             <div class="st"><div class="n ac">T&#8722;5<span style="font-size:12px"> mo</span></div><div class="l">first signal visible</div></div>
             <div class="st"><div class="n">3</div><div class="l">independent warnings</div></div>
-            <div class="st"><div class="n">0</div><div class="l">people watching</div></div>
+            <div class="st"><div class="n">0</div><div class="l">connecting the three</div></div>
             <div class="st"><div class="n" style="color:var(--tl-red)">2&#215;</div><div class="l">price paid at crisis</div></div>
           </div>
         </div>
@@ -218,7 +244,7 @@
       <div class="r take">
         <span class="mk pulse"></span>
         <p>A crisis isn't rare — <b>it's the day the daily tax becomes visible.</b>
-        And the reasoning behind every past decision walks out the door with the people who made it.</p>
+        You face <b>dozens of consequential decisions a year; 12&ndash;20 put $0.5M+ on the line</b> — each solved from scratch, then forgotten.</p>
       </div>
     </div>
   </div>

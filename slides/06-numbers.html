@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="sage">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>MetaFloor — The Numbers</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="../theme.css"/>
+<style>
+/* archetype B · hero number + one subordinate support panel. */
+.numgrid { display: grid; grid-template-columns: 1.25fr .75fr; gap: 48px; align-items: center; flex: 1; min-height: 0; }
+.hero-col { display: flex; flex-direction: column; justify-content: center; }
+.hero-num { font-size: 138px; }
+.hero-cap { max-width: 20ch; }
+
+/* the year panel — subordinate, readable (no micro-text) */
+.year { display: flex; flex-direction: column; gap: 0; border-left: 2px solid var(--ac-bd); padding-left: 26px; }
+.year .yr-lb { font-family: var(--mono); font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: var(--text-faint); margin-bottom: 14px; }
+.year .row { padding: 13px 0; border-bottom: 1px solid var(--hairline); }
+.year .row:last-child { border-bottom: none; }
+.year .row b { display: block; font-size: 30px; font-weight: 700; letter-spacing: -0.02em; color: var(--text); line-height: 1; font-variant-numeric: tabular-nums; }
+.year .row span { font-size: 14px; color: var(--text-dim); line-height: 1.3; }
+.year .row.hot b { color: var(--ac); }
+
+@keyframes numrise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+.nr { opacity: 0; animation: numrise .6s cubic-bezier(.2,.7,.2,1) forwards; }
+.nr.d1 { animation-delay: .08s } .nr.d2 { animation-delay: .28s } .nr.d3 { animation-delay: .46s } .nr.d4 { animation-delay: .62s }
+@media (prefers-reduced-motion: reduce){ .nr { opacity: 1; animation: none; } }
+</style>
+</head>
+<body>
+<div class="deck">
+<section class="slide">
+  <div class="stage">
+    <div class="canvas pitch col">
+      <span class="eyebrow nr d1"><span class="dot"></span>the numbers</span>
+      <div class="numgrid">
+        <div class="hero-col">
+          <div class="hero-num ac nr d2">$3.1M</div>
+          <div class="hero-cap nr d3">protected by <b>one 40-minute decision</b> — the kind you make <b>12&ndash;20 times a year.</b></div>
+          <p class="hero-sub nr d3">The first one covers our fee. <b>The rest is margin.</b></p>
+        </div>
+        <div class="year nr d4">
+          <div class="yr-lb">the year, annualized</div>
+          <div class="row"><b>12&ndash;20</b><span>consequential events a year</span></div>
+          <div class="row"><b>$0.5&ndash;3M</b><span>protected per event</span></div>
+          <div class="row"><b>low 6-fig</b><span>flat annual fee, your cloud</span></div>
+          <div class="row hot"><b>&#8811;10&#215;</b><span>return on the year</span></div>
+        </div>
+      </div>
+      <div class="hero-foot nr d4">illustrative &middot; modeled on a ~$2B electronics OEM &middot; full split-ledger + waterfall in the appendix</div>
+    </div>
+  </div>
+</section>
+</div>
+<script src="../deck.js"></script>
+</body>
+</html>

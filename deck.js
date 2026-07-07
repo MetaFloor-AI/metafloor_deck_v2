@@ -5,7 +5,7 @@
 (function () {
   'use strict';
 
-  var THEMES = ['green', 'ember', 'violet'];
+  var THEMES = ['sage', 'ember', 'violet'];
   var KEY = 'mf-theme';
 
   /* ---- scaling ---- */
@@ -25,7 +25,7 @@
       var st = localStorage.getItem(KEY);
       if (THEMES.indexOf(st) !== -1) return st;
     } catch (_) {}
-    return 'green';
+    return 'sage';
   }
 
   function applyTheme(t) {

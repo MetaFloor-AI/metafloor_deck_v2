@@ -49,7 +49,7 @@
     .slide-jump-num { font-size: 10px; font-weight: 700; color: rgba(255,255,255,0.22); min-width: 16px; text-align: right; flex-shrink: 0; font-variant-numeric: tabular-nums; }
     .slide-jump-item.active .slide-jump-num { color: rgba(255,255,255,0.5); }
     .slide-jump-dot { width: 5px; height: 5px; border-radius: 50%; background: rgba(255,255,255,0.13); flex-shrink: 0; transition: background 0.2s, box-shadow 0.2s; }
-    .slide-jump-item.active .slide-jump-dot { background: #43A06B; box-shadow: 0 0 6px rgba(67,160,107,0.55); }
+    .slide-jump-item.active .slide-jump-dot { background: #6C9A78; box-shadow: 0 0 6px rgba(67,160,107,0.55); }
     .slide-jump-text { flex: 1; min-width: 0; }
     .slide-jump-title { font-size: 12px; font-weight: 600; color: rgba(255,255,255,0.7); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; line-height: 1.3; display: block; }
     .slide-jump-item.active .slide-jump-title { color: rgba(255,255,255,0.95); }
@@ -134,15 +134,19 @@ const menuBtn       = document.getElementById('menu-btn');
 
 function init(cfg) {
     let allSlides = (cfg && Array.isArray(cfg.slides)) ? cfg.slides : [
-        { id: 'cover',   path: 'slides/01-cover.html',   title: 'MetaFloor', visible: true },
-        { id: 'problem', path: 'slides/02-problem.html', title: 'The Decision Tax', visible: true },
-        { id: 'product', path: 'slides/03-product.html', title: 'The Product', visible: true },
-        { id: 'value',   path: 'slides/04-value.html',   title: 'The Value', visible: true },
-        { id: 'numbers', path: 'slides/05-numbers.html', title: 'The Numbers', visible: true },
-        { id: 'moat',    path: 'slides/06-moat.html',    title: 'Why Us', visible: true },
-        { id: 'market',  path: 'slides/07-market.html',  title: 'Market & Motion', visible: true },
-        { id: 'ask',     path: 'slides/08-ask.html',     title: 'The Ask & Team', visible: true },
-        { id: 'close',   path: 'slides/09-close.html',   title: 'Thank You', visible: true }
+        { id: 'cover',        path: 'slides/01-cover.html',        title: 'MetaFloor', visible: true },
+        { id: 'problem',      path: 'slides/02-problem.html',      title: 'The Decision Tax', visible: true },
+        { id: 'product',      path: 'slides/03-product.html',      title: 'The Product', visible: true },
+        { id: 'proof',        path: 'slides/04-proof.html',        title: 'The Proof', visible: true },
+        { id: 'value',        path: 'slides/05-value.html',        title: 'The Value', visible: true },
+        { id: 'numbers',      path: 'slides/06-numbers.html',      title: 'The Numbers', visible: true },
+        { id: 'moat',         path: 'slides/07-moat.html',         title: 'Why Us', visible: true },
+        { id: 'trust',        path: 'slides/08-trust.html',        title: 'Why Trust Us', visible: true },
+        { id: 'prize-path',   path: 'slides/09-prize-path.html',   title: 'The Prize & The Path', visible: true },
+        { id: 'ask',          path: 'slides/10-ask.html',          title: 'The Ask & Team', visible: true },
+        { id: 'close',        path: 'slides/11-close.html',        title: 'Thank You', visible: true },
+        { id: 'architecture', path: 'slides/B1-architecture.html', title: 'Appendix — Architecture', visible: true },
+        { id: 'field',        path: 'slides/B2-field.html',        title: 'Appendix — The Field', visible: true }
     ];
     if (cfg && cfg.deck && cfg.deck.title) {
         document.getElementById('menu-deck-label').textContent = cfg.deck.title;

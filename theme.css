@@ -55,13 +55,13 @@
      --ac-bd    border on tint
      --ac-on    text on solid accent
    ------------------------------------------------------------------------- */
-:root, [data-theme="green"] {
-  --ac:      #2E7D4F;
-  --ac-glow: #43A06B;
-  --ac-ink:  #1E5637;
-  --ac-soft: #E4F1E9;
-  --ac-fill: #F2F9F4;
-  --ac-bd:   #BCDCC8;
+:root, [data-theme="sage"] {
+  --ac:      #4D7C5E;
+  --ac-glow: #6C9A78;
+  --ac-ink:  #34583F;
+  --ac-soft: #E7F0EA;
+  --ac-fill: #F3F8F4;
+  --ac-bd:   #C3D8CA;
   --ac-on:   #FFFFFF;
 }
 [data-theme="ember"] {
@@ -316,6 +316,32 @@ kbd.key {
   body { overflow: visible; }
 }
 
+/* ---------------------------------------------------------------------------
+   WIT CLOUD — dry-wit annotation callout, hand-annotated, keyed to chart motion.
+   Additive component (v3.1 story pass). Positioned absolutely inside a
+   position:relative host (usually a chart card). One per slide (two on Problem).
+   Set --wd for the pop-in delay so it lands with the animation it annotates.
+   ------------------------------------------------------------------------- */
+.witcloud {
+  position: absolute; z-index: 6; max-width: 27ch;
+  font-family: var(--mono); font-size: 10px; line-height: 1.32; letter-spacing: .005em;
+  color: var(--text-dim); background: var(--paper);
+  border: 1.4px solid var(--text-dim); border-radius: 11px 11px 11px 3px;
+  padding: 6px 11px; box-shadow: 3px 4px 0 rgba(20,20,22,.07);
+  transform: rotate(-1.6deg) scale(.92); opacity: 0; transform-origin: bottom left;
+  animation: witpop .55s cubic-bezier(.2,1.35,.4,1) forwards; animation-delay: var(--wd, 1.4s);
+}
+.witcloud.tr { border-radius: 11px 11px 3px 11px; transform-origin: bottom right; }
+.witcloud b { color: var(--text); font-weight: 600; }
+.witcloud .lead {
+  display: block; font-size: 7.5px; letter-spacing: .12em; text-transform: uppercase;
+  color: var(--ac); margin-bottom: 2px; font-weight: 500;
+}
+@keyframes witpop { to { opacity: 1; transform: rotate(-1.6deg) scale(1); } }
+@media (prefers-reduced-motion: reduce) {
+  .witcloud { opacity: 1; animation: none; transform: rotate(-1.6deg); }
+}
+
 /* card haptics — subtle */
 .card { transition: box-shadow .18s ease, transform .18s ease, border-color .18s ease; }
 @media (hover: hover) {
@@ -340,7 +366,7 @@ kbd.key {
   display: flex; align-items: center; gap: 6px; transition: all .15s;
 }
 .themer button .sw { width: 10px; height: 10px; border-radius: 50%; box-shadow: inset 0 0 0 1px rgba(0,0,0,.08); }
-.themer button[data-t="green"]  .sw { background: #2E7D4F; }
+.themer button[data-t="sage"]   .sw { background: #4D7C5E; }
 .themer button[data-t="ember"]  .sw { background: #E2925F; }
 .themer button[data-t="violet"] .sw { background: #7C6CF0; }
 .themer button.on { background: var(--surface-3); color: var(--text); font-weight: 500; }
@@ -362,3 +388,38 @@ ul.clean { list-style: none; margin: 0; padding: 0; }
 ul.clean li { position: relative; padding-left: 16px; margin: 6px 0; font-size: 12.5px; color: var(--text-dim); line-height: 1.4; }
 ul.clean li::before { content: ""; position: absolute; left: 0; top: .48em; width: 6px; height: 6px; border-radius: 50%; background: var(--ac-glow); }
 ul.clean li b { color: var(--text); font-weight: 600; }
+
+/* ===========================================================================
+   PITCH LAYER (v4 redesign) — de-dashboard the deck.
+   · Kills the fake macOS window chrome globally.
+   · Rebuilt slides opt into `.canvas.pitch` for a generous grid + hero type.
+   · Un-rebuilt slides are untouched except they lose the titlebar (they gain
+     that 40px as breathing room), so migration is progressive and safe.
+   ========================================================================= */
+.titlebar { display: none !important; }           /* kill the app chrome */
+
+/* generous margins + one clean column of vertical rhythm */
+.canvas.pitch { padding: 60px 76px 52px; }
+.canvas.pitch .eyebrow { font-size: 12.5px; letter-spacing: .2em; margin-bottom: 22px; }
+
+/* archetype A · Statement */
+.statement { font-size: 60px; font-weight: 650; letter-spacing: -0.035em; line-height: 1.04; max-width: 20ch; }
+.statement em { color: var(--ac); }
+
+/* archetype B · Hero number */
+.hero-wrap { display: flex; flex-direction: column; justify-content: center; flex: 1; min-height: 0; }
+.hero-num { font-family: var(--font); font-weight: 750; letter-spacing: -0.045em; line-height: .86;
+  font-size: 150px; color: var(--text); font-variant-numeric: tabular-nums; }
+.hero-num.ac { color: var(--ac); }
+.hero-cap { font-size: 21px; color: var(--text-dim); font-weight: 500; margin-top: 18px; max-width: 26ch; line-height: 1.3; }
+.hero-cap b { color: var(--text); font-weight: 650; }
+.hero-sub { font-size: 19px; color: var(--text-dim); line-height: 1.45; max-width: 44ch; margin-top: 26px; }
+.hero-sub b { color: var(--text); font-weight: 650; }
+.hero-foot { margin-top: auto; font-family: var(--mono); font-size: 12px; color: var(--text-faint); letter-spacing: .04em; }
+
+/* pitch headline sizes (larger, room to breathe) */
+.canvas.pitch h2 { font-size: 46px; letter-spacing: -0.03em; line-height: 1.06; max-width: 24ch; }
+.canvas.pitch .sub { font-size: 19px; line-height: 1.5; max-width: 52ch; margin-top: 14px; }
+
+/* body floor: nothing readable below 13px on pitch slides */
+.canvas.pitch p, .canvas.pitch li, .canvas.pitch .body { font-size: 16px; line-height: 1.5; }

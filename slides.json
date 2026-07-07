@@ -8,63 +8,91 @@
       "id": "cover",
       "path": "slides/01-cover.html",
       "title": "MetaFloor",
-      "description": "Decision execution for supply chain.",
+      "description": "The decision layer for supply chain.",
       "visible": true
     },
     {
       "id": "problem",
       "path": "slides/02-problem.html",
       "title": "The Decision Tax",
-      "description": "Every consequential decision costs days, people, and quality — daily, not just in a crisis.",
+      "description": "Every supply-chain decision is a 3-day scramble you pay every week.",
       "visible": true
     },
     {
       "id": "product",
       "path": "slides/03-product.html",
       "title": "The Product",
-      "description": "The decision, assembled — before you ask, where you work.",
+      "description": "Watch, assemble — you decide, in 40 minutes, not 3 days.",
+      "visible": true
+    },
+    {
+      "id": "proof",
+      "path": "slides/04-proof.html",
+      "title": "The Proof",
+      "description": "Don't trust it forward — prove it backward on your own year.",
       "visible": true
     },
     {
       "id": "value",
-      "path": "slides/04-value.html",
+      "path": "slides/05-value.html",
       "title": "The Value",
-      "description": "Six ways it pays for itself — before, during, and after every decision.",
+      "description": "Six ways it pays for itself — plus standing value, every day.",
       "visible": true
     },
     {
       "id": "numbers",
-      "path": "slides/05-numbers.html",
+      "path": "slides/06-numbers.html",
       "title": "The Numbers",
-      "description": "The value equation a CFO can check.",
+      "description": "One caught event pays for the year; the rest is margin.",
       "visible": true
     },
     {
       "id": "moat",
-      "path": "slides/06-moat.html",
+      "path": "slides/07-moat.html",
       "title": "Why Us",
-      "description": "Why you can't build this in-house — and why it compounds.",
+      "description": "Only MetaFloor records what you considered, chose, and how it turned out.",
       "visible": true
     },
     {
-      "id": "market",
-      "path": "slides/07-market.html",
-      "title": "Market & Motion",
-      "description": "A large prize, entered through a low-risk pilot.",
+      "id": "trust",
+      "path": "slides/08-trust.html",
+      "title": "Why Trust Us",
+      "description": "Proof on your data, champions who vouch, a team that was the buyer.",
+      "visible": true
+    },
+    {
+      "id": "prize-path",
+      "path": "slides/09-prize-path.html",
+      "title": "The Prize & The Path",
+      "description": "A $40B decision layer, entered through one paid pilot.",
       "visible": true
     },
     {
       "id": "ask",
-      "path": "slides/08-ask.html",
+      "path": "slides/10-ask.html",
       "title": "The Ask & Team",
-      "description": "Raising $2M seed — team, champions, and the 18-month plan.",
+      "description": "Raising $2M to turn 10 champions into paid design partners.",
       "visible": true
     },
     {
       "id": "close",
-      "path": "slides/09-close.html",
+      "path": "slides/11-close.html",
       "title": "Thank You",
       "description": "Fewer people. Faster decisions. Every decision makes the next one better.",
+      "visible": true
+    },
+    {
+      "id": "architecture",
+      "path": "slides/B1-architecture.html",
+      "title": "Appendix — Architecture",
+      "description": "One vertical stack; the model is the only swappable part.",
+      "visible": true
+    },
+    {
+      "id": "field",
+      "path": "slides/B2-field.html",
+      "title": "Appendix — The Field",
+      "description": "Everyone owns one slice; the decision layer is empty.",
       "visible": true
     }
   ]

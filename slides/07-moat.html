@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="green">
+<html lang="en" data-theme="sage">
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="../theme.css"/>
 <style>
 .moat { display: grid; grid-template-columns: 1.16fr .84fr; gap: 16px; flex: 1; min-height: 0; }
-.moat .card { display: flex; flex-direction: column; min-height: 0; }
+.moat .card { display: flex; flex-direction: column; min-height: 0; position: relative; }
 .moat .viz { flex: 1; min-height: 0; display: flex; align-items: center; }
 .moat .viz svg { display: block; width: 100%; height: auto; }
 
@@ -53,6 +53,15 @@
 .bench .w { display: flex; align-items: center; gap: 8px; font-size: 11px; color: var(--text-dim); }
 .bench .w b { color: var(--text); font-weight: 600; }
 .bench .w .d { width: 6px; height: 6px; border-radius: 50%; background: var(--ac-glow); }
+
+/* governance strip — the memory is safe to own */
+.govern { margin-top: 11px; flex: 0 0 auto; display: flex; align-items: center; gap: 14px;
+  background: var(--ac-fill); border: 1px solid var(--ac-bd); border-radius: var(--r-card); padding: 8px 16px; }
+.govern .gv-lb { font-family: var(--mono); font-size: 8px; letter-spacing: .1em; text-transform: uppercase; color: var(--ac-ink);
+  background: var(--ac-soft); border: 1px solid var(--ac-bd); border-radius: 6px; padding: 3px 8px; flex: 0 0 auto; }
+.govern .gv-items { display: flex; gap: 14px; flex: 1; justify-content: space-between; flex-wrap: wrap; }
+.govern .gv { font-size: 10.5px; color: var(--text-dim); white-space: nowrap; }
+.govern .gv b { color: var(--text); font-weight: 600; }
 </style>
 </head>
 <body>
@@ -62,14 +71,13 @@
     <div class="titlebar">
       <span class="tl"><i></i><i></i><i></i></span>
       <span class="tb-label">why us &middot; the compounding moat</span>
-      <span class="tb-right"><b>06</b> / 09</span>
+      <span class="tb-right"><b>07</b> / 11</span>
     </div>
     <div class="canvas">
       <div class="r head" style="margin-bottom:12px">
         <span class="eyebrow"><span class="dot"></span>why us</span>
-        <h2>Generic AI answers questions.<br/><em>This one has made your decisions before.</em></h2>
-        <p class="sub">The product an LLM can't replicate: <b>your decision history, your precedent, your context</b> —
-          accumulated inside your walls, compounding with every use.</p>
+        <h2>Generic AI answers questions.<br/><em>This one has sat in every decision you've made.</em></h2>
+        <p class="sub"><b>Your ERP records what you ordered. Only MetaFloor records what you considered, what you chose, and how it turned out</b> — accumulated inside your walls, compounding with every use.</p>
       </div>
 
       <div class="r moat">
@@ -79,6 +87,7 @@
             <span class="t"><span class="dot"></span>Value per decision, over time</span>
             <span class="meta">WHY IT'S HARD TO LEAVE</span>
           </div>
+          <div class="witcloud" style="bottom:54px; left:18px; --wd:2.6s; max-width:23ch;"><span class="lead">the moat, in plain words</span>the generic model forgets. <b>yours doesn't.</b></div>
           <div class="viz">
             <svg viewBox="0 0 620 268" role="img" aria-label="Chart: generic AI tools stay flat over time; MetaFloor's value per decision compounds as decision memory accumulates — the gap between the two curves is the moat.">
               <line x1="46" y1="14" x2="46" y2="222" stroke="var(--hairline-2)" stroke-width="1.2"/>
@@ -104,10 +113,10 @@
               </circle>
               <text class="fv" x="452" y="52" text-anchor="end" font-family="'Inter',sans-serif" font-size="11.5" font-weight="650" fill="var(--ac-ink)" style="animation-delay:1.6s">MetaFloor &middot; every decision trains the next</text>
 
-              <!-- decision-count milestones along the curve -->
+              <!-- milestones along the curve (non-numeric — precedent accrues) -->
               <g class="fv" font-family="'JetBrains Mono',monospace" font-size="8.5" letter-spacing=".5" style="animation-delay:2.2s">
                 <circle cx="230" cy="168" r="3.4" fill="var(--paper)" stroke="var(--ac)" stroke-width="1.6"/>
-                <text x="230" y="152" text-anchor="middle" fill="var(--text-dim)">~40 decisions kept</text>
+                <text x="230" y="152" text-anchor="middle" fill="var(--text-dim)">precedent accrues</text>
                 <circle cx="414" cy="105" r="3.4" fill="var(--paper)" stroke="var(--ac)" stroke-width="1.6"/>
                 <text x="414" y="89" text-anchor="middle" fill="var(--text-dim)">playbooks forming</text>
               </g>
@@ -140,7 +149,7 @@
             </div>
             <div class="layer">
               <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="var(--text-dim)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="16" height="10" rx="2.5"/><path d="M8 10 V7 a4 4 0 0 1 8 0 v3" stroke="var(--ac)"/></svg></span>
-              <span class="tx"><b>Trust perimeter</b><span>runs in your cloud, passes your security review once — the door competitors wait at</span></span>
+              <span class="tx"><b>Trust perimeter</b><span>deployed in your VPC, scoped read-only in pilot, reviewed once and expanded with trust — the door competitors wait at</span></span>
               <span class="depth"><span class="bars"><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span><span class="lb">grows</span></span>
             </div>
             <div class="layer">
@@ -150,10 +159,21 @@
             </div>
             <div class="layer deep">
               <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="var(--ac)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 12 m-3.5 0 a3.5 3.5 0 1 0 7 0 a3.5 3.5 0 1 0 -7 0"/><circle cx="12" cy="12" r="1" fill="var(--ac)"/></svg></span>
-              <span class="tx"><b>Decision memory</b><span>every decision, option, and outcome — yours, unexportable, compounding. This is the flywheel.</span></span>
+              <span class="tx"><b>Decision memory</b><span>what you considered, chose, and how it turned out — data that exists only because MetaFloor structures it. Yours; no one else can reconstruct it.</span></span>
               <span class="depth"><span class="bars"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="lb">compounds</span></span>
             </div>
           </div>
+        </div>
+      </div>
+
+      <div class="r govern">
+        <span class="gv-lb">safe to own</span>
+        <div class="gv-items">
+          <span class="gv"><b>Your VPC</b> &middot; data never leaves</span>
+          <span class="gv"><b>Access-scoped</b> by role</span>
+          <span class="gv"><b>Retention</b> you set</span>
+          <span class="gv"><b>Read-only</b> in pilot</span>
+          <span class="gv"><b>Deletable</b> on exit</span>
         </div>
       </div>
 
