@@ -49,8 +49,15 @@
     {
       "id": "moat",
       "path": "slides/07-moat.html",
-      "title": "Why Us",
-      "description": "Only MetaFloor records what you considered, chose, and how it turned out.",
+      "title": "Full-stack AI",
+      "description": "We own the whole stack; the model is the only swappable part.",
+      "visible": true
+    },
+    {
+      "id": "why-now",
+      "path": "slides/why-now.html",
+      "title": "Why Now",
+      "description": "The market stopped paying for AI that can't prove it — vertical, full-stack wins.",
       "visible": true
     },
     {

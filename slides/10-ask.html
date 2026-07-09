@@ -9,206 +9,63 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="../theme.css"/>
 <style>
-.ask { display: grid; grid-template-columns: 1.12fr .88fr; gap: 14px; flex: 1; min-height: 0; }
-.ask .card { display: flex; flex-direction: column; min-height: 0; }
-
-/* funnel line — how the champions become ARR */
-.funnel { display: flex; align-items: center; gap: 7px; flex-wrap: wrap; margin: 10px 0 2px;
-  padding: 7px 11px; background: var(--surface-2); border: 1px solid var(--hairline); border-radius: var(--r-sm); }
-.funnel .fn { font-family: var(--mono); font-size: 9px; letter-spacing: .01em; color: var(--text-dim);
-  display: inline-flex; align-items: center; gap: 5px; }
-.funnel .fn b { color: var(--text); font-weight: 600; }
-.funnel .fn.strong { color: var(--ac-ink); font-weight: 700; font-size: 10px; }
-.funnel .ar { color: var(--text-faint); font-size: 11px; }
-.funnel .fi { font-size: 7px; padding: 2px 5px; }
-
-/* ---- left: ask + gates + funds ---- */
-.ask-head { display: flex; align-items: center; gap: 16px; padding-bottom: 10px; border-bottom: 1px solid var(--hairline); }
-.ask-amt { display: flex; flex-direction: column; }
-.ask-amt b { font-size: 34px; font-weight: 800; letter-spacing: -0.04em; color: var(--ac-ink); line-height: 1; }
-.ask-amt span { font-family: var(--mono); font-size: 8.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--text-faint); margin-top: 3px; }
-.ask-to { flex: 1; border-left: 1px solid var(--hairline); padding-left: 16px; }
-.ask-to b { display: block; font-size: 14px; font-weight: 650; color: var(--text); }
-.ask-to span { font-family: var(--mono); font-size: 9.5px; color: var(--text-dim); letter-spacing: .03em; }
-
-.gates { position: relative; display: flex; justify-content: space-between; margin: 14px 6px 8px; }
-.gates::before { content: ""; position: absolute; left: 14px; right: 14px; top: 13px; height: 2px;
-  background: linear-gradient(90deg, var(--ac-bd), var(--ac)); border-radius: 2px; }
-.gate { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; gap: 6px; width: 31%; }
-.gate .n { width: 27px; height: 27px; border-radius: 50%; display: grid; place-items: center;
-  background: var(--paper); border: 2px solid var(--ac); color: var(--ac-ink);
-  font-size: 12px; font-weight: 700; }
-.gate.hot .n { background: var(--ac); color: var(--ac-on); box-shadow: 0 0 0 4px var(--ac-soft); }
-.gate b { font-size: 11.5px; font-weight: 650; color: var(--text); text-align: center; line-height: 1.2; }
-.gate span { font-family: var(--mono); font-size: 8px; letter-spacing: .07em; text-transform: uppercase;
-  color: var(--text-faint); text-align: center; line-height: 1.35; }
-.gate .tm { color: var(--ac-ink); background: var(--ac-soft); border: 1px solid var(--ac-bd);
-  border-radius: 6px; padding: 2px 8px; letter-spacing: .05em; }
-
-.funds { margin-top: auto; padding-top: 10px; border-top: 1px solid var(--hairline); }
-.funds .lb { font-family: var(--mono); font-size: 8.5px; letter-spacing: .13em; text-transform: uppercase;
-  color: var(--text-faint); margin-bottom: 8px; display: block; }
-.fbar { display: flex; height: 14px; border-radius: 7px; overflow: hidden; box-shadow: var(--sh-card); }
-.fbar i { height: 100%; }
-.fbar i:nth-child(1) { width: 60%; background: var(--ac); }
-.fbar i:nth-child(2) { width: 25%; background: var(--ac-glow); opacity: .75; }
-.fbar i:nth-child(3) { width: 15%; background: var(--surface-3); }
-.fkeys { display: flex; gap: 0; margin-top: 8px; }
-.fkey { flex: 1; display: flex; flex-direction: column; gap: 1px; }
-.fkey b { font-size: 12px; font-weight: 700; color: var(--text); }
-.fkey .t { font-size: 10.5px; font-weight: 600; color: var(--text); }
-.fkey span { font-family: var(--mono); font-size: 7.5px; letter-spacing: .04em; color: var(--text-faint); line-height: 1.35; }
-.fkey .sw { width: 10px; height: 10px; border-radius: 3px; margin-bottom: 3px; }
-
-/* ---- right: founders ---- */
-.fdrs { display: flex; flex-direction: column; flex: 1; min-height: 0; justify-content: space-evenly; }
-.fdr { display: flex; align-items: center; gap: 12px; padding: 7px 0; border-bottom: 1px solid var(--hairline); }
-.fdr:last-of-type { border-bottom: none; }
-.fdr img { width: 46px; height: 46px; border-radius: 12px; object-fit: cover;
-  border: 1px solid var(--hairline-2); box-shadow: var(--sh-card); }
-.fdr .tx b { display: block; font-size: 13px; font-weight: 650; color: var(--text); line-height: 1.2; }
-.fdr .tx .rl { font-family: var(--mono); font-size: 8.5px; letter-spacing: .06em; text-transform: uppercase;
-  color: var(--ac-ink); display: block; margin: 2px 0; }
-.fdr .tx span { font-size: 10px; color: var(--text-dim); line-height: 1.3; }
-.pedigree { padding-top: 8px; border-top: 1px solid var(--hairline); display: flex; align-items: center; gap: 10px; }
-.pedigree img { height: 20px; opacity: .75; filter: grayscale(1); }
-.pedigree .lb { font-family: var(--mono); font-size: 7.5px; letter-spacing: .1em; text-transform: uppercase; color: var(--text-faint); }
-
-/* ---- bottom: champions wall ---- */
-.wall { margin-top: 12px; flex: 0 0 auto; }
-.wall .card-tb { margin-bottom: 8px; }
-.wall-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px 10px; }
-.vet { display: flex; align-items: center; gap: 8px; min-width: 0;
-  opacity: 0; animation: fin .4s ease forwards; }
-.vet:nth-child(-n+5) { animation-delay: .4s; }
-.vet:nth-child(n+6) { animation-delay: .7s; }
+.agrid { display: grid; grid-template-columns: 1.05fr .95fr; gap: 56px; align-items: center; flex: 1; min-height: 0; }
+/* left · the ask */
+.amt { display: flex; align-items: baseline; gap: 16px; }
+.amt b { font-size: 88px; font-weight: 750; letter-spacing: -0.04em; color: var(--ac); line-height: .9; }
+.amt span { font-size: 18px; color: var(--text-dim); max-width: 16ch; line-height: 1.25; }
+.amt span em { color: var(--text); font-style: normal; font-weight: 650; }
+.funnel { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-top: 24px; font-family: var(--mono); font-size: 13px; color: var(--text-dim); }
+.funnel b { color: var(--text); font-weight: 600; } .funnel .s { color: var(--ac); font-weight: 700; }
+.funnel .ar { color: var(--text-faint); }
+.mile { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; margin-top: 26px; }
+.mile .mi { border-top: 2px solid var(--ac-bd); padding-top: 12px; }
+.mile .mi .t { font-family: var(--mono); font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--ac); }
+.mile .mi b { display: block; font-size: 17px; font-weight: 650; color: var(--text); margin: 6px 0 3px; }
+.mile .mi span { font-size: 13.5px; color: var(--text-dim); line-height: 1.3; }
+.funds { margin-top: 26px; font-family: var(--mono); font-size: 13px; color: var(--text-dim); }
+.funds b { color: var(--text); font-weight: 600; }
+/* right · team */
+.team-lb { font-family: var(--mono); font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: var(--text-faint); margin-bottom: 16px; }
+.fdr { display: flex; align-items: center; gap: 16px; padding: 12px 0; border-bottom: 1px solid var(--hairline); }
+.fdr img { width: 52px; height: 52px; border-radius: 12px; object-fit: cover; border: 1px solid var(--hairline-2); }
+.fdr b { display: block; font-size: 17px; font-weight: 650; color: var(--text); }
+.fdr .rl { font-family: var(--mono); font-size: 11px; letter-spacing: .04em; text-transform: uppercase; color: var(--ac-ink); margin: 2px 0; }
+.fdr span { font-size: 13.5px; color: var(--text-dim); }
+.bench-line { margin-top: 16px; font-size: 14px; color: var(--text-dim); line-height: 1.4; }
+.bench-line b { color: var(--text); font-weight: 650; }
 @keyframes fin { to { opacity: 1; } }
-@media (prefers-reduced-motion: reduce) { .vet { opacity: 1; animation: none; } }
-.vet .tag { width: 6px; height: 6px; border-radius: 50%; flex: 0 0 auto; background: var(--ac-glow); }
-.vet .tag.champ { background: var(--dark); }
-.vet .lg { flex: 0 0 auto; height: 13px; display: flex; align-items: center; }
-.vet .lg img { height: 100%; width: auto; max-width: 52px; object-fit: contain; filter: grayscale(1); opacity: .8; }
-.vet .tx { min-width: 0; }
-.vet .tx b { display: block; font-size: 10px; font-weight: 600; color: var(--text); line-height: 1.2;
-  white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.vet .tx span { display: block; font-size: 8px; color: var(--text-faint); line-height: 1.25;
-  white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.wall-legend { display: flex; gap: 14px; align-items: center; }
-.wall-legend .lg2 { display: inline-flex; align-items: center; gap: 6px; font-family: var(--mono);
-  font-size: 8.5px; letter-spacing: .05em; color: var(--text-dim); }
-.wall-legend .d { width: 6px; height: 6px; border-radius: 50%; }
+.rise { opacity: 0; animation: fin .5s ease forwards; }
+.rise.a{animation-delay:.1s}.rise.b{animation-delay:.28s}.rise.c{animation-delay:.46s}
+@media (prefers-reduced-motion: reduce){ .rise { opacity: 1; animation: none; } }
 </style>
 </head>
 <body>
 <div class="deck">
 <section class="slide">
   <div class="stage">
-    <div class="titlebar">
-      <span class="tl"><i></i><i></i><i></i></span>
-      <span class="tb-label">the ask &middot; the team</span>
-      <span class="tb-right"><b>10</b> / 11</span>
-    </div>
-    <div class="canvas">
-      <div class="r head" style="margin-bottom:11px">
-        <span class="eyebrow"><span class="dot"></span>the ask &middot; team</span>
-        <h2>Raising <em>$2M</em> to turn 10 champions into <em>paid design partners.</em></h2>
-        <p class="sub">Not Series-A metrics we can't yet promise — <b>the seed milestones that earn them:</b> design partners signed, the backtest validated on their data, security passed.</p>
-      </div>
+    <div class="canvas pitch col">
+      <span class="eyebrow rise a"><span class="dot"></span>the ask &middot; team</span>
+      <h2 class="rise a" style="margin-top:16px; margin-bottom:2px">Raising $2M to turn 10 champions into <em>paid design partners.</em></h2>
 
-      <div class="r ask">
-        <!-- LEFT · the ask -->
-        <div class="card">
-          <div class="ask-head">
-            <div class="ask-amt"><b>$2M</b><span>seed round</span></div>
-            <div class="ask-to">
-              <b>&#8594; the proof that earns the Series A</b>
-              <span>paid design partners &middot; validated on their data &middot; 18 months</span>
-            </div>
+      <div class="agrid">
+        <div class="rise b">
+          <div class="amt"><b>$2M</b><span>seed round → <em>the proof that earns the Series A</em></span></div>
+          <div class="funnel"><b>10</b> champions <span class="ar">&#8594;</span> <b>3&ndash;4</b> paid design partners <span class="ar">&#8594;</span> validated on their data <span class="ar">&#8594;</span> <span class="s">Series-A ready</span></div>
+          <div class="mile">
+            <div class="mi"><span class="t">0&ndash;6 mo</span><b>Land partners</b><span>3&ndash;4 paid design partners</span></div>
+            <div class="mi"><span class="t">6&ndash;12 mo</span><b>Prove it</b><span>backtests + security passed</span></div>
+            <div class="mi"><span class="t">12&ndash;18 mo</span><b>Series-A ready</b><span>reference logos + real proof</span></div>
           </div>
-          <div class="funnel">
-            <span class="fn"><b>10</b> named champions</span><span class="ar">&#8594;</span>
-            <span class="fn"><b>3&ndash;4</b> paid design partners</span><span class="ar">&#8594;</span>
-            <span class="fn">validated on their data</span><span class="ar">&#8594;</span>
-            <span class="fn strong">Series-A ready</span>
-          </div>
-          <div class="gates">
-            <div class="gate">
-              <span class="n">1</span>
-              <b>Land partners</b>
-              <span>3&ndash;4 paid design partners</span>
-              <span class="tm">~0&ndash;6 mo</span>
-            </div>
-            <div class="gate">
-              <span class="n">2</span>
-              <b>Prove it</b>
-              <span>backtests + security passed</span>
-              <span class="tm">~6&ndash;12 mo</span>
-            </div>
-            <div class="gate hot">
-              <span class="n">3</span>
-              <b>Series-A ready</b>
-              <span>reference logos + real proof</span>
-              <span class="tm">~12&ndash;18 mo</span>
-            </div>
-          </div>
-          <div class="funds">
-            <span class="lb">use of funds &middot; illustrative</span>
-            <div class="fbar"><i></i><i></i><i></i></div>
-            <div class="fkeys">
-              <div class="fkey"><span class="sw" style="background:var(--ac)"></span><b>60%</b><span class="t">Engineering</span><span>decision engine &middot; AI depth &middot; integrations</span></div>
-              <div class="fkey"><span class="sw" style="background:var(--ac-glow);opacity:.75"></span><b>25%</b><span class="t">Design-partner success</span><span>land + prove on their data</span></div>
-              <div class="fkey"><span class="sw" style="background:var(--surface-3)"></span><b>15%</b><span class="t">Operations</span><span>founding sales eng &middot; infra</span></div>
-            </div>
-          </div>
+          <div class="funds"><b>Use of funds:</b> 60% engineering &middot; 25% design-partner success &middot; 15% ops</div>
         </div>
 
-        <!-- RIGHT · founders -->
-        <div class="card">
-          <div class="card-tb">
-            <span class="t"><span class="dot"></span>The team &middot; we lived it</span>
-            <span class="meta">FLOOR &#8594; AI &#8594; SALE</span>
-          </div>
-          <div class="fdrs">
-            <div class="fdr">
-              <img src="../assets/team/anup.png" alt="Anup Mehta"/>
-              <div class="tx"><b>Anup Mehta</b><span class="rl">CEO &middot; business builder</span><span>25+ yrs scaling B2B &middot; 2 exits &middot; channel GTM</span></div>
-            </div>
-            <div class="fdr">
-              <img src="../assets/team/sridhar.png" alt="Sridhar Perepa"/>
-              <div class="tx"><b>Sridhar Perepa</b><span class="rl">COO &middot; operations authority</span><span>30+ yrs, GE &amp; industry &middot; floor to boardroom</span></div>
-            </div>
-            <div class="fdr">
-              <img src="../assets/team/arun.png" alt="Arun CS Kumar"/>
-              <div class="tx"><b>Arun CS Kumar</b><span class="rl">Head AI / product &middot; architect</span><span>PhD AI/CV &middot; 12+ yrs production ML &middot; ships agentic LLM systems in production</span></div>
-            </div>
-          </div>
-          <div class="pedigree">
-            <span class="lb">pedigree</span>
-            <img src="../assets/team/logos.png" alt="GE · NIO · Lockheed Martin · Boeing · Ridecell"/>
-          </div>
-        </div>
-      </div>
-
-      <!-- champions wall -->
-      <div class="r card wall">
-        <div class="card-tb">
-          <span class="t"><span class="dot"></span>Experts &amp; champions &middot; the supply-chain bench</span>
-          <div class="wall-legend">
-            <span class="lg2"><span class="d" style="background:var(--ac-glow)"></span>experts — vouch the problem</span>
-            <span class="lg2"><span class="d" style="background:var(--dark)"></span>champions — open the door, win the pilot</span>
-          </div>
-        </div>
-        <div class="wall-grid">
-          <div class="vet"><span class="tag champ"></span><span class="lg"><img src="../assets/logos/blueyonder.svg" alt="Blue Yonder"/></span><span class="tx"><b>Sudarshan Seshadri</b><span>Corp. VP, Blue Yonder</span></span></div>
-          <div class="vet"><span class="tag"></span><span class="lg"><img src="../assets/logos/jabil.svg" alt="Jabil"/></span><span class="tx"><b>Cassie Gruber</b><span>Dir. Sustainability, Jabil</span></span></div>
-          <div class="vet"><span class="tag"></span><span class="lg"><img src="../assets/logos/sanmina.svg" alt="Sanmina"/></span><span class="tx"><b>Sundar Kamath</b><span>Sr. VP, Sanmina</span></span></div>
-          <div class="vet"><span class="tag champ"></span><span class="lg"><img src="../assets/logos/amd.svg" alt="AMD"/></span><span class="tx"><b>Prem Jain</b><span>Sr. VP &amp; GM, AMD &middot; ex-Cisco</span></span></div>
-          <div class="vet"><span class="tag"></span><span class="lg"><img src="../assets/logos/netapp.svg" alt="NetApp"/></span><span class="tx"><b>Mondher Ben-Hamida</b><span>VP Global SC, NetApp</span></span></div>
-          <div class="vet"><span class="tag"></span><span class="lg"><img src="../assets/logos/google.svg" alt="Google"/></span><span class="tx"><b>Supriya Iyer</b><span>Dir. Global SC, Google</span></span></div>
-          <div class="vet"><span class="tag"></span><span class="lg"><img src="../assets/logos/astrazeneca.svg" alt="AstraZeneca"/></span><span class="tx"><b>Arun Krishnan</b><span>Sr. VP SC, AstraZeneca</span></span></div>
-          <div class="vet"><span class="tag champ"></span><span class="lg"><img src="../assets/logos/gevernova.svg" alt="GE Vernova"/></span><span class="tx"><b>Prakash Seshadri</b><span>Chief Digital Tech Officer, GE Vernova</span></span></div>
-          <div class="vet"><span class="tag champ"></span><span class="lg"><img src="../assets/logos/juniper.svg" alt="Juniper"/></span><span class="tx"><b>Mitch Haynes</b><span>VP Supply Chain, Juniper</span></span></div>
-          <div class="vet"><span class="tag"></span><span class="lg"><img src="../assets/logos/microchip.svg" alt="Microchip"/></span><span class="tx"><b>Daniel Jackson</b><span>Dir. Supply Chain, Microchip</span></span></div>
+        <div class="rise c">
+          <div class="team-lb">the team &middot; we were the buyer</div>
+          <div class="fdr"><img src="../assets/team/anup.png" alt="Anup Mehta"/><div><b>Anup Mehta</b><div class="rl">CEO &middot; business builder</div><span>25+ yrs scaling B2B &middot; 2 exits</span></div></div>
+          <div class="fdr"><img src="../assets/team/sridhar.png" alt="Sridhar Perepa"/><div><b>Sridhar Perepa</b><div class="rl">COO &middot; operations</div><span>30+ yrs, GE &middot; ran these war rooms</span></div></div>
+          <div class="fdr"><img src="../assets/team/arun.png" alt="Arun CS Kumar"/><div><b>Arun CS Kumar</b><div class="rl">Head AI &middot; architect</div><span>PhD AI &middot; ships production agent systems</span></div></div>
+          <div class="bench-line"><b>On the bench:</b> 10 supply-chain leaders — Blue Yonder, Google, AMD, Jabil, Sanmina, NetApp… <span style="color:var(--text-faint)">(full wall in appendix)</span></div>
         </div>
       </div>
     </div>

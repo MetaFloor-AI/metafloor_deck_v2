@@ -3,187 +3,65 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>MetaFloor — Why Us</title>
+<title>MetaFloor — Full-stack AI</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="../theme.css"/>
 <style>
-.moat { display: grid; grid-template-columns: 1.16fr .84fr; gap: 16px; flex: 1; min-height: 0; }
-.moat .card { display: flex; flex-direction: column; min-height: 0; position: relative; }
-.moat .viz { flex: 1; min-height: 0; display: flex; align-items: center; }
-.moat .viz svg { display: block; width: 100%; height: auto; }
+.mgrid { display: grid; grid-template-columns: 1.06fr .94fr; gap: 54px; align-items: center; flex: 1; min-height: 0; }
+.claim { font-size: 24px; line-height: 1.35; color: var(--text-dim); letter-spacing: -0.01em; }
+.claim b { color: var(--text); font-weight: 650; }
+.claim em { color: var(--ac); font-style: normal; font-weight: 650; }
+.mit { margin-top: 22px; padding: 16px 20px; background: var(--ac-fill); border-left: 3px solid var(--ac); border-radius: 0 var(--r-sm) var(--r-sm) 0; }
+.mit b { font-size: 17px; color: var(--ac-ink); font-weight: 700; }
+.mit span { display: block; font-size: 14.5px; color: var(--text-dim); line-height: 1.4; margin-top: 4px; }
+.mit .src { font-family: var(--mono); font-size: 11px; color: var(--text-faint); }
 
-.draw { stroke-dasharray: 1; stroke-dashoffset: 1; animation: drawin 2s cubic-bezier(.3,.6,.3,1) forwards; }
-.draw.d2 { animation-delay: .4s; }
-@keyframes drawin { to { stroke-dashoffset: 0; } }
+/* the stack */
+.stack-lb { font-family: var(--mono); font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: var(--text-faint); margin-bottom: 14px; }
+.slayer { display: flex; align-items: center; gap: 14px; padding: 15px 18px; border-radius: var(--r-sm); margin-bottom: 8px; }
+.slayer.own { background: var(--ac-fill); border: 1px solid var(--ac-bd); }
+.slayer.swap { background: var(--surface-2); border: 1px dashed var(--hairline-2); }
+.slayer b { font-size: 16.5px; font-weight: 650; color: var(--text); }
+.slayer.own b { color: var(--ac-ink); }
+.slayer span { display: block; font-size: 13px; color: var(--text-dim); margin-top: 1px; }
+.slayer .tag { margin-left: auto; font-family: var(--mono); font-size: 10.5px; letter-spacing: .06em; text-transform: uppercase; white-space: nowrap; }
+.slayer.own .tag { color: var(--ac); } .slayer.swap .tag { color: var(--text-faint); }
+.say { margin-top: 14px; font-size: 18px; font-weight: 650; color: var(--text); }
+.say em { color: var(--ac); font-style: normal; }
 @keyframes fin { to { opacity: 1; } }
-.fv { opacity: 0; animation: fin .55s ease forwards; }
-@media (prefers-reduced-motion: reduce) { .draw { animation: none; stroke-dashoffset: 0; } .fv { opacity: 1; animation: none; } }
-
-/* right: moat layer stack */
-.layers { display: flex; flex-direction: column; flex: 1; min-height: 0; justify-content: space-evenly; gap: 8px; }
-.layer { display: flex; align-items: center; gap: 12px; border: 1px solid var(--hairline);
-  border-radius: var(--r-sm); padding: 9px 13px; background: var(--paper);
-  opacity: 0; animation: fin .5s ease forwards; }
-.layer:nth-child(1) { animation-delay: .3s } .layer:nth-child(2) { animation-delay: .6s }
-.layer:nth-child(3) { animation-delay: .9s } .layer:nth-child(4) { animation-delay: 1.2s }
-.layer.deep { background: var(--ac-fill); border-color: var(--ac-bd); }
-.layer .ic { flex: 0 0 34px; height: 34px; border-radius: 9px; display: grid; place-items: center;
-  background: var(--surface-2); border: 1px solid var(--hairline); }
-.layer.deep .ic { background: var(--ac-soft); border-color: var(--ac-bd); }
-.layer .ic svg { width: 18px; height: 18px; }
-.layer .tx b { display: block; font-size: 12.5px; font-weight: 650; color: var(--text); line-height: 1.25; }
-.layer.deep .tx b { color: var(--ac-ink); }
-.layer .tx span { font-size: 10.5px; color: var(--text-dim); line-height: 1.35; display: block; margin-top: 1px; }
-.layer .depth { margin-left: auto; flex: 0 0 auto; display: flex; flex-direction: column; align-items: flex-end; gap: 3px; }
-.layer .depth .bars { display: flex; gap: 2.5px; }
-.layer .depth .bars i { width: 4.5px; border-radius: 2px; background: var(--surface-3); }
-.layer .depth .bars i.on { background: var(--ac); }
-.layer .depth .bars i:nth-child(1){ height: 7px } .layer .depth .bars i:nth-child(2){ height: 10px }
-.layer .depth .bars i:nth-child(3){ height: 13px } .layer .depth .bars i:nth-child(4){ height: 16px }
-.layer .depth .lb { font-family: var(--mono); font-size: 7.5px; letter-spacing: .09em; text-transform: uppercase; color: var(--text-faint); }
-
-/* bottom band: who's behind it */
-.bench { margin-top: 13px; flex: 0 0 auto; display: flex; align-items: center; gap: 16px;
-  border: 1px solid var(--hairline); border-radius: var(--r-card); background: var(--surface); padding: 10px 16px; }
-.bench .lb { font-family: var(--mono); font-size: 9px; letter-spacing: .12em; text-transform: uppercase;
-  color: var(--text-faint); flex: 0 0 auto; }
-.bench .who { display: flex; align-items: center; gap: 14px; flex: 1; justify-content: space-evenly; flex-wrap: wrap; }
-.bench .w { display: flex; align-items: center; gap: 8px; font-size: 11px; color: var(--text-dim); }
-.bench .w b { color: var(--text); font-weight: 600; }
-.bench .w .d { width: 6px; height: 6px; border-radius: 50%; background: var(--ac-glow); }
-
-/* governance strip — the memory is safe to own */
-.govern { margin-top: 11px; flex: 0 0 auto; display: flex; align-items: center; gap: 14px;
-  background: var(--ac-fill); border: 1px solid var(--ac-bd); border-radius: var(--r-card); padding: 8px 16px; }
-.govern .gv-lb { font-family: var(--mono); font-size: 8px; letter-spacing: .1em; text-transform: uppercase; color: var(--ac-ink);
-  background: var(--ac-soft); border: 1px solid var(--ac-bd); border-radius: 6px; padding: 3px 8px; flex: 0 0 auto; }
-.govern .gv-items { display: flex; gap: 14px; flex: 1; justify-content: space-between; flex-wrap: wrap; }
-.govern .gv { font-size: 10.5px; color: var(--text-dim); white-space: nowrap; }
-.govern .gv b { color: var(--text); font-weight: 600; }
+.rise { opacity: 0; animation: fin .5s ease forwards; }
+.rise.a{animation-delay:.1s}.rise.b{animation-delay:.3s}
+.slayer.rise:nth-child(2){animation-delay:.4s}.slayer.rise:nth-child(3){animation-delay:.52s}.slayer.rise:nth-child(4){animation-delay:.64s}.slayer.rise:nth-child(5){animation-delay:.76s}
+@media (prefers-reduced-motion: reduce){ .rise { opacity: 1; animation: none; } }
 </style>
 </head>
 <body>
 <div class="deck">
 <section class="slide">
   <div class="stage">
-    <div class="titlebar">
-      <span class="tl"><i></i><i></i><i></i></span>
-      <span class="tb-label">why us &middot; the compounding moat</span>
-      <span class="tb-right"><b>07</b> / 11</span>
-    </div>
-    <div class="canvas">
-      <div class="r head" style="margin-bottom:12px">
-        <span class="eyebrow"><span class="dot"></span>why us</span>
-        <h2>Generic AI answers questions.<br/><em>This one has sat in every decision you've made.</em></h2>
-        <p class="sub"><b>Your ERP records what you ordered. Only MetaFloor records what you considered, what you chose, and how it turned out</b> — accumulated inside your walls, compounding with every use.</p>
-      </div>
+    <div class="canvas pitch col">
+      <span class="eyebrow rise a"><span class="dot"></span>why us &middot; full-stack AI</span>
+      <h2 class="rise a" style="margin-top:16px; margin-bottom:0">We own the whole stack. <em>The model is the only swappable part.</em></h2>
 
-      <div class="r moat">
-        <!-- LEFT · compounding curve -->
-        <div class="card">
-          <div class="card-tb">
-            <span class="t"><span class="dot"></span>Value per decision, over time</span>
-            <span class="meta">WHY IT'S HARD TO LEAVE</span>
-          </div>
-          <div class="witcloud" style="bottom:54px; left:18px; --wd:2.6s; max-width:23ch;"><span class="lead">the moat, in plain words</span>the generic model forgets. <b>yours doesn't.</b></div>
-          <div class="viz">
-            <svg viewBox="0 0 620 268" role="img" aria-label="Chart: generic AI tools stay flat over time; MetaFloor's value per decision compounds as decision memory accumulates — the gap between the two curves is the moat.">
-              <line x1="46" y1="14" x2="46" y2="222" stroke="var(--hairline-2)" stroke-width="1.2"/>
-              <line x1="46" y1="222" x2="600" y2="222" stroke="var(--hairline-2)" stroke-width="1.2"/>
-              <text x="18" y="26" font-family="'JetBrains Mono',monospace" font-size="9" letter-spacing="1" fill="var(--text-faint)" transform="rotate(-90 18 26)" text-anchor="end">VALUE / DECISION</text>
-              <g font-family="'JetBrains Mono',monospace" font-size="9.5" letter-spacing="1" fill="var(--text-faint)">
-                <text x="46" y="242" text-anchor="middle">DAY 1</text>
-                <text x="230" y="242" text-anchor="middle">6 MO</text>
-                <text x="414" y="242" text-anchor="middle">YEAR 1</text>
-                <text x="586" y="242" text-anchor="middle">YEAR 2</text>
-              </g>
-
-              <!-- generic AI: flat -->
-              <path class="draw" pathLength="1" d="M 46 186 C 160 182, 300 180, 420 179 S 560 178, 596 178"
-                    fill="none" stroke="var(--text-faint)" stroke-width="2" stroke-dasharray="6 5" stroke-linecap="round"/>
-              <text class="fv" x="596" y="200" text-anchor="end" font-family="'JetBrains Mono',monospace" font-size="9" letter-spacing=".8" fill="var(--text-faint)" style="animation-delay:1s">GENERIC AI &middot; NO MEMORY</text>
-
-              <!-- metafloor: compounding -->
-              <path class="draw d2" pathLength="1" d="M 46 186 C 150 180, 250 164, 340 132 S 520 56, 596 30"
-                    fill="none" stroke="var(--ac)" stroke-width="2.6" stroke-linecap="round"/>
-              <circle class="fv" cx="596" cy="30" r="5" fill="var(--ac)" style="animation-delay:2s">
-                <animate attributeName="r" values="4;6.5;4" dur="2.4s" repeatCount="indefinite"/>
-              </circle>
-              <text class="fv" x="452" y="52" text-anchor="end" font-family="'Inter',sans-serif" font-size="11.5" font-weight="650" fill="var(--ac-ink)" style="animation-delay:1.6s">MetaFloor &middot; every decision trains the next</text>
-
-              <!-- milestones along the curve (non-numeric — precedent accrues) -->
-              <g class="fv" font-family="'JetBrains Mono',monospace" font-size="8.5" letter-spacing=".5" style="animation-delay:2.2s">
-                <circle cx="230" cy="168" r="3.4" fill="var(--paper)" stroke="var(--ac)" stroke-width="1.6"/>
-                <text x="230" y="152" text-anchor="middle" fill="var(--text-dim)">precedent accrues</text>
-                <circle cx="414" cy="105" r="3.4" fill="var(--paper)" stroke="var(--ac)" stroke-width="1.6"/>
-                <text x="414" y="89" text-anchor="middle" fill="var(--text-dim)">playbooks forming</text>
-              </g>
-
-              <!-- the gap = the moat -->
-              <g class="fv" style="animation-delay:2.5s">
-                <line x1="560" y1="42" x2="560" y2="172" stroke="var(--ac-bd)" stroke-width="1.4" stroke-dasharray="4 3"/>
-                <path d="M 560 46 l -4 7 h 8 z M 560 168 l -4 -7 h 8 z" fill="var(--ac)"/>
-                <rect x="512" y="96" width="96" height="24" rx="12" fill="var(--ac-soft)" stroke="var(--ac-bd)"/>
-                <text x="560" y="112" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9.5" font-weight="600" letter-spacing="1" fill="var(--ac-ink)">THE MOAT</text>
-              </g>
-
-              <!-- footnote inside chart -->
-              <text class="fv" x="46" y="262" font-family="'JetBrains Mono',monospace" font-size="8.5" letter-spacing=".5" fill="var(--text-faint)" style="animation-delay:2.7s">a competitor starts at day 1 &middot; your instance never does again</text>
-            </svg>
+      <div class="mgrid">
+        <div class="rise b">
+          <div class="claim">Copilots and horizontal agents are a <b>thin wrapper on a model anyone can rent.</b> MetaFloor owns the full vertical stack — capture, the decision memory, the agents, execution. <em>Swap the model on Tuesday; Wednesday nothing underneath is lost.</em> The memory only gets deeper — and no competitor can rebuild it.</div>
+          <div class="mit">
+            <b>MIT, 2025: 95% of enterprise AI delivered zero ROI.</b>
+            <span>The named cause: &ldquo;systems don't retain feedback, adapt, or improve.&rdquo; Memory is <b>our entire architecture</b> — not a feature we bolt on.</span>
+            <span class="src">&middot; MIT / Fortune, Aug 2025</span>
           </div>
         </div>
 
-        <!-- RIGHT · four moat layers -->
-        <div class="card">
-          <div class="card-tb">
-            <span class="t"><span class="dot"></span>Four layers, each deeper</span>
-            <span class="meta">SWITCHING COST</span>
-          </div>
-          <div class="layers">
-            <div class="layer">
-              <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="var(--text-dim)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6 h16 M4 12 h16 M4 18 h10"/><circle cx="19" cy="18" r="2.4" stroke="var(--ac)"/></svg></span>
-              <span class="tx"><b>Integration surface</b><span>wired into ERP, procurement, comms — months of plumbing a rival must redo</span></span>
-              <span class="depth"><span class="bars"><i class="on"></i><i class="on"></i><i></i><i></i></span><span class="lb">grows</span></span>
-            </div>
-            <div class="layer">
-              <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="var(--text-dim)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="16" height="10" rx="2.5"/><path d="M8 10 V7 a4 4 0 0 1 8 0 v3" stroke="var(--ac)"/></svg></span>
-              <span class="tx"><b>Trust perimeter</b><span>deployed in your VPC, scoped read-only in pilot, reviewed once and expanded with trust — the door competitors wait at</span></span>
-              <span class="depth"><span class="bars"><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span><span class="lb">grows</span></span>
-            </div>
-            <div class="layer">
-              <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="var(--text-dim)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 v18 M5 8 l7 -5 7 5 M5 16 l7 5 7 -5" stroke="var(--ac)"/></svg></span>
-              <span class="tx"><b>Workflow habit</b><span>approvals live in Slack, email, Teams — ripping it out means changing how people work</span></span>
-              <span class="depth"><span class="bars"><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span><span class="lb">grows</span></span>
-            </div>
-            <div class="layer deep">
-              <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="var(--ac)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 12 m-3.5 0 a3.5 3.5 0 1 0 7 0 a3.5 3.5 0 1 0 -7 0"/><circle cx="12" cy="12" r="1" fill="var(--ac)"/></svg></span>
-              <span class="tx"><b>Decision memory</b><span>what you considered, chose, and how it turned out — data that exists only because MetaFloor structures it. Yours; no one else can reconstruct it.</span></span>
-              <span class="depth"><span class="bars"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="lb">compounds</span></span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="r govern">
-        <span class="gv-lb">safe to own</span>
-        <div class="gv-items">
-          <span class="gv"><b>Your VPC</b> &middot; data never leaves</span>
-          <span class="gv"><b>Access-scoped</b> by role</span>
-          <span class="gv"><b>Retention</b> you set</span>
-          <span class="gv"><b>Read-only</b> in pilot</span>
-          <span class="gv"><b>Deletable</b> on exit</span>
-        </div>
-      </div>
-
-      <div class="r bench">
-        <span class="lb">built by people who lived it</span>
-        <div class="who">
-          <span class="w"><span class="d"></span><b>2 exits</b>&middot; 25+ yrs scaling B2B</span>
-          <span class="w"><span class="d"></span><b>30+ yrs operations</b>&middot; GE, floor to boardroom</span>
-          <span class="w"><span class="d"></span><b>PhD AI</b>&middot; 12+ yrs production ML</span>
-          <span class="w"><span class="d"></span><b>10 experts &amp; champions</b>&middot; Google, AMD, Jabil, NetApp&hellip;</span>
+        <div class="rise b">
+          <div class="stack-lb">the full stack &middot; all yours</div>
+          <div class="slayer own rise"><div><b>Agents that act</b><span>plan &rarr; act &middot; a human approves</span></div><span class="tag">compounds</span></div>
+          <div class="slayer own rise"><div><b>Decision memory</b><span>what you considered, chose, how it turned out</span></div><span class="tag">the moat</span></div>
+          <div class="slayer own rise"><div><b>Capture plane</b><span>reads the structured + unstructured half</span></div><span class="tag">compounds</span></div>
+          <div class="slayer swap rise"><div><b>Foundation model</b><span>reasoning &mdash; anyone can rent one</span></div><span class="tag">swappable &#8644;</span></div>
+          <div class="say">Short the model. <em>Long the memory.</em></div>
         </div>
       </div>
     </div>

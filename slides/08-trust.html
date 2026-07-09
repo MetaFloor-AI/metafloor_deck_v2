@@ -9,124 +9,69 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="../theme.css"/>
 <style>
-.tr3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; flex: 1; min-height: 0; }
-.tc { display: flex; flex-direction: column; min-height: 0; padding: 0; overflow: hidden;
-  opacity: 0; animation: fin .5s ease forwards; }
-.tc:nth-child(1){ animation-delay:.15s } .tc:nth-child(2){ animation-delay:.35s } .tc:nth-child(3){ animation-delay:.55s }
+.pillars { display: grid; grid-template-columns: repeat(3,1fr); gap: 40px; flex: 1; min-height: 0; align-items: center; margin-top: 26px; }
+.pil { display: flex; flex-direction: column; }
+.pil h3 { font-size: 22px; letter-spacing: -0.02em; margin: 0; }
+.pil .kills { font-family: var(--mono); font-size: 11px; letter-spacing: .04em; color: var(--ac); margin: 8px 0 16px; }
+.pil ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px; }
+.pil li { position: relative; padding-left: 18px; font-size: 15px; color: var(--text-dim); line-height: 1.38; }
+.pil li::before { content: ""; position: absolute; left: 0; top: .5em; width: 6px; height: 6px; border-radius: 50%; background: var(--ac-glow); }
+.pil li b { color: var(--text); font-weight: 650; }
+.ladder-line { flex: 0 0 auto; margin-top: 26px; padding-top: 18px; border-top: 1px solid var(--hairline);
+  display: flex; align-items: center; gap: 16px; }
+.ladder-line p { margin: 0; font-size: 16px; color: var(--text-dim); line-height: 1.4; }
+.ladder-line p b { color: var(--text); font-weight: 650; }
+.ladder-line .rung { margin-left: auto; font-family: var(--mono); font-size: 12px; letter-spacing: .04em; color: var(--text-faint); white-space: nowrap; flex: 0 0 auto; }
+.ladder-line .rung b { color: var(--ac); }
 @keyframes fin { to { opacity: 1; } }
-.tc .thd { display: flex; align-items: center; gap: 10px; padding: 10px 14px; background: var(--surface-2); border-bottom: 1px solid var(--hairline); flex: 0 0 auto; }
-.tc .ic { width: 30px; height: 30px; border-radius: 8px; background: var(--ac-soft); border: 1px solid var(--ac-bd); display: grid; place-items: center; flex: 0 0 auto; }
-.tc .ic svg { width: 17px; height: 17px; }
-.tc .thd b { font-size: 13px; font-weight: 650; color: var(--text); line-height: 1.12; }
-.tc .thd span { display: block; font-family: var(--mono); font-size: 7.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--ac-ink); margin-top: 2px; }
-.tbody { padding: 12px 14px; flex: 1; min-height: 0; display: flex; flex-direction: column; }
-.tbody ul { list-style: none; margin: 0; padding: 0; flex: 1; display: flex; flex-direction: column; justify-content: space-evenly; }
-.tbody li { position: relative; padding-left: 17px; font-size: 11.5px; color: var(--text-dim); line-height: 1.32; }
-.tbody li::before { content: ""; position: absolute; left: 0; top: .45em; width: 6px; height: 6px; border-radius: 50%; background: var(--ac-glow); }
-.tbody li b { color: var(--text); font-weight: 650; }
-.logos { display: flex; align-items: center; gap: 11px; flex-wrap: wrap; margin: 2px 0; }
-.logos img { height: 13px; width: auto; max-width: 52px; object-fit: contain; filter: grayscale(1); opacity: .8; }
-.tkill { flex: 0 0 auto; margin-top: 10px; display: flex; align-items: center; gap: 8px; padding: 7px 11px;
-  background: var(--ac-fill); border: 1px solid var(--ac-bd); border-radius: var(--r-sm); }
-.tkill .x { font-family: var(--mono); font-size: 8px; letter-spacing: .08em; text-transform: uppercase; color: var(--ac-ink); }
-.tkill b { font-size: 11px; color: var(--ac-ink); font-weight: 700; }
-
-/* trust ladder band */
-.ladder { margin-top: 13px; flex: 0 0 auto; display: flex; align-items: center; gap: 14px;
-  background: var(--dark); color: var(--on-dark); border-radius: var(--r-card); padding: 11px 18px; box-shadow: var(--sh-card); }
-.ladder .mk { width: 8px; height: 8px; border-radius: 50%; background: var(--ac-glow); flex: 0 0 auto; }
-.ladder p { margin: 0; font-size: 12.5px; line-height: 1.4; color: #C9C9CE; }
-.ladder p b { color: var(--on-dark); font-weight: 600; }
-.ladder .steps { margin-left: auto; display: flex; align-items: center; gap: 7px; flex: 0 0 auto; }
-.ladder .st { font-family: var(--mono); font-size: 8.5px; letter-spacing: .05em; text-transform: uppercase; color: #9A9AA0;
-  border: 1px solid #3A3A3E; border-radius: 6px; padding: 3px 8px; white-space: nowrap; }
-.ladder .st.on { color: var(--ac-glow); border-color: var(--ac); }
-.ladder .st.next { color: var(--on-dark); border-color: #5A5A5E; border-style: dashed; }
-.ladder .ar { color: #5A5A5E; font-size: 10px; }
+.rise { opacity: 0; animation: fin .5s ease forwards; }
+.rise.a{animation-delay:.1s}
+.pil.rise:nth-child(1){animation-delay:.3s}.pil.rise:nth-child(2){animation-delay:.46s}.pil.rise:nth-child(3){animation-delay:.62s}
+.ladder-line.rise{animation-delay:.8s}
+@media (prefers-reduced-motion: reduce){ .rise { opacity: 1; animation: none; } }
 </style>
 </head>
 <body>
 <div class="deck">
 <section class="slide">
   <div class="stage">
-    <div class="titlebar">
-      <span class="tl"><i></i><i></i><i></i></span>
-      <span class="tb-label">why trust us &middot; the enterprise bar</span>
-      <span class="tb-right"><b>08</b> / 11</span>
-    </div>
-    <div class="canvas">
-      <div class="r head" style="margin-bottom:12px">
-        <span class="eyebrow"><span class="dot"></span>why trust us</span>
-        <h2>Enterprises don't trust vendors. <em>They trust proof — and people who've sat in their seat.</em></h2>
-        <p class="sub">We're seed-stage, enterprise-only, so we earn trust the way enterprises give it: <b>prove it on their data, put named leaders on the line, and be the team that has already survived procurement — from the inside.</b></p>
-      </div>
+    <div class="canvas pitch col">
+      <span class="eyebrow rise a"><span class="dot"></span>why trust us</span>
+      <h2 class="rise a" style="margin-top:16px; margin-bottom:0">Enterprises don't trust vendors. <em>They trust proof — and people who've sat in their seat.</em></h2>
 
-      <div class="r tr3">
-        <!-- 1 · proves itself -->
-        <div class="card tc">
-          <div class="thd">
-            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="var(--ac)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12 l5 5 L20 6"/></svg></span>
-            <div><b>It proves itself</b><span>product risk</span></div>
-          </div>
-          <div class="tbody">
-            <ul>
-              <li>Backtest on <b>your own 12 months</b> — read-only, in your VPC</li>
-              <li>You grade it on <b>outcomes you already know</b></li>
-              <li>Governed by design — <b>deletable on exit</b></li>
-            </ul>
-            <div class="tkill"><span class="x">risk killed</span><b>&ldquo;does it actually work?&rdquo;</b></div>
-          </div>
+      <div class="pillars">
+        <div class="pil rise">
+          <h3>It proves itself</h3>
+          <div class="kills">kills &ldquo;does it actually work?&rdquo;</div>
+          <ul>
+            <li>Backtest on <b>your own 12 months</b>, read-only in your VPC</li>
+            <li>You grade it on <b>outcomes you already know</b></li>
+            <li>Governed by design — <b>deletable on exit</b></li>
+          </ul>
         </div>
-
-        <!-- 2 · champions -->
-        <div class="card tc">
-          <div class="thd">
-            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="var(--ac)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 l2.5 5 5.5 .8-4 4 1 5.4L12 20l-5 2.6 1-5.4-4-4 5.5-.8z"/></svg></span>
-            <div><b>Champions vouch</b><span>demand risk</span></div>
-          </div>
-          <div class="tbody">
-            <ul>
-              <li><b>10 supply-chain leaders</b> — not a logo wall, your reference calls</li>
-              <li>They <b>clear IT / security</b> and sponsor the pilot</li>
-              <div class="logos">
-                <img src="../assets/logos/blueyonder.svg" alt="Blue Yonder"/>
-                <img src="../assets/logos/google.svg" alt="Google"/>
-                <img src="../assets/logos/amd.svg" alt="AMD"/>
-                <img src="../assets/logos/jabil.svg" alt="Jabil"/>
-                <img src="../assets/logos/sanmina.svg" alt="Sanmina"/>
-              </div>
-              <li>Converting <b>champion &#8594; paid design partner</b></li>
-            </ul>
-            <div class="tkill"><span class="x">risk killed</span><b>&ldquo;will enterprises adopt?&rdquo;</b></div>
-          </div>
+        <div class="pil rise">
+          <h3>Champions vouch</h3>
+          <div class="kills">kills &ldquo;will enterprises adopt?&rdquo;</div>
+          <ul>
+            <li><b>10 named supply-chain leaders</b> — Blue Yonder, Google, AMD, Jabil, Sanmina</li>
+            <li>They <b>clear IT / security</b> and sponsor the pilot</li>
+            <li>Converting champion &#8594; <b>paid design partner</b></li>
+          </ul>
         </div>
-
-        <!-- 3 · founder-market fit -->
-        <div class="card tc">
-          <div class="thd">
-            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="var(--ac)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg></span>
-            <div><b>We were the buyer</b><span>go-to-market risk</span></div>
-          </div>
-          <div class="tbody">
-            <ul>
-              <li><b>Sridhar</b> — 30+ yrs ops at GE, ran these war rooms</li>
-              <li><b>Anup</b> — 2 B2B exits, enterprise channel GTM</li>
-              <li><b>Arun</b> — PhD AI, ships production agent systems</li>
-            </ul>
-            <div class="tkill"><span class="x">risk killed</span><b>&ldquo;can they sell to enterprise?&rdquo;</b></div>
-          </div>
+        <div class="pil rise">
+          <h3>We were the buyer</h3>
+          <div class="kills">kills &ldquo;can they sell to enterprise?&rdquo;</div>
+          <ul>
+            <li><b>Sridhar</b> — 30+ yrs ops at GE, ran these war rooms</li>
+            <li><b>Anup</b> — 2 B2B exits, enterprise channel GTM</li>
+            <li><b>Arun</b> — PhD AI, ships production agent systems</li>
+          </ul>
         </div>
       </div>
 
-      <div class="r ladder">
-        <span class="mk"></span>
-        <p>The pilot's real job: turn a champion into a <b>paid design partner who'll say, on the record, &ldquo;this works.&rdquo;</b> That's the proof that earns the Series A.</p>
-        <div class="steps">
-          <span class="st on">advisor</span><span class="ar">&#8594;</span>
-          <span class="st on">champion</span><span class="ar">&#8594;</span>
-          <span class="st next">design partner</span><span class="ar">&#8594;</span>
-          <span class="st">customer</span>
-        </div>
+      <div class="ladder-line rise">
+        <p>The pilot turns a champion into a <b>paid design partner who says, on the record, &ldquo;this works.&rdquo;</b> That's the proof that earns the Series A.</p>
+        <span class="rung">advisor &#8594; champion &#8594; <b>design partner</b> &#8594; customer</span>
       </div>
     </div>
   </div>
