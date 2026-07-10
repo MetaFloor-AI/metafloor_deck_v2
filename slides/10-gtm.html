@@ -21,24 +21,18 @@
 .mstep p b { color: var(--text); font-weight: 650; }
 .mstep .ar { position: absolute; right: -14px; top: 50%; transform: translateY(-50%); z-index: 3; font-family: var(--mono); font-size: 18px; color: var(--ac); }
 
-.benchhead { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; margin: 22px 0 14px; }
-.benchhead .bl { font-family: var(--mono); font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: var(--text-faint); }
-.legend { display: flex; gap: 20px; font-size: 12.5px; color: var(--text-dim); }
-.legend .lg { display: inline-flex; align-items: center; gap: 7px; }
-.legend .lg .d { width: 9px; height: 9px; border-radius: 50%; }
-.legend .lg .d.champ { background: var(--ac); } .legend .lg .d.exp { background: var(--text-faint); }
-.legend .lg b { color: var(--text); font-weight: 650; }
+.benchhead { display: flex; align-items: baseline; gap: 13px; margin: 22px 0 0; }
+.benchhead .bl { font-family: var(--mono); font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--ac); font-weight: 600; }
+.benchhead .bl-note { font-size: 13.5px; color: var(--text-dim); }
 
-.wall { display: grid; grid-template-columns: repeat(5,1fr); gap: 16px 22px; }
-.vet { display: flex; flex-direction: column; gap: 3px; padding: 11px 12px; border-radius: 9px; position: relative;
-  border: 1px solid transparent; border-top-color: var(--hairline); }
-.vet.champ { background: var(--ac-fill); border: 1px solid var(--ac-bd); }
-.vet .d { position: absolute; right: 11px; top: 12px; width: 8px; height: 8px; border-radius: 50%; }
-.vet .d.champ { background: var(--ac); } .vet .d.exp { background: var(--text-faint); }
-.vet .logo { height: 22px; display: flex; align-items: center; margin-bottom: 4px; }
-.vet .logo img { max-height: 20px; max-width: 96px; width: auto; object-fit: contain; opacity: .82; filter: grayscale(100%); }
-.vet .nm { font-size: 14px; font-weight: 650; color: var(--text); letter-spacing: -0.01em; }
-.vet .rl { font-size: 11.5px; color: var(--text-dim); line-height: 1.25; }
+.wall { display: grid; grid-template-columns: repeat(5,1fr); gap: 17px 26px; align-items: start;
+  background: var(--dark); border-radius: 16px; padding: 22px 26px; margin-top: 13px; }
+.vet { display: flex; flex-direction: column; gap: 3px; }
+.vet .logo { height: 20px; display: flex; align-items: center; margin-bottom: 6px; }
+.vet .logo img { max-height: 18px; max-width: 92px; width: auto; object-fit: contain; opacity: .92;
+  filter: grayscale(100%) brightness(0) invert(1); }
+.vet .nm { font-size: 14px; font-weight: 650; color: #fff; letter-spacing: -0.01em; }
+.vet .rl { font-size: 11.5px; color: #A9ADB5; line-height: 1.25; }
 @keyframes fin { to { opacity: 1; } }
 .rise { opacity: 0; animation: fin .5s ease forwards; }
 .rise.a{animation-delay:.08s}.rise.b{animation-delay:.22s}.rise.c{animation-delay:.36s}.rise.d{animation-delay:.5s}
@@ -72,23 +66,20 @@
       </div>
 
       <div class="benchhead rise c">
-        <span class="bl">the bench &middot; 10 supply-chain leaders driving MVP adoption</span>
-        <span class="legend">
-          <span class="lg"><span class="d champ"></span><b>Champions</b> — open the door, win the pilot</span>
-          <span class="lg"><span class="d exp"></span><b>Experts</b> — vouch the problem</span>
-        </span>
+        <span class="bl">our champions</span>
+        <span class="bl-note">10 supply-chain leaders who open the door &amp; win the pilot</span>
       </div>
       <div class="wall rise d">
-        <div class="vet champ"><span class="d champ"></span><span class="logo"><img src="../assets/logos/blueyonder.svg" alt="Blue Yonder"/></span><span class="nm">Sudarshan Seshadri</span><span class="rl">Corporate VP, Blue Yonder</span></div>
-        <div class="vet"><span class="d exp"></span><span class="logo"><img src="../assets/logos/google.svg" alt="Google"/></span><span class="nm">Supriya Iyer</span><span class="rl">Dir. Global Supply Chain, Google</span></div>
-        <div class="vet champ"><span class="d champ"></span><span class="logo"><img src="../assets/logos/amd.svg" alt="AMD"/></span><span class="nm">Prem Jain</span><span class="rl">Sr. VP &amp; GM, AMD &middot; ex-Cisco</span></div>
-        <div class="vet"><span class="d exp"></span><span class="logo"><img src="../assets/logos/netapp.svg" alt="NetApp"/></span><span class="nm">Mondher Ben-Hamida</span><span class="rl">VP Global Supply Chain, NetApp</span></div>
-        <div class="vet champ"><span class="d champ"></span><span class="logo"><img src="../assets/logos/gevernova.svg" alt="GE Vernova"/></span><span class="nm">Prakash Seshadri</span><span class="rl">Chief Digital Tech Officer, GE Vernova</span></div>
-        <div class="vet champ"><span class="d champ"></span><span class="logo"><img src="../assets/logos/juniper.svg" alt="Juniper"/></span><span class="nm">Mitch Haynes</span><span class="rl">VP Supply Chain, Juniper</span></div>
-        <div class="vet"><span class="d exp"></span><span class="logo"><img src="../assets/logos/astrazeneca.svg" alt="AstraZeneca"/></span><span class="nm">Arun Krishnan</span><span class="rl">Sr. VP Supply Chain, AstraZeneca</span></div>
-        <div class="vet"><span class="d exp"></span><span class="logo"><img src="../assets/logos/sanmina.svg" alt="Sanmina"/></span><span class="nm">Sundar Kamath</span><span class="rl">Sr. VP, Sanmina</span></div>
-        <div class="vet"><span class="d exp"></span><span class="logo"><img src="../assets/logos/jabil.svg" alt="Jabil"/></span><span class="nm">Cassie Gruber</span><span class="rl">Dir. Sustainability, Jabil</span></div>
-        <div class="vet"><span class="d exp"></span><span class="logo"><img src="../assets/logos/microchip.svg" alt="Microchip"/></span><span class="nm">Daniel Jackson</span><span class="rl">Dir. Supply Chain, Microchip</span></div>
+        <div class="vet"><span class="logo"><img src="../assets/logos/blueyonder.svg" alt="Blue Yonder"/></span><span class="nm">Sudarshan Seshadri</span><span class="rl">Corporate VP, Blue Yonder</span></div>
+        <div class="vet"><span class="logo"><img src="../assets/logos/google.svg" alt="Google"/></span><span class="nm">Supriya Iyer</span><span class="rl">Dir. Global Supply Chain, Google</span></div>
+        <div class="vet"><span class="logo"><img src="../assets/logos/amd.svg" alt="AMD"/></span><span class="nm">Prem Jain</span><span class="rl">Sr. VP &amp; GM, AMD &middot; ex-Cisco</span></div>
+        <div class="vet"><span class="logo"><img src="../assets/logos/netapp.svg" alt="NetApp"/></span><span class="nm">Mondher Ben-Hamida</span><span class="rl">VP Global Supply Chain, NetApp</span></div>
+        <div class="vet"><span class="logo"><img src="../assets/logos/gevernova.svg" alt="GE Vernova"/></span><span class="nm">Prakash Seshadri</span><span class="rl">Chief Digital Tech Officer, GE Vernova</span></div>
+        <div class="vet"><span class="logo"><img src="../assets/logos/juniper.svg" alt="Juniper"/></span><span class="nm">Mitch Haynes</span><span class="rl">VP Supply Chain, Juniper</span></div>
+        <div class="vet"><span class="logo"><img src="../assets/logos/astrazeneca.svg" alt="AstraZeneca"/></span><span class="nm">Arun Krishnan</span><span class="rl">Sr. VP Supply Chain, AstraZeneca</span></div>
+        <div class="vet"><span class="logo"><img src="../assets/logos/sanmina.svg" alt="Sanmina"/></span><span class="nm">Sundar Kamath</span><span class="rl">Sr. VP, Sanmina</span></div>
+        <div class="vet"><span class="logo"><img src="../assets/logos/jabil.svg" alt="Jabil"/></span><span class="nm">Cassie Gruber</span><span class="rl">Dir. Sustainability, Jabil</span></div>
+        <div class="vet"><span class="logo"><img src="../assets/logos/microchip.svg" alt="Microchip"/></span><span class="nm">Daniel Jackson</span><span class="rl">Dir. Supply Chain, Microchip</span></div>
       </div>
     </div>
   </div>

@@ -21,20 +21,22 @@
 .cv .oneline { font-size: 22px; color: var(--text); font-weight: 700; letter-spacing: -0.02em; margin-top: 18px; }
 .cv .oneline em { color: var(--ac); }
 
-.mf-blocks { display: grid; grid-template-columns: repeat(3,1fr); gap: 34px; margin-top: 26px; }
-.mf-block { border: 1px solid var(--hairline); border-radius: 12px; padding: 16px 18px; background: var(--surface);
-  border-top: 2px solid var(--ac-bd); position: relative; }
+.mf-blocks { display: grid; grid-template-columns: repeat(3,1fr); gap: 34px; margin-top: 28px; }
+.mf-block { border: 1px solid var(--hairline); border-radius: 15px; padding: 20px 20px 18px;
+  background: linear-gradient(180deg, var(--surface) 0%, var(--paper) 90%); box-shadow: var(--sh-card); position: relative; }
 .mf-block .ba { position: absolute; right: -27px; top: 50%; transform: translateY(-50%); z-index: 3;
   font-family: var(--mono); font-size: 20px; font-weight: 600; color: var(--ac); }
 .mf-block .ba span { display: inline-block; animation: chev 1.5s ease-in-out infinite; }
 .mf-block .ba span:nth-child(2) { animation-delay: .18s; margin-left: -5px; }
 @keyframes chev { 0%,100% { opacity: .35; transform: translateX(0); } 50% { opacity: 1; transform: translateX(3px); } }
 @media (prefers-reduced-motion: reduce){ .mf-block .ba span { animation: none; opacity: .7; } }
-.mf-block .step { display: flex; align-items: center; gap: 9px; margin-bottom: 8px; }
-.mf-block .step .b { width: 22px; height: 22px; border-radius: 6px; background: var(--ac-soft); border: 1px solid var(--ac-bd);
-  color: var(--ac-ink); font-family: var(--mono); font-size: 11px; font-weight: 600; display: inline-flex; align-items: center; justify-content: center; }
-.mf-block .step h4 { font-size: 16px; font-weight: 650; letter-spacing: -0.01em; color: var(--text); margin: 0; }
-.mf-block p { font-size: 13px; color: var(--text-dim); line-height: 1.4; }
+.mf-icon { width: 42px; height: 42px; border-radius: 12px; background: var(--ac-soft); border: 1px solid var(--ac-bd);
+  display: grid; place-items: center; margin-bottom: 15px; }
+.mf-icon svg { width: 22px; height: 22px; fill: none; stroke: var(--ac-ink); stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+.mf-block h4 { font-size: 18px; font-weight: 700; letter-spacing: -0.015em; color: var(--text); margin: 0;
+  display: flex; align-items: baseline; gap: 9px; }
+.mf-block h4 .num { font-family: var(--mono); font-size: 11px; color: var(--ac); font-weight: 600; }
+.mf-block p { font-size: 13.5px; color: var(--text-dim); line-height: 1.44; margin-top: 8px; }
 
 .cv-foot { margin-top: auto; display: flex; align-items: flex-end; justify-content: space-between; gap: 20px; padding-top: 22px; }
 .cv-foot .who .n { font-size: 14px; color: var(--text); font-weight: 600; }
@@ -59,20 +61,23 @@
         </div>
         <span class="cv-eyebrow ci d2">The decision layer for supply chain</span>
         <h1 class="ci d3">Million-dollar calls, made in a panic —<br/><em>then forgotten.</em></h1>
-        <p class="oneline ci d4">It holds every fact your company forgets &mdash; and <em>never loses a decision.</em></p>
+        <p class="oneline ci d4">MetaFloor holds every fact your company forgets &mdash; and <em>never loses a decision.</em></p>
         <div class="mf-blocks">
           <div class="mf-block ci d5">
-            <div class="step"><span class="b">1</span><h4>Capture</h4></div>
+            <div class="mf-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></div>
+            <h4><span class="num">01</span>Capture</h4>
             <p>Learns how work gets done across the apps you already use.</p>
             <span class="ba"><span>&rsaquo;</span><span>&rsaquo;</span></span>
           </div>
           <div class="mf-block ci d5">
-            <div class="step"><span class="b">2</span><h4>Govern</h4></div>
+            <div class="mf-icon"><svg viewBox="0 0 24 24"><path d="M12 3l7 2.6v5.4c0 4.4-3 7.5-7 9-4-1.5-7-4.6-7-9V5.6L12 3z"/><path d="M9.2 12l2 2 3.6-3.9"/></svg></div>
+            <h4><span class="num">02</span>Govern</h4>
             <p>Every fact kept with its provenance. You own all of it.</p>
             <span class="ba"><span>&rsaquo;</span><span>&rsaquo;</span></span>
           </div>
           <div class="mf-block ci d6">
-            <div class="step"><span class="b">3</span><h4>Act</h4></div>
+            <div class="mf-icon"><svg viewBox="0 0 24 24"><path d="M13 2.5L4.5 13.5H10l-1 8 8.5-11.5H12l1-7.5z"/></svg></div>
+            <h4><span class="num">03</span>Act</h4>
             <p>Agents do the work; a person signs off before anything ships.</p>
           </div>
         </div>

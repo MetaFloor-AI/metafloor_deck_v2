@@ -3,150 +3,116 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>MetaFloor — The Field (Appendix)</title>
+<title>MetaFloor — The Field</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="../theme.css"/>
 <style>
-.matrix { flex: 1; min-height: 0; display: flex; flex-direction: column; border: 1px solid var(--hairline);
-  border-radius: var(--r-card); overflow: hidden; box-shadow: var(--sh-card); background: var(--paper); }
-.mrow { display: grid; grid-template-columns: 2.5fr 1fr 1fr 1fr 1fr; align-items: stretch;
-  border-bottom: 1px solid var(--hairline); flex: 1; min-height: 0; }
-.mrow:last-child { border-bottom: none; }
-.mrow.head { flex: 0 0 auto; background: var(--surface-2); }
-.mrow.mf { background: var(--ac-fill); }
-.mcell { display: flex; flex-direction: column; justify-content: center; gap: 2px; padding: 9px 14px;
-  border-right: 1px solid var(--hairline); min-width: 0; }
-.mcell:last-child { border-right: none; }
-.mcell.cap { align-items: center; justify-content: center; }
+.fsub { font-size: 15px; color: var(--text-dim); line-height: 1.4; max-width: 96ch; margin-top: 8px; }
+.fsub b { color: var(--text); font-weight: 650; } .fsub em { color: var(--ac); font-style: normal; font-weight: 650; }
 
-/* header labels */
-.mrow.head .mcell { padding: 8px 14px; }
-.hcap { font-family: var(--mono); font-size: 8.5px; letter-spacing: .09em; text-transform: uppercase; color: var(--text-dim); font-weight: 500; text-align: center; line-height: 1.25; }
-.hlabel { font-family: var(--mono); font-size: 8.5px; letter-spacing: .12em; text-transform: uppercase; color: var(--text-faint); }
+.cmp-grid { display: grid; grid-template-columns: 2.5fr repeat(4, 1fr); border: 1px solid var(--hairline);
+  border-radius: 12px; overflow: hidden; background: var(--surface); margin-top: 14px; }
+.cmp-grid > * { border-bottom: 1px solid var(--hairline); border-right: 1px solid var(--hairline);
+  display: flex; align-items: center; padding: 7px 14px; min-width: 0; }
+.cmp-grid > .c4 { border-right: none; }
+.cmp-h { background: var(--surface-2); border-bottom: 1px solid var(--hairline-2); }
+.cmp-h .ph-n { font-family: var(--mono); font-size: 10px; letter-spacing: .05em; text-transform: uppercase; color: var(--text); font-weight: 600; line-height: 1.18; }
+.cmp-h .ph-s { font-family: var(--mono); font-size: 8px; color: var(--text-faint); display: block; margin-top: 2px; text-transform: none; letter-spacing: 0; }
+.cmp-h.lead { flex-direction: column; align-items: flex-start; justify-content: center; gap: 1px; }
+.cmp-ph { flex-direction: column; align-items: center; text-align: center; gap: 2px; }
+.lab { flex-direction: column; align-items: flex-start; justify-content: center; gap: 2px; }
+.lab .ln { font-family: var(--mono); font-size: 10px; color: var(--text-dim); letter-spacing: .01em; line-height: 1.2; }
+.lab .nm { font-family: var(--font); font-weight: 600; font-size: 13px; color: var(--text); line-height: 1.1; letter-spacing: -0.01em; }
+.lab .nm .ac { color: var(--ac-ink); }
+.cell { justify-content: center; }
+.mk { width: 20px; height: 20px; border-radius: 50%; display: grid; place-items: center;
+  font-family: var(--mono); font-weight: 600; font-size: 11px; line-height: 1; }
+.mk.full { background: var(--ac); color: #fff; }
+.mk.part { background: var(--ac-soft); color: var(--ac-ink); border: 1px solid var(--ac-bd); }
+.mk.none { color: var(--text-faint); font-weight: 400; font-size: 13px; }
+.us > * { background: var(--ac-fill); border-bottom: none; border-top: 1px solid var(--ac-bd); }
+.us .lab .ln { font-family: var(--font); font-weight: 700; font-size: 13.5px; color: var(--ac-ink); }
+.us .lab .nm { font-family: var(--mono); font-weight: 400; font-size: 9px; color: var(--text-dim); line-height: 1.2; }
+.us .mk.full { box-shadow: 0 0 0 3px var(--ac-soft); }
 
-/* label cell */
-.lab b { font-size: 13px; font-weight: 650; color: var(--text); line-height: 1.2; }
-.mrow.mf .lab b { color: var(--ac-ink); }
-.lab .names { font-family: var(--mono); font-size: 8.5px; letter-spacing: .01em; color: var(--text-faint); line-height: 1.3; }
-.lab .verdict { font-size: 10.5px; color: var(--text-dim); line-height: 1.3; margin-top: 1px; }
-.mrow.mf .lab .verdict { color: var(--ac-ink); }
-.lab .verdict b { color: var(--text); font-weight: 600; }
-.mrow.mf .lab .verdict b { color: var(--ac-ink); }
-
-/* capability dots */
-.dot3 { width: 15px; height: 15px; border-radius: 50%; display: grid; place-items: center; }
-.dot3.on { background: var(--ac); box-shadow: 0 0 0 3px var(--ac-soft); }
-.dot3.on::after { content: ""; width: 5px; height: 8px; border: 2px solid var(--ac-on); border-top: 0; border-left: 0; transform: translateY(-1px) rotate(40deg); }
-.dot3.half { background: var(--paper); border: 1.6px solid var(--ac-bd); position: relative; overflow: hidden; }
-.dot3.half::after { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 50%; background: var(--ac-soft); }
-.dot3.off { background: var(--paper); border: 1.6px solid var(--hairline-2); }
-.dot3.off::after { content: ""; width: 7px; height: 1.6px; background: var(--hairline-2); }
-
-/* advisor band */
-.bench { margin-top: 12px; flex: 0 0 auto; display: flex; align-items: center; gap: 14px;
-  background: var(--dark); border-radius: var(--r-card); padding: 10px 16px; box-shadow: var(--sh-card); }
-.bench .lead { flex: 0 0 auto; max-width: 20ch; }
-.bench .lead b { color: var(--on-dark); font-size: 12px; font-weight: 650; line-height: 1.25; display: block; }
-.bench .lead span { font-family: var(--mono); font-size: 8px; letter-spacing: .1em; text-transform: uppercase; color: var(--ac-glow); }
-.bench .who { display: flex; gap: 8px; flex: 1; justify-content: space-between; }
-.bench .v-lb { font-family: var(--mono); font-size: 9px; letter-spacing: .14em; text-transform: uppercase; color: var(--ac-glow); flex: 0 0 auto; }
-.bench .verdict { font-size: 16px; color: var(--on-dark); line-height: 1.35; }
-.bench .verdict b { color: #fff; font-weight: 650; }
-.adv { display: flex; align-items: center; gap: 7px; min-width: 0; }
-.adv .lg { flex: 0 0 auto; height: 14px; display: flex; align-items: center; }
-.adv .lg img { height: 100%; width: auto; max-width: 46px; object-fit: contain; filter: grayscale(1) brightness(2.2); opacity: .85; }
-.adv .tx { min-width: 0; }
-.adv .tx b { display: block; font-size: 9.5px; font-weight: 600; color: var(--on-dark); line-height: 1.15; white-space: nowrap; }
-.adv .tx span { display: block; font-size: 7.5px; color: #9A9AA0; line-height: 1.2; white-space: nowrap; }
+.cmp-foot { display: flex; margin-top: 13px; border: 1px solid var(--hairline); border-radius: 12px; background: var(--surface); overflow: hidden; }
+.fcell { flex: 1; min-width: 0; padding: 12px 20px; display: flex; flex-direction: column; gap: 6px; }
+.fcell + .fcell { border-left: 1px solid var(--hairline); }
+.fcell.leg { flex: 0 0 auto; }
+.leg-row { display: flex; align-items: center; gap: 14px; }
+.leg-row .lg { display: inline-flex; align-items: center; gap: 6px; font-family: var(--mono); font-size: 10px; color: var(--text-dim); }
+.fcell .wt { font-family: var(--mono); font-size: 9px; letter-spacing: .1em; text-transform: uppercase; color: var(--text-faint); }
+.fcell .wb { font-size: 12.5px; color: var(--text-dim); line-height: 1.35; }
+.fcell .wb b { color: var(--text); font-weight: 600; } .fcell .wb .ac { color: var(--ac-ink); font-weight: 600; }
+.verdict-line { margin-top: 12px; font-family: var(--mono); font-size: 11.5px; letter-spacing: .02em; color: var(--text-faint); }
+.verdict-line b { color: var(--text); font-weight: 600; } .verdict-line .ac { color: var(--ac); font-weight: 600; }
+@keyframes fin { to { opacity: 1; } }
+.rise { opacity: 0; animation: fin .5s ease forwards; }
+.rise.a{animation-delay:.08s}.rise.b{animation-delay:.24s}.rise.c{animation-delay:.4s}
+@media (prefers-reduced-motion: reduce){ .rise { opacity: 1; animation: none; } }
 </style>
 </head>
 <body>
 <div class="deck">
 <section class="slide">
   <div class="stage">
-    <div class="titlebar">
-      <span class="tl"><i></i><i></i><i></i></span>
-      <span class="tb-label">appendix &middot; the field</span>
-      <span class="tb-right">APPENDIX &middot; <b>B2</b></span>
-    </div>
-    <div class="canvas">
-      <div class="r head" style="margin-bottom:12px">
-        <span class="eyebrow"><span class="dot"></span>the field</span>
-        <h2>Everyone owns one slice. <em>We run the whole decision.</em></h2>
-        <p class="sub">Planning suites plan. Risk tools alert. Horizontal AI has no vertical workflow.
-          <b>The decision layer — watch, assemble, execute, compound — is empty.</b></p>
+    <div class="canvas col" style="padding:36px 48px 28px;">
+      <span class="eyebrow rise a"><span class="dot"></span>the field &middot; who else</span>
+      <h2 class="rise a" style="font-size:32px; letter-spacing:-0.03em; margin-top:10px;">Everyone holds two. <em>We hold four.</em></h2>
+      <p class="fsub rise a">The category is real and funded — so the moat isn't "nobody's here." It's the <b>one quadrant no funded player holds at once:</b>
+        <em>active capture &times; governed memory &times; an accountable acting fleet &times; vertical depth.</em></p>
+
+      <div class="cmp-grid rise b">
+        <div class="cmp-h lead"><span class="ph-n">The lane &amp; who's in it</span><span class="ph-s">credible / funded players</span></div>
+        <div class="cmp-h cmp-ph"><span class="ph-n">Active capture</span><span class="ph-s">elicit the unwritten</span></div>
+        <div class="cmp-h cmp-ph"><span class="ph-n">Governed memory</span><span class="ph-s">provenance &middot; decay</span></div>
+        <div class="cmp-h cmp-ph"><span class="ph-n">Accountable fleet</span><span class="ph-s">act &middot; approve &middot; audit</span></div>
+        <div class="cmp-h cmp-ph c4"><span class="ph-n">Vertical depth</span><span class="ph-s">supply-chain grade</span></div>
+
+        <div class="lab"><span class="ln">Planning suites</span><span class="nm">o9 &middot; Kinaxis &middot; Blue Yonder</span></div>
+        <div class="cell"><span class="mk none">&ndash;</span></div><div class="cell"><span class="mk part">~</span></div><div class="cell"><span class="mk none">&ndash;</span></div><div class="cell c4"><span class="mk part">~</span></div>
+
+        <div class="lab"><span class="ln">SC risk &amp; visibility</span><span class="nm">Everstream &middot; Resilinc &middot; Interos</span></div>
+        <div class="cell"><span class="mk part">~</span></div><div class="cell"><span class="mk none">&ndash;</span></div><div class="cell"><span class="mk none">&ndash;</span></div><div class="cell c4"><span class="mk part">~</span></div>
+
+        <div class="lab"><span class="ln">Horizontal AI / copilots</span><span class="nm">Glean &middot; M365 Copilot &middot; Palantir</span></div>
+        <div class="cell"><span class="mk none">&ndash;</span></div><div class="cell"><span class="mk part">~</span></div><div class="cell"><span class="mk full">&check;</span></div><div class="cell c4"><span class="mk none">&ndash;</span></div>
+
+        <div class="lab"><span class="ln">Agent builders &amp; CX</span><span class="nm">Sierra &middot; Agentforce &middot; ServiceNow</span></div>
+        <div class="cell"><span class="mk none">&ndash;</span></div><div class="cell"><span class="mk none">&ndash;</span></div><div class="cell"><span class="mk full">&check;</span></div><div class="cell c4"><span class="mk part">~</span></div>
+
+        <div class="lab"><span class="ln">Knowledge management</span><span class="nm">Guru &middot; Notion &middot; Starmind</span></div>
+        <div class="cell"><span class="mk part">~</span></div><div class="cell"><span class="mk none">&ndash;</span></div><div class="cell"><span class="mk none">&ndash;</span></div><div class="cell c4"><span class="mk none">&ndash;</span></div>
+
+        <div class="lab"><span class="ln">Direct thesis-twins <span style="color:var(--ac-ink);font-weight:700">&larr; closest</span></span><span class="nm"><span class="ac">Sentra &middot; Augment &middot; bluefabric</span></span></div>
+        <div class="cell"><span class="mk full">&check;</span></div><div class="cell"><span class="mk part">~</span></div><div class="cell"><span class="mk part">~</span></div><div class="cell c4"><span class="mk part">~</span></div>
+
+        <div class="us lab"><span class="ln">MetaFloor</span><span class="nm">active capture &times; governed memory &times; acting fleet &times; one vertical, deep</span></div>
+        <div class="us cell"><span class="mk full">&check;</span></div><div class="us cell"><span class="mk full">&check;</span></div><div class="us cell"><span class="mk full">&check;</span></div><div class="us cell c4"><span class="mk full">&check;</span></div>
       </div>
 
-      <div class="r matrix">
-        <!-- header -->
-        <div class="mrow head">
-          <div class="mcell"><span class="hlabel">category &middot; who plays</span></div>
-          <div class="mcell cap"><span class="hcap">Watch<br/>signals</span></div>
-          <div class="mcell cap"><span class="hcap">Assemble<br/>the decision</span></div>
-          <div class="mcell cap"><span class="hcap">Execute<br/>w/ approval</span></div>
-          <div class="mcell cap"><span class="hcap">Compounds<br/>on memory</span></div>
-        </div>
-
-        <!-- planning suites -->
-        <div class="mrow">
-          <div class="mcell lab">
-            <b>Planning suites</b>
-            <span class="names">o9 &middot; Kinaxis &middot; Blue Yonder &middot; SAP IBP</span>
-            <span class="verdict">plan the network — <b>don't execute the decision</b></span>
+      <div class="cmp-foot rise c">
+        <div class="fcell leg">
+          <span class="wt">how to read</span>
+          <div class="leg-row">
+            <span class="lg"><span class="mk full" style="width:15px;height:15px;font-size:9px">&check;</span> holds</span>
+            <span class="lg"><span class="mk part" style="width:15px;height:15px;font-size:9px">~</span> partial</span>
+            <span class="lg"><span class="mk none" style="width:15px;height:15px">&ndash;</span> missing</span>
           </div>
-          <div class="mcell cap"><span class="dot3 half"></span></div>
-          <div class="mcell cap"><span class="dot3 half"></span></div>
-          <div class="mcell cap"><span class="dot3 off"></span></div>
-          <div class="mcell cap"><span class="dot3 off"></span></div>
         </div>
-
-        <!-- risk visibility -->
-        <div class="mrow">
-          <div class="mcell lab">
-            <b>Risk visibility</b>
-            <span class="names">Everstream &middot; Resilinc &middot; Interos &middot; Prewave</span>
-            <span class="verdict">alert on disruption — <b>don't decide the response</b></span>
-          </div>
-          <div class="mcell cap"><span class="dot3 on"></span></div>
-          <div class="mcell cap"><span class="dot3 off"></span></div>
-          <div class="mcell cap"><span class="dot3 off"></span></div>
-          <div class="mcell cap"><span class="dot3 off"></span></div>
+        <div class="fcell">
+          <span class="wt">the closest two</span>
+          <div class="wb"><b class="ac">Sentra</b> — no accountable acting fleet. <b class="ac">Augment</b> — freight-only depth. They miss on opposite axes.</div>
         </div>
-
-        <!-- horizontal AI -->
-        <div class="mrow">
-          <div class="mcell lab">
-            <b>Horizontal AI</b>
-            <span class="names">Copilot &middot; Palantir &middot; generic agents</span>
-            <span class="verdict">general reasoning — <b>no vertical workflow, no precedent corpus</b></span>
-          </div>
-          <div class="mcell cap"><span class="dot3 half"></span></div>
-          <div class="mcell cap"><span class="dot3 half"></span></div>
-          <div class="mcell cap"><span class="dot3 off"></span></div>
-          <div class="mcell cap"><span class="dot3 off"></span></div>
-        </div>
-
-        <!-- metafloor -->
-        <div class="mrow mf">
-          <div class="mcell lab">
-            <b>MetaFloor</b>
-            <span class="names">the decision layer on top of the stack</span>
-            <span class="verdict"><b>sits on the ERP, doesn't fight it</b></span>
-          </div>
-          <div class="mcell cap"><span class="dot3 on"></span></div>
-          <div class="mcell cap"><span class="dot3 on"></span></div>
-          <div class="mcell cap"><span class="dot3 on"></span></div>
-          <div class="mcell cap"><span class="dot3 on"></span></div>
+        <div class="fcell">
+          <span class="wt">not on this board</span>
+          <div class="wb"><b>Blue&nbsp;Yonder &middot; o9 &middot; SAP</b> — partners we sit above. <b>Zep &middot; Mem0</b> — substrate we build on.</div>
         </div>
       </div>
 
-      <!-- the verdict band -->
-      <div class="r bench">
-        <span class="v-lb">the verdict</span>
-        <div class="verdict">No funded player holds all four. <b>MetaFloor wins on the intersection — not the absence.</b></div>
-      </div>
+      <div class="verdict-line rise c">NO FUNDED PLAYER HOLDS ALL FOUR &nbsp;&middot;&nbsp; the field validates the thesis &mdash; <span class="ac">we win on the intersection, not the absence.</span></div>
     </div>
   </div>
 </section>
