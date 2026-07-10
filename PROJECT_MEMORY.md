@@ -2,6 +2,11 @@
 
 A standalone-HTML seed pitch deck. Each slide is its own file in `slides/`, a 1280×720 stage scaled by `deck.js`, themed via `<html data-theme>` (sage · ember · violet), assembled by the `index.html` iframe viewer + `slides.json` manifest. `STORY.md` is the source-of-truth narrative doc; read it before editing copy.
 
+## Publish / deploy (2026-07-09)
+- **Git remote:** `origin` → `git@github-org:MetaFloor-AI/metafloor_deck_v2.git` (public org repo, committed as `arun@metafloor.ai`). v1 remote preserved as `origin-v1` (`arunsanthakumar/metafloor-deck`).
+- **Hosting:** GitHub Pages off `master` / root. Custom domain **slides.metafloor.ai** via `CNAME` file + `.nojekyll`. DNS: a `CNAME slides → metafloor-ai.github.io` record must exist at the metafloor.ai registrar (owner action).
+- The published site is **public** — real champion names/roles + illustrative financials are exposed (founder-approved 2026-07-09).
+
 ## [P1.S2] Deck v5 — story rebuild for an UNASSUMING investor (2026-07-09, in progress)
 
 Founder verdict on v4: **too vague AND too specific** for an investor who doesn't even know supply-chain disruptions exist — opens on an insider metric ("8 people scrambling → 2 deciding") and drowns in jargon (allocation/CBAM/expedite/NRR). The PDF `~/Desktop/MetaFloor_SupplyChain_ROI_Deck.pdf` reads clearer (one grammar/slide, huge whitespace, sage restraint) but is **ungrounded** (fabricated ROI as fact) and is a *customer* deck. **Decision: steal the PDF's clarity, keep deck2's honesty, and GROUND the product story in the real `sc_v1` demos.**
