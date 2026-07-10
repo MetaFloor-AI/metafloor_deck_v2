@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="sage">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>MetaFloor — The launch desk</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="../theme.css"/>
+<style>
+.deskgrid { display: flex; flex-direction: column; flex: 1; min-height: 0; }
+.flow { display: grid; grid-template-columns: repeat(5,1fr); flex: 1; min-height: 0; align-items: stretch; margin: 8px 0; }
+.beat { padding: 20px 22px; position: relative; display: flex; flex-direction: column; justify-content: center; }
+.beat + .beat { border-left: 1px solid var(--hairline); }
+.beat .n { display: flex; align-items: center; gap: 8px; font-family: var(--mono); font-size: 10.5px;
+  letter-spacing: .12em; text-transform: uppercase; color: var(--text-faint); margin-bottom: 12px; }
+.beat .n i { width: 8px; height: 8px; border-radius: 50%; background: var(--ac-glow); flex: 0 0 auto; }
+.beat h3 { font-size: 17px; letter-spacing: -0.02em; }
+.beat p { font-size: 13.5px; color: var(--text-dim); line-height: 1.45; margin-top: 8px; }
+.beat p b { color: var(--text); font-weight: 650; }
+.beat.key h3 { color: var(--ac); }
+.beat.key .tag { font-family: var(--mono); font-size: 10px; letter-spacing: .08em; color: var(--ac-ink);
+  background: var(--ac-soft); border: 1px solid var(--ac-bd); border-radius: 5px; padding: 2px 7px; margin-top: 10px; align-self: flex-start; }
+.band { flex: 0 0 auto; display: flex; align-items: center; gap: 24px; margin-top: 16px;
+  border-top: 1px solid var(--hairline); padding-top: 18px; }
+.speed { display: inline-flex; align-items: center; gap: 12px; font-family: var(--mono); font-size: 14px; }
+.speed .fast { color: var(--ac); font-weight: 650; }
+.speed .slow { color: var(--text-faint); }
+.speed .vs { color: var(--text-faint); font-size: 11px; }
+.diff { font-size: 15px; color: var(--text); margin-left: auto; max-width: 46ch; line-height: 1.4; }
+.diff b { color: var(--ac); font-weight: 650; }
+.rise { opacity: 0; animation: rz .5s ease forwards; }
+@keyframes rz { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+.a{animation-delay:.06s}.b{animation-delay:.16s}.c{animation-delay:.26s}.d{animation-delay:.36s}.e{animation-delay:.46s}.f{animation-delay:.6s}
+@media (prefers-reduced-motion: reduce){ .rise{opacity:1;animation:none;} }
+</style>
+</head>
+<body>
+<div class="deck">
+<section class="slide">
+  <div class="stage">
+    <div class="canvas pitch col">
+      <span class="eyebrow rise a"><span class="dot"></span>proof · real &amp; running today · the launch desk &nbsp;2/3</span>
+      <h2 class="rise a">54 days to the Pixel launch. A factory line just dropped.</h2>
+      <div class="deskgrid">
+        <div class="flow">
+          <div class="beat rise b"><div class="n"><i></i>the clock</div><h3>T&#8722;54 days</h3>
+            <p>Launch date is <b>immovable.</b> Every part has to land, or the ship date slips in public.</p></div>
+          <div class="beat rise c"><div class="n"><i></i>detect</div><h3>Line 4 flatlines</h3>
+            <p>Foxconn telemetry drops. <b>Allocation risk</b> on the Tensor / LPDDR5X memory the launch needs.</p></div>
+          <div class="beat rise d"><div class="n"><i></i>assemble</div><h3>War-room package</h3>
+            <p>Reallocation options <b>priced against the launch date</b> — not against a generic cost curve.</p></div>
+          <div class="beat key rise e"><div class="n"><i></i>bridge</div><h3>The CM black hole</h3>
+            <p>VendorLink lights up the <b>contract-manufacturer</b> data nobody else can see into.</p>
+            <span class="tag">the part no one else reaches</span></div>
+          <div class="beat rise f"><div class="n"><i></i>act</div><h3>Mitigation</h3>
+            <p>Recovery approved; the countdown reads <b>"mitigation in motion."</b> Launch protected.</p></div>
+        </div>
+        <div class="band rise f">
+          <span class="speed"><span class="fast">&#9889; 4 seconds</span><span class="vs">vs</span><span class="slow">&#8987; ~2 hours by hand</span></span>
+          <span class="diff">A completely different desk — buyer, launch manager, incident commander — <b>on the same engine.</b></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</div>
+<script src="../deck.js"></script>
+</body>
+</html>

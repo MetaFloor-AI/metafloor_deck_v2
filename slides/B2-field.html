@@ -51,6 +51,9 @@
 .bench .lead b { color: var(--on-dark); font-size: 12px; font-weight: 650; line-height: 1.25; display: block; }
 .bench .lead span { font-family: var(--mono); font-size: 8px; letter-spacing: .1em; text-transform: uppercase; color: var(--ac-glow); }
 .bench .who { display: flex; gap: 8px; flex: 1; justify-content: space-between; }
+.bench .v-lb { font-family: var(--mono); font-size: 9px; letter-spacing: .14em; text-transform: uppercase; color: var(--ac-glow); flex: 0 0 auto; }
+.bench .verdict { font-size: 16px; color: var(--on-dark); line-height: 1.35; }
+.bench .verdict b { color: #fff; font-weight: 650; }
 .adv { display: flex; align-items: center; gap: 7px; min-width: 0; }
 .adv .lg { flex: 0 0 auto; height: 14px; display: flex; align-items: center; }
 .adv .lg img { height: 100%; width: auto; max-width: 46px; object-fit: contain; filter: grayscale(1) brightness(2.2); opacity: .85; }
@@ -139,19 +142,10 @@
         </div>
       </div>
 
-      <!-- advisor highlight band -->
+      <!-- the verdict band -->
       <div class="r bench">
-        <div class="lead">
-          <b>The people who run these categories sit on our bench.</b>
-          <span>advisors &amp; champions</span>
-        </div>
-        <div class="who">
-          <div class="adv"><span class="lg"><img src="../assets/logos/blueyonder.svg" alt="Blue Yonder"/></span><span class="tx"><b>Sudarshan Seshadri</b><span>Corp. VP, Blue Yonder</span></span></div>
-          <div class="adv"><span class="lg"><img src="../assets/logos/google.svg" alt="Google"/></span><span class="tx"><b>Supriya Iyer</b><span>Dir. Global SC, Google</span></span></div>
-          <div class="adv"><span class="lg"><img src="../assets/logos/jabil.svg" alt="Jabil"/></span><span class="tx"><b>Cassie Gruber</b><span>Dir. Sustainability, Jabil</span></span></div>
-          <div class="adv"><span class="lg"><img src="../assets/logos/sanmina.svg" alt="Sanmina"/></span><span class="tx"><b>Sundar Kamath</b><span>Sr. VP, Sanmina</span></span></div>
-          <div class="adv"><span class="lg"><img src="../assets/logos/amd.svg" alt="AMD"/></span><span class="tx"><b>Prem Jain</b><span>Sr. VP &amp; GM, AMD</span></span></div>
-        </div>
+        <span class="v-lb">the verdict</span>
+        <div class="verdict">No funded player holds all four. <b>MetaFloor wins on the intersection — not the absence.</b></div>
       </div>
     </div>
   </div>

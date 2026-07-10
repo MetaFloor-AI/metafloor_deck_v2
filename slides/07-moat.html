@@ -3,37 +3,41 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>MetaFloor — Full-stack AI</title>
+<title>MetaFloor — The Moat</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="../theme.css"/>
 <style>
-.mgrid { display: grid; grid-template-columns: 1.06fr .94fr; gap: 54px; align-items: center; flex: 1; min-height: 0; }
-.claim { font-size: 24px; line-height: 1.35; color: var(--text-dim); letter-spacing: -0.01em; }
-.claim b { color: var(--text); font-weight: 650; }
-.claim em { color: var(--ac); font-style: normal; font-weight: 650; }
-.mit { margin-top: 22px; padding: 16px 20px; background: var(--ac-fill); border-left: 3px solid var(--ac); border-radius: 0 var(--r-sm) var(--r-sm) 0; }
-.mit b { font-size: 17px; color: var(--ac-ink); font-weight: 700; }
-.mit span { display: block; font-size: 14.5px; color: var(--text-dim); line-height: 1.4; margin-top: 4px; }
-.mit .src { font-family: var(--mono); font-size: 11px; color: var(--text-faint); }
+.mgrid { display: grid; grid-template-columns: 1.02fr .98fr; gap: 50px; align-items: center; flex: 1; min-height: 0; }
+.lead { font-size: 19px; color: var(--text); line-height: 1.4; letter-spacing: -0.01em; max-width: 46ch; }
+.lead em { display: inline-block; white-space: nowrap; }
+.lead b { font-weight: 700; } .lead em { color: var(--ac); font-style: normal; font-weight: 700; }
+.blist { list-style: none; margin: 18px 0 0; padding: 0; }
+.blist li { position: relative; padding-left: 20px; margin: 11px 0; font-size: 15px; color: var(--text-dim); line-height: 1.4; }
+.blist li::before { content: ""; position: absolute; left: 0; top: .5em; width: 7px; height: 7px; border-radius: 2px; background: var(--ac-glow); }
+.blist li b { color: var(--text); font-weight: 650; }
+.mit { margin-top: 18px; padding: 13px 16px; background: var(--ac-fill); border-left: 3px solid var(--ac); border-radius: 0 8px 8px 0; }
+.mit b { font-size: 14.5px; color: var(--ac-ink); font-weight: 700; }
+.mit span { display: block; font-size: 13px; color: var(--text-dim); line-height: 1.4; margin-top: 3px; }
 
-/* the stack */
+/* the ownership stack */
 .stack-lb { font-family: var(--mono); font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: var(--text-faint); margin-bottom: 14px; }
-.slayer { display: flex; align-items: center; gap: 14px; padding: 15px 18px; border-radius: var(--r-sm); margin-bottom: 8px; }
-.slayer.own { background: var(--ac-fill); border: 1px solid var(--ac-bd); }
+.slayer { display: flex; align-items: center; gap: 14px; padding: 14px 18px; border-radius: var(--r-sm); margin-bottom: 8px; }
+.slayer.yours { background: var(--ac-fill); border: 1px solid var(--ac-bd); }
+.slayer.ours { background: var(--surface-2); border: 1px solid var(--hairline); }
 .slayer.swap { background: var(--surface-2); border: 1px dashed var(--hairline-2); }
-.slayer b { font-size: 16.5px; font-weight: 650; color: var(--text); }
-.slayer.own b { color: var(--ac-ink); }
-.slayer span { display: block; font-size: 13px; color: var(--text-dim); margin-top: 1px; }
-.slayer .tag { margin-left: auto; font-family: var(--mono); font-size: 10.5px; letter-spacing: .06em; text-transform: uppercase; white-space: nowrap; }
-.slayer.own .tag { color: var(--ac); } .slayer.swap .tag { color: var(--text-faint); }
-.say { margin-top: 14px; font-size: 18px; font-weight: 650; color: var(--text); }
+.slayer b { font-size: 16px; font-weight: 650; color: var(--text); }
+.slayer.yours b { color: var(--ac-ink); }
+.slayer span { display: block; font-size: 12.5px; color: var(--text-dim); margin-top: 1px; }
+.slayer .tag { margin-left: auto; font-family: var(--mono); font-size: 10px; letter-spacing: .06em; text-transform: uppercase; white-space: nowrap; }
+.slayer.yours .tag { color: var(--ac); } .slayer.ours .tag, .slayer.swap .tag { color: var(--text-faint); }
+.say { margin-top: 14px; font-size: 18px; font-weight: 700; color: var(--text); letter-spacing: -0.01em; }
 .say em { color: var(--ac); font-style: normal; }
 @keyframes fin { to { opacity: 1; } }
 .rise { opacity: 0; animation: fin .5s ease forwards; }
 .rise.a{animation-delay:.1s}.rise.b{animation-delay:.3s}
-.slayer.rise:nth-child(2){animation-delay:.4s}.slayer.rise:nth-child(3){animation-delay:.52s}.slayer.rise:nth-child(4){animation-delay:.64s}.slayer.rise:nth-child(5){animation-delay:.76s}
+.slayer.rise:nth-child(2){animation-delay:.4s}.slayer.rise:nth-child(3){animation-delay:.5s}.slayer.rise:nth-child(4){animation-delay:.6s}.slayer.rise:nth-child(5){animation-delay:.7s}
 @media (prefers-reduced-motion: reduce){ .rise { opacity: 1; animation: none; } }
 </style>
 </head>
@@ -42,26 +46,31 @@
 <section class="slide">
   <div class="stage">
     <div class="canvas pitch col">
-      <span class="eyebrow rise a"><span class="dot"></span>why us &middot; full-stack AI</span>
-      <h2 class="rise a" style="margin-top:16px; margin-bottom:0">We own the whole stack. <em>The model is the only swappable part.</em></h2>
+      <span class="eyebrow rise a"><span class="dot"></span>why us &middot; the moat</span>
+      <h2 class="rise a" style="margin-top:14px; margin-bottom:0">We own the model and the framework. <em>You own the memory.</em></h2>
 
       <div class="mgrid">
         <div class="rise b">
-          <div class="claim">Copilots and horizontal agents are a <b>thin wrapper on a model anyone can rent.</b> MetaFloor owns the full vertical stack — capture, the decision memory, the agents, execution. <em>Swap the model on Tuesday; Wednesday nothing underneath is lost.</em> The memory only gets deeper — and no competitor can rebuild it.</div>
+          <div class="lead">The model is a commodity anyone can rent.<br/><em>The moat is the memory — and it's yours.</em></div>
+          <ul class="blist">
+            <li><b>We own the model + framework</b> — capture, governance, the agent runtime.</li>
+            <li><b>You own the decision memory</b> — what you considered, chose, and how it turned out.</li>
+            <li>Swap the foundation model any Tuesday — <b>nothing underneath is lost.</b></li>
+            <li>It compounds per account — <b>no competitor can rebuild your history.</b></li>
+          </ul>
           <div class="mit">
             <b>MIT, 2025: 95% of enterprise AI delivered zero ROI.</b>
-            <span>The named cause: &ldquo;systems don't retain feedback, adapt, or improve.&rdquo; Memory is <b>our entire architecture</b> — not a feature we bolt on.</span>
-            <span class="src">&middot; MIT / Fortune, Aug 2025</span>
+            <span>The named cause: systems &ldquo;don't retain feedback, adapt, or improve.&rdquo; Memory is <b>our entire architecture</b> — not a bolted-on feature.</span>
           </div>
         </div>
 
         <div class="rise b">
-          <div class="stack-lb">the full stack &middot; all yours</div>
-          <div class="slayer own rise"><div><b>Agents that act</b><span>plan &rarr; act &middot; a human approves</span></div><span class="tag">compounds</span></div>
-          <div class="slayer own rise"><div><b>Decision memory</b><span>what you considered, chose, how it turned out</span></div><span class="tag">the moat</span></div>
-          <div class="slayer own rise"><div><b>Capture plane</b><span>reads the structured + unstructured half</span></div><span class="tag">compounds</span></div>
-          <div class="slayer swap rise"><div><b>Foundation model</b><span>reasoning &mdash; anyone can rent one</span></div><span class="tag">swappable &#8644;</span></div>
-          <div class="say">Short the model. <em>Long the memory.</em></div>
+          <div class="stack-lb">who owns what</div>
+          <div class="slayer yours rise"><div><b>Your agents &#8644; ours</b><span>build your own — they interoperate with ours</span></div><span class="tag">open</span></div>
+          <div class="slayer yours rise"><div><b>Decision memory</b><span>your decisions, your data, your history</span></div><span class="tag">yours &middot; the moat</span></div>
+          <div class="slayer ours rise"><div><b>The framework</b><span>capture &middot; governance &middot; agent runtime</span></div><span class="tag">ours</span></div>
+          <div class="slayer swap rise"><div><b>The model</b><span>any foundation model — swap anytime</span></div><span class="tag">ours &#8644;</span></div>
+          <div class="say">Build your own agents — <em>they talk to ours.</em></div>
         </div>
       </div>
     </div>

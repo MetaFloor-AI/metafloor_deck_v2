@@ -11,9 +11,11 @@
 <style>
 .wgrid { display: grid; grid-template-columns: 1.15fr .85fr; gap: 50px; align-items: center; flex: 1; min-height: 0; }
 .hero-num { font-size: 150px; }
-.because { font-size: 19px; color: var(--text-dim); line-height: 1.4; max-width: 30ch; margin-top: 16px; }
-.because b { color: var(--text); font-weight: 650; }
-.because em { color: var(--ac); font-style: normal; font-weight: 650; }
+.wbul { list-style: none; margin: 18px 0 0; padding: 0; max-width: 34ch; }
+.wbul li { position: relative; padding-left: 20px; margin: 12px 0; font-size: 16px; color: var(--text-dim); line-height: 1.4; }
+.wbul li::before { content: ""; position: absolute; left: 0; top: .5em; width: 7px; height: 7px; border-radius: 2px; background: var(--ac-glow); }
+.wbul li b { color: var(--text); font-weight: 650; }
+.wbul li em { color: var(--ac); font-style: normal; font-weight: 650; }
 .win-lb { font-family: var(--mono); font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: var(--text-faint); margin-bottom: 12px; }
 .win-row { padding: 12px 0; border-bottom: 1px solid var(--hairline); }
 .win-row:last-child { border-bottom: none; }
@@ -40,7 +42,11 @@
       <div class="wgrid">
         <div>
           <div class="hero-num nr b">95%</div>
-          <div class="because nr c">of enterprise AI pilots delivered <b>zero P&amp;L impact</b> — because, in MIT's own words, <em>the systems don't remember, adapt, or improve.</em> That's the exact gap we're built on.</div>
+          <ul class="wbul nr c">
+            <li>of enterprise AI pilots delivered <b>zero P&amp;L impact</b></li>
+            <li>MIT's own cause: the systems <b>don't remember, adapt, or improve</b></li>
+            <li><em>That's the exact gap we're built on.</em></li>
+          </ul>
         </div>
         <div class="support nr d" style="border-left-color:var(--ac-bd)">
           <div class="win-lb">the reckoning &middot; and who survives it</div>

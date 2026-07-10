@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="sage">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>MetaFloor — Team &amp; bench</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="../theme.css"/>
+<style>
+.founders { display: grid; grid-template-columns: repeat(3,1fr); gap: 44px; margin-top: 30px; }
+.founder { display: flex; flex-direction: column; align-items: flex-start; }
+.founder img { width: 92px; height: 92px; border-radius: 50%; object-fit: cover; border: 1px solid var(--hairline); margin-bottom: 16px; background: var(--surface-2); }
+.founder .nm { font-size: 20px; font-weight: 650; letter-spacing: -0.02em; color: var(--text); }
+.founder .rl { font-family: var(--mono); font-size: 11.5px; letter-spacing: .06em; color: var(--ac-ink); text-transform: uppercase; margin-top: 5px; }
+.founder .bio { font-size: 14.5px; color: var(--text-dim); line-height: 1.5; margin-top: 12px; max-width: 30ch; }
+.founder .bio b { color: var(--text); font-weight: 600; }
+
+.bench { margin-top: auto; }
+.bench .b-lb { display: flex; align-items: baseline; gap: 12px; margin-bottom: 18px; }
+.bench .b-lb .k { font-family: var(--mono); font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: var(--text-faint); }
+.bench .b-lb .t { font-size: 15px; color: var(--text-dim); }
+.bench .b-lb .t b { color: var(--text); font-weight: 650; }
+.logos { display: grid; grid-template-columns: repeat(5,1fr); gap: 18px 30px; align-items: center;
+  border-top: 1px solid var(--hairline); padding-top: 22px; }
+.logos img { height: 26px; width: auto; max-width: 118px; object-fit: contain; opacity: .82;
+  filter: grayscale(100%); justify-self: center; }
+.rise { opacity: 0; animation: rz .55s ease forwards; }
+@keyframes rz { from { opacity: 0; transform: translateY(11px); } to { opacity: 1; transform: none; } }
+.a{animation-delay:.06s}.b{animation-delay:.18s}.c{animation-delay:.3s}.d{animation-delay:.42s}.e{animation-delay:.56s}
+@media (prefers-reduced-motion: reduce){ .rise{opacity:1;animation:none;} }
+</style>
+</head>
+<body>
+<div class="deck">
+<section class="slide">
+  <div class="stage">
+    <div class="canvas pitch col">
+      <span class="eyebrow rise a"><span class="dot"></span>the team &amp; the bench</span>
+      <h2 class="rise a">Built by operators — vouched for by the people who run these operations.</h2>
+
+      <div class="founders">
+        <div class="founder rise b">
+          <img src="../assets/team/anup.png" alt="Anup Mehta"/>
+          <div class="nm">Anup Mehta</div>
+          <div class="rl">Founder &amp; CEO</div>
+          <div class="bio">Two prior exits; two decades building <b>enterprise software</b> that ships.</div>
+        </div>
+        <div class="founder rise c">
+          <img src="../assets/team/sridhar.png" alt="Sridhar"/>
+          <div class="nm">Sridhar</div>
+          <div class="rl">Co-founder &amp; COO</div>
+          <div class="bio"><b>30+ years in supply-chain operations</b> — he has lived every desk in this deck.</div>
+        </div>
+        <div class="founder rise d">
+          <img src="../assets/team/arun.png" alt="Arun"/>
+          <div class="nm">Arun</div>
+          <div class="rl">Co-founder &amp; Head of AI</div>
+          <div class="bio">Ships <b>agentic LLM systems in production</b> — the engine behind the demos.</div>
+        </div>
+      </div>
+
+      <div class="bench rise e">
+        <div class="b-lb">
+          <span class="k">the bench</span>
+          <span class="t">Senior operators from these companies <b>advise us and are sponsoring pilots</b> — including Supriya Iyer at Google.</span>
+        </div>
+        <div class="logos">
+          <img src="../assets/logos/google.svg" alt="Google"/>
+          <img src="../assets/logos/netapp.svg" alt="NetApp"/>
+          <img src="../assets/logos/blueyonder.svg" alt="Blue Yonder"/>
+          <img src="../assets/logos/amd.svg" alt="AMD"/>
+          <img src="../assets/logos/astrazeneca.svg" alt="AstraZeneca"/>
+          <img src="../assets/logos/gevernova.svg" alt="GE Vernova"/>
+          <img src="../assets/logos/jabil.svg" alt="Jabil"/>
+          <img src="../assets/logos/sanmina.svg" alt="Sanmina"/>
+          <img src="../assets/logos/juniper.svg" alt="Juniper"/>
+          <img src="../assets/logos/microchip.svg" alt="Microchip"/>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</div>
+<script src="../deck.js"></script>
+</body>
+</html>

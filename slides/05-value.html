@@ -9,15 +9,22 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="../theme.css"/>
 <style>
-.threeup .tile .m { font-size: 46px; }
-.standing { flex: 0 0 auto; margin-top: 30px; display: flex; align-items: baseline; gap: 14px;
-  border-top: 1px solid var(--hairline); padding-top: 18px; }
-.standing b { font-size: 26px; font-weight: 750; color: var(--ac); letter-spacing: -0.02em; }
-.standing span { font-size: 16px; color: var(--text-dim); }
-.standing .fi { margin-left: auto; }
-@keyframes fin { to { opacity: 1; } }
+.vtiles { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; flex: 1; min-height: 0; align-items: stretch; margin-top: 24px; }
+.vtile { background: var(--surface); border: 1px solid var(--hairline); border-radius: 14px; padding: 24px 24px;
+  border-top: 2px solid var(--ac-bd); display: flex; flex-direction: column; justify-content: center; }
+.vtile .m { font-size: 38px; font-weight: 750; letter-spacing: -0.03em; color: var(--ac); line-height: 1; }
+.vtile .k { font-family: var(--mono); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--text-faint); margin-top: 12px; }
+.vtile .d { font-size: 15px; color: var(--text-dim); line-height: 1.45; margin-top: 12px; }
+.vtile .d b { color: var(--text); font-weight: 650; }
+.standing { flex: 0 0 auto; margin-top: 18px; display: flex; align-items: center; gap: 16px;
+  background: var(--dark); color: var(--on-dark); border-radius: 13px; padding: 16px 24px; }
+.standing b { font-size: 26px; font-weight: 750; color: var(--ac-glow); letter-spacing: -0.02em; flex: 0 0 auto; }
+.standing span { font-size: 15.5px; color: #C9CCD2; line-height: 1.4; }
+.standing span b2, .standing .w { color: #fff; font-weight: 650; }
+.standing .fi { margin-left: auto; font-family: var(--mono); font-size: 10.5px; letter-spacing: .1em; text-transform: uppercase; color: #8A8D93; flex: 0 0 auto; }
 .rise { opacity: 0; animation: fin .55s ease forwards; }
-.rise.a { animation-delay: .15s } .rise.b { animation-delay: .3s } .rise.c { animation-delay: .45s } .rise.d { animation-delay: .6s }
+@keyframes fin { to { opacity: 1; } }
+.rise.a { animation-delay: .1s } .rise.b { animation-delay: .24s } .rise.c { animation-delay: .38s } .rise.d { animation-delay: .52s } .rise.e { animation-delay: .66s }
 @media (prefers-reduced-motion: reduce){ .rise { opacity: 1; animation: none; } }
 </style>
 </head>
@@ -27,29 +34,27 @@
   <div class="stage">
     <div class="canvas pitch col">
       <span class="eyebrow rise a"><span class="dot"></span>the value</span>
-      <h2 class="rise a" style="margin-top:16px; margin-bottom:6px">It pays for itself <em>from day one</em> — not just when things break.</h2>
-
-      <div class="threeup" style="margin-top:26px">
-        <div class="tile rise b">
+      <h2 class="rise a" style="margin-top:14px;">It pays for itself <em>from day one</em> — not just when things break.</h2>
+      <div class="vtiles">
+        <div class="vtile rise b">
           <div class="m">3 days &#8594; 40 min</div>
           <div class="k">time to decide</div>
           <div class="d"><b>Act while the cheap options are still open.</b> Miss the window, pay the spot premium.</div>
         </div>
-        <div class="tile rise c">
+        <div class="vtile rise c">
           <div class="m">8 &#8594; 2 people</div>
           <div class="k">per decision</div>
           <div class="d">Two decide; <b>the other six are consulted, not conscripted.</b> The scramble stops being a job.</div>
         </div>
-        <div class="tile rise d">
+        <div class="vtile rise d">
           <div class="m">same playbook</div>
           <div class="k">every time</div>
           <div class="d">Your best response becomes <b>the standard one</b> — never solved from scratch twice.</div>
         </div>
       </div>
-
-      <div class="standing rise d">
+      <div class="standing rise e">
         <b>&#8776;$0.7M / yr</b>
-        <span>standing value from the watchtower — risk scores &amp; drift alerts, working before anything breaks.</span>
+        <span><span class="w">on a $100M-revenue operation</span> — standing value from the watchtower: risk scores &amp; drift alerts, working <span class="w">before a single crisis.</span></span>
         <span class="fi">illustrative</span>
       </div>
     </div>

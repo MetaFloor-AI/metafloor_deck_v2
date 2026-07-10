@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="sage">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>MetaFloor — What a decision costs</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="../theme.css"/>
+<style>
+.hookgrid { display: grid; grid-template-columns: 1.35fr .65fr; gap: 50px; align-items: center; flex: 1; min-height: 0; }
+.scene h2 { font-size: 40px; letter-spacing: -0.03em; line-height: 1.08; max-width: 20ch; }
+.scene h2 em { color: var(--ac); }
+.blist { list-style: none; margin: 22px 0 0; padding: 0; }
+.blist li { position: relative; padding-left: 22px; margin: 13px 0; font-size: 16.5px; color: var(--text-dim); line-height: 1.4; max-width: 48ch; }
+.blist li::before { content: ""; position: absolute; left: 0; top: .5em; width: 7px; height: 7px; border-radius: 2px; background: var(--ac-glow); }
+.blist li b { color: var(--text); font-weight: 650; }
+.gap { margin-top: 22px; display: inline-flex; align-items: center; gap: 14px; background: var(--dark);
+  color: var(--on-dark); border-radius: 11px; padding: 14px 22px; }
+.gap .lbl { font-family: var(--mono); font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: var(--ac-glow); }
+.gap .txt { font-size: 18px; font-weight: 650; color: #fff; }
+.gap .txt em { color: var(--ac-glow); font-style: normal; }
+.realnote { flex: 0 0 auto; margin-top: 10px; padding-top: 14px; border-top: 1px solid var(--hairline);
+  font-family: var(--mono); font-size: 12px; letter-spacing: .03em; color: var(--text-faint);
+  display: inline-flex; align-items: center; gap: 10px; }
+.realnote .rn-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--ac-glow); flex: 0 0 auto; }
+.realnote b { color: var(--ac-ink); font-weight: 600; }
+.rise { opacity: 0; animation: rz .55s cubic-bezier(.2,.7,.2,1) forwards; }
+@keyframes rz { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+.r1{animation-delay:.06s}.r2{animation-delay:.18s}.r3{animation-delay:.3s}.r4{animation-delay:.42s}.r5{animation-delay:.56s}
+@media (prefers-reduced-motion: reduce){ .rise{opacity:1;animation:none;} }
+</style>
+</head>
+<body>
+<div class="deck">
+<section class="slide">
+  <div class="stage">
+    <div class="canvas pitch col">
+      <span class="eyebrow rise r1"><span class="dot"></span>what a supply-chain decision actually is</span>
+      <div class="hookgrid">
+        <div class="scene">
+          <h2 class="rise r2">2 a.m. An undersea cable snaps <em>400 km off California.</em></h2>
+          <ul class="blist">
+            <li class="rise r3">A region drops to <b>63% capacity</b> &mdash; <b>$50,000 an hour</b>, ticking.</li>
+            <li class="rise r3">Someone must decide <b>now</b>: who has a spare? which ship is closest? what does the contract allow?</li>
+            <li class="rise r4">The answer already exists &mdash; <b>scattered across 6 systems and 8 people's heads.</b></li>
+            <li class="rise r4">By hand, assembling it takes <b>~30 hours.</b></li>
+          </ul>
+          <div class="gap rise r5">
+            <span class="lbl">the punchline</span>
+            <span class="txt">That <em>GAP</em> &mdash; 30 hours vs. minutes &mdash; is the product.</span>
+          </div>
+        </div>
+        <div class="support rise r4">
+          <div class="s-lb">the cost of one decision</div>
+          <div class="s-row hot"><b>$50K</b><span>burned every hour the region runs degraded</span></div>
+          <div class="s-row"><b>6</b><span>systems the facts are scattered across</span></div>
+          <div class="s-row"><b>8</b><span>senior people pulled onto the bridge call</span></div>
+          <div class="s-row"><b>~30 hrs</b><span>to assemble the answer &mdash; by hand, every time</span></div>
+        </div>
+      </div>
+      <div class="realnote rise r5"><span class="rn-dot"></span>A <b>real use case</b> from one of our potential customers &mdash; not a hypothetical.</div>
+    </div>
+  </div>
+</section>
+</div>
+<script src="../deck.js"></script>
+</body>
+</html>

@@ -9,7 +9,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="../theme.css"/>
 <style>
-.agrid { display: grid; grid-template-columns: 1.05fr .95fr; gap: 56px; align-items: center; flex: 1; min-height: 0; }
+.agrid { display: grid; grid-template-columns: 1.05fr .95fr; gap: 56px; align-items: stretch; flex: 1; min-height: 0; }
+.acol { display: flex; flex-direction: column; min-height: 0; }
 /* left · the ask */
 .amt { display: flex; align-items: baseline; gap: 16px; }
 .amt b { font-size: 88px; font-weight: 750; letter-spacing: -0.04em; color: var(--ac); line-height: .9; }
@@ -23,7 +24,7 @@
 .mile .mi .t { font-family: var(--mono); font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--ac); }
 .mile .mi b { display: block; font-size: 17px; font-weight: 650; color: var(--text); margin: 6px 0 3px; }
 .mile .mi span { font-size: 13.5px; color: var(--text-dim); line-height: 1.3; }
-.funds { margin-top: 26px; font-family: var(--mono); font-size: 13px; color: var(--text-dim); }
+.funds { margin-top: auto; padding-top: 16px; font-family: var(--mono); font-size: 13px; color: var(--text-dim); }
 .funds b { color: var(--text); font-weight: 600; }
 /* right · team */
 .team-lb { font-family: var(--mono); font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: var(--text-faint); margin-bottom: 16px; }
@@ -32,8 +33,9 @@
 .fdr b { display: block; font-size: 17px; font-weight: 650; color: var(--text); }
 .fdr .rl { font-family: var(--mono); font-size: 11px; letter-spacing: .04em; text-transform: uppercase; color: var(--ac-ink); margin: 2px 0; }
 .fdr span { font-size: 13.5px; color: var(--text-dim); }
-.bench-line { margin-top: 16px; font-size: 14px; color: var(--text-dim); line-height: 1.4; }
-.bench-line b { color: var(--text); font-weight: 650; }
+.fdr-logos { margin-top: auto; padding-top: 16px; }
+.fdr-logos .fl-lb { font-family: var(--mono); font-size: 10.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--text-faint); margin-bottom: 11px; display: block; }
+.fdr-logos img { height: 26px; width: auto; max-width: 100%; object-fit: contain; opacity: .88; }
 @keyframes fin { to { opacity: 1; } }
 .rise { opacity: 0; animation: fin .5s ease forwards; }
 .rise.a{animation-delay:.1s}.rise.b{animation-delay:.28s}.rise.c{animation-delay:.46s}
@@ -46,26 +48,29 @@
   <div class="stage">
     <div class="canvas pitch col">
       <span class="eyebrow rise a"><span class="dot"></span>the ask &middot; team</span>
-      <h2 class="rise a" style="margin-top:16px; margin-bottom:2px">Raising $2M to turn 10 champions into <em>paid design partners.</em></h2>
+      <h2 class="rise a" style="margin-top:16px; margin-bottom:2px">Raising $2M to turn 10 champions into <em>paying customers.</em></h2>
 
       <div class="agrid">
-        <div class="rise b">
+        <div class="rise b acol">
           <div class="amt"><b>$2M</b><span>seed round → <em>the proof that earns the Series A</em></span></div>
-          <div class="funnel"><b>10</b> champions <span class="ar">&#8594;</span> <b>3&ndash;4</b> paid design partners <span class="ar">&#8594;</span> validated on their data <span class="ar">&#8594;</span> <span class="s">Series-A ready</span></div>
+          <div class="funnel"><b>10</b> champions <span class="ar">&#8594;</span> <b>3&ndash;4</b> paying customers <span class="ar">&#8594;</span> validated on their data <span class="ar">&#8594;</span> <span class="s">Series-A ready</span></div>
           <div class="mile">
-            <div class="mi"><span class="t">0&ndash;6 mo</span><b>Land partners</b><span>3&ndash;4 paid design partners</span></div>
+            <div class="mi"><span class="t">0&ndash;6 mo</span><b>Land customers</b><span>3&ndash;4 paying pilots</span></div>
             <div class="mi"><span class="t">6&ndash;12 mo</span><b>Prove it</b><span>backtests + security passed</span></div>
             <div class="mi"><span class="t">12&ndash;18 mo</span><b>Series-A ready</b><span>reference logos + real proof</span></div>
           </div>
-          <div class="funds"><b>Use of funds:</b> 60% engineering &middot; 25% design-partner success &middot; 15% ops</div>
+          <div class="funds"><b>Use of funds:</b> 60% engineering &middot; 25% customer success &middot; 15% ops</div>
         </div>
 
-        <div class="rise c">
+        <div class="rise c acol">
           <div class="team-lb">the team &middot; we were the buyer</div>
           <div class="fdr"><img src="../assets/team/anup.png" alt="Anup Mehta"/><div><b>Anup Mehta</b><div class="rl">CEO &middot; business builder</div><span>25+ yrs scaling B2B &middot; 2 exits</span></div></div>
           <div class="fdr"><img src="../assets/team/sridhar.png" alt="Sridhar Perepa"/><div><b>Sridhar Perepa</b><div class="rl">COO &middot; operations</div><span>30+ yrs, GE &middot; ran these war rooms</span></div></div>
           <div class="fdr"><img src="../assets/team/arun.png" alt="Arun CS Kumar"/><div><b>Arun CS Kumar</b><div class="rl">Head AI &middot; architect</div><span>PhD AI &middot; ships production agent systems</span></div></div>
-          <div class="bench-line"><b>On the bench:</b> 10 supply-chain leaders — Blue Yonder, Google, AMD, Jabil, Sanmina, NetApp… <span style="color:var(--text-faint)">(full wall in appendix)</span></div>
+          <div class="fdr-logos">
+            <span class="fl-lb">the founders have built &amp; scaled at</span>
+            <img src="../assets/team/logos.png" alt="GE · NIO · Lockheed Martin · Boeing · Ridecell"/>
+          </div>
         </div>
       </div>
     </div>

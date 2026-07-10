@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="sage">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>MetaFloor — The weekly tax</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="../theme.css"/>
+<style>
+.leadline { font-size: 17px; color: var(--text-dim); line-height: 1.45; max-width: 70ch; margin-top: 10px; }
+.leadline b { color: var(--text); font-weight: 650; }
+.leaks { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 18px;
+  flex: 1; min-height: 0; margin-top: 22px; }
+.leak { background: var(--surface); border: 1px solid var(--hairline); border-left: 3px solid var(--ac-bd);
+  border-radius: 12px; padding: 18px 22px; display: flex; flex-direction: column; justify-content: center; }
+.leak .hd { display: flex; align-items: center; gap: 11px; }
+.leak .no { font-family: var(--mono); font-size: 12px; color: var(--ac-ink); font-weight: 600;
+  background: var(--ac-soft); border: 1px solid var(--ac-bd); border-radius: 5px; padding: 2px 7px; }
+.leak h3 { font-size: 20px; letter-spacing: -0.02em; }
+.leak p { font-size: 14.5px; color: var(--text-dim); line-height: 1.38; margin-top: 9px; max-width: 44ch; }
+.leak p b { color: var(--text); font-weight: 600; }
+.leak .cost { margin-top: 12px; font-family: var(--mono); font-size: 12px; letter-spacing: .02em;
+  color: var(--ac-ink); background: var(--ac-fill); border-radius: 6px; padding: 5px 10px; align-self: flex-start; }
+.rise { opacity: 0; animation: rz .5s ease forwards; }
+@keyframes rz { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+.a{animation-delay:.08s}.b{animation-delay:.2s}.c{animation-delay:.32s}.d{animation-delay:.44s}.e{animation-delay:.56s}
+@media (prefers-reduced-motion: reduce){ .rise{opacity:1;animation:none;} }
+</style>
+</head>
+<body>
+<div class="deck">
+<section class="slide">
+  <div class="stage">
+    <div class="canvas pitch col">
+      <span class="eyebrow rise a"><span class="dot"></span>this is not a rare event</span>
+      <h2 class="rise a">The cable cut is the loud version. The quiet one happens every week.</h2>
+      <p class="leadline rise b">A supplier slips. A price runs. A line drops. Each triggers the same slow, from-scratch scramble — and it <b>leaks real cash in four places.</b></p>
+      <div class="leaks">
+        <div class="leak rise b">
+          <div class="hd"><span class="no">01</span><h3>Panic-price sourcing</h3></div>
+          <p>Decide late and you pay the spot price — <b>air freight, rush fees, parts at 3&ndash;10&#215; plan.</b></p>
+          <span class="cost">millions / yr in avoidable premium</span>
+        </div>
+        <div class="leak rise c">
+          <div class="hd"><span class="no">02</span><h3>Cash frozen as insurance</h3></div>
+          <p>Slow, uncertain calls force <b>oversized buffers</b> — working capital sits idle against surprises.</p>
+          <span class="cost">2&ndash;5% of inventory, frozen</span>
+        </div>
+        <div class="leak rise d">
+          <div class="hd"><span class="no">03</span><h3>Missed windows, missed commits</h3></div>
+          <p>The cheap option closes before you move — <b>penalties trigger, customers churn, margin evaporates.</b></p>
+          <span class="cost">revenue + margin, every quarter</span>
+        </div>
+        <div class="leak rise e">
+          <div class="hd"><span class="no">04</span><h3>The playbook walks out</h3></div>
+          <p>A senior buyer leaves with the judgment and relationships — <b>the replacement repeats paid-for mistakes.</b></p>
+          <span class="cost">months of ramp, from zero</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</div>
+<script src="../deck.js"></script>
+</body>
+</html>

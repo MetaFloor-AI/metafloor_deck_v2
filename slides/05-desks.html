@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="sage">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>MetaFloor — Three desks, one engine</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="../theme.css"/>
+<style>
+.dhead { display: flex; align-items: flex-start; justify-content: space-between; gap: 20px; }
+.dhead .eyebrow { margin-bottom: 10px; }
+.dhead h2 { font-size: 23px; letter-spacing: -0.02em; line-height: 1.16; max-width: 34ch; }
+.dhead h2 em { color: var(--ac); }
+.desktoggle { display: inline-flex; background: var(--surface-3); border-radius: 11px; padding: 3px; gap: 3px; flex: 0 0 auto; }
+.desktoggle button { border: none; background: transparent; cursor: pointer; font-family: var(--font);
+  padding: 5px 11px; border-radius: 7px; color: var(--text-dim); text-align: center; line-height: 1.05; transition: all .16s ease; }
+.desktoggle button .lb { font-size: 11px; font-weight: 600; display: block; }
+.desktoggle button .sub { font-family: var(--mono); font-size: 8px; letter-spacing: .05em; color: var(--text-faint); display: block; margin-top: 1px; text-transform: uppercase; }
+.desktoggle button.on { background: var(--paper); color: var(--text); box-shadow: 0 1px 3px rgba(20,20,22,.14); }
+.desktoggle button.on .sub { color: var(--ac-ink); }
+
+/* the event + systems context block */
+.ctx { margin-top: 14px; background: var(--surface); border: 1px solid var(--hairline); border-left: 3px solid var(--ac); border-radius: 10px; padding: 12px 18px; }
+.ctx .evt { display: flex; align-items: baseline; gap: 12px; }
+.ctx .evt .k { font-family: var(--mono); font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: var(--ac-ink); flex: 0 0 auto; padding-top: 1px; }
+.ctx .evt .t { font-size: 14.5px; color: var(--text); line-height: 1.4; }
+.ctx .evt .t b { font-weight: 650; }
+.ctx .sys { display: flex; align-items: center; gap: 8px; margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--hairline); flex-wrap: wrap; }
+.ctx .sys .k { font-family: var(--mono); font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: var(--text-faint); flex: 0 0 auto; margin-right: 2px; }
+.ctx .sys .chip2 { font-family: var(--mono); font-size: 11px; color: var(--text-dim); background: var(--surface-2);
+  border: 1px solid var(--hairline); border-radius: 5px; padding: 3px 9px; }
+
+/* the response flow */
+.flow { display: grid; grid-template-columns: repeat(5, minmax(0,1fr)); gap: 11px; flex: 1; min-height: 0; align-items: center; margin: 10px 0 0; }
+.beat { background: var(--surface); border: 1px solid var(--hairline); border-top: 2px solid var(--ac-bd);
+  border-radius: 10px; padding: 11px 12px; display: flex; flex-direction: column; position: relative; }
+.beat .top { display: flex; align-items: center; gap: 7px; margin-bottom: 7px; }
+.beat .bnum { width: 20px; height: 20px; border-radius: 6px; background: var(--surface-3); color: var(--text-dim);
+  font-family: var(--mono); font-size: 10.5px; font-weight: 600; display: inline-flex; align-items: center; justify-content: center; flex: 0 0 auto; }
+.beat .step { font-family: var(--mono); font-size: 9.5px; letter-spacing: .1em; text-transform: uppercase; color: var(--text-faint); }
+.beat h3 { font-size: 15px; letter-spacing: -0.02em; line-height: 1.14; margin-bottom: 8px; }
+.beat ul { list-style: none; margin: 0; padding: 0; }
+.beat ul li { position: relative; padding-left: 12px; margin: 6px 0; font-size: 10px !important; color: var(--text-dim); line-height: 1.38 !important; }
+.beat ul li::before { content: ""; position: absolute; left: 0; top: .42em; width: 5px; height: 5px; border-radius: 50%; background: var(--ac-glow); }
+.beat ul li b { color: var(--text); font-weight: 650; }
+.beat.key { background: var(--ac-fill); border-color: var(--ac-bd); }
+.beat.key .bnum { background: var(--ac-soft); border: 1px solid var(--ac-bd); color: var(--ac-ink); }
+.beat.key h3 { color: var(--ac); }
+.beat .arrow { position: absolute; right: -10px; top: 22px; z-index: 3; font-family: var(--mono); font-size: 15px; font-weight: 600; color: var(--ac); }
+.beat .arrow span { display: inline-block; animation: chev 1.5s ease-in-out infinite; }
+.beat .arrow span:nth-child(2) { animation-delay: .18s; margin-left: -4px; }
+@keyframes chev { 0%,100% { opacity: .3; transform: translateX(0); } 50% { opacity: 1; transform: translateX(2px); } }
+@media (prefers-reduced-motion: reduce){ .beat .arrow span { animation: none; opacity: .7; } }
+
+.band { flex: 0 0 auto; display: flex; align-items: center; gap: 20px; margin-top: 12px; border-top: 1px solid var(--hairline); padding-top: 12px; }
+.speed { display: inline-flex; align-items: center; gap: 10px; font-family: var(--mono); font-size: 13px; }
+.speed .fast { color: var(--ac); font-weight: 650; }
+.speed .slow { color: var(--text-faint); }
+.speed .vs { color: var(--text-faint); font-size: 11px; }
+.touch { font-family: var(--mono); font-size: 11.5px; color: var(--text-dim); }
+.touch b { color: var(--ac); }
+.diff { font-size: 13.5px; color: var(--text); margin-left: auto; max-width: 40ch; line-height: 1.35; text-align: right; }
+.diff b { color: var(--ac); font-weight: 650; }
+</style>
+</head>
+<body>
+<div class="deck">
+<section class="slide">
+  <div class="stage">
+    <div class="canvas pitch col" style="padding:40px 60px 30px;">
+      <div class="dhead">
+        <div>
+          <span class="eyebrow"><span class="dot"></span>three desks, one engine &middot; MVP in build</span>
+          <h2 id="d-headline"></h2>
+        </div>
+        <div class="desktoggle" id="dtoggle">
+          <button data-d="buyer" class="on"><span class="lb">The buyer</span><span class="sub">Enterprise OEM</span></button>
+          <button data-d="launch"><span class="lb">The launch</span><span class="sub">Phone maker</span></button>
+          <button data-d="incident"><span class="lb">The incident</span><span class="sub">Network ops</span></button>
+        </div>
+      </div>
+
+      <div class="ctx">
+        <div class="evt"><span class="k">the event</span><span class="t" id="d-event"></span></div>
+        <div class="sys"><span class="k">reads across</span><span id="d-systems"></span></div>
+      </div>
+
+      <div class="flow" id="d-flow"></div>
+
+      <div class="band">
+        <span class="speed"><span class="fast" id="d-fast"></span><span class="vs">vs</span><span class="slow" id="d-slow"></span></span>
+        <span class="touch" id="d-touch"></span>
+        <span class="diff" id="d-diff"></span>
+      </div>
+    </div>
+  </div>
+</section>
+</div>
+<script>
+const DESKS = {
+  buyer: {
+    headline: 'A supplier quietly slipped a delivery — <em>and no one had noticed.</em>',
+    event: 'Overnight, PO confirmations drifted <b>8&#8594;11 weeks at two suppliers</b> — during a demand surge. Nobody announced it.',
+    systems: ["SAP","Slack","Kinaxis","Ariba","project44","Outlook"],
+    beats: [
+      { step:"detect",   title:"Caught the drift", pts:["Cross-checked POs vs. the live demand plan","Flagged <b>5 hrs before the workday</b>"] },
+      { step:"assemble", title:"Built the package", pts:["<b>DP-2026-0731</b> — 3 ranked dual-source options","Costs + the matching <b>2024 precedent</b>"] },
+      { step:"decide",   title:"Widened the ETA",   pts:["This move <b>ran 3 days over last time</b>","Buyer reviewed and approved"] },
+      { step:"act",      title:"Executed in SAP",   pts:["Staged the revised PO (Rev-3)","Drafted supplier comms, <b>recorded the why</b>"] },
+      { step:"remember", title:"Wrote memory", key:true, pts:["Captured the approver's override reason","Becomes the <b>next call's precedent</b>"] }
+    ],
+    fast:"&#9889; 90 seconds", slow:"&#8987; ~2 hours by hand",
+    touch:"executes into <b>SAP + Ariba</b>",
+    diff:"A <b>2024 learning drove today's call</b> — sharper every use."
+  },
+  launch: {
+    headline: '54 days to a flagship phone launch — <em>and a factory line went down.</em>',
+    event: 'An assembly line supplying <b>launch-critical memory</b> dropped. The ship date is immovable, so every hour of allocation risk threatens the launch.',
+    systems: ["ERP","Slack","Planning","Supplier portal","Logistics","CM portal"],
+    beats: [
+      { step:"the clock",title:"Held the date",    pts:["Live countdown: <b>T&#8722;54 days</b>","Immovable ship date"] },
+      { step:"detect",   title:"Line flatlined",   pts:["Assembly-line telemetry dropped","<b>Allocation risk</b> on launch-critical memory"] },
+      { step:"assemble", title:"Priced the fix",   pts:["Reallocation options","Priced <b>against the launch date</b>"] },
+      { step:"bridge",   title:"Lit the CM", key:true, pts:["Opened <b>contract-manufacturer</b> telemetry","Deviation DR-2026-077 — no one else sees in"] },
+      { step:"act",      title:"Mitigation",       pts:["Recovery approved","Countdown: <b>&ldquo;mitigation in motion&rdquo;</b>"] }
+    ],
+    fast:"&#9889; 4 seconds", slow:"&#8987; ~2 hours by hand",
+    touch:"reaches the <b>CM black hole</b>",
+    diff:"A different desk, same engine — <b>buyer, launch, incident.</b>"
+  },
+  incident: {
+    headline: 'An undersea cable cut — <em>30 hours of scramble, collapsed to 40 minutes.</em>',
+    event: '<b>PAC-7 lost light 400 km offshore;</b> the region failed to backups at 63%. <b>P1 auto-declared</b> before the bridge call convened.',
+    systems: ["NOC / GridWatch","Incident bridge","Depot inventory","Marine AIS","Contract system","Email"],
+    beats: [
+      { step:"alarm",   title:"Declared P1",      pts:["Raised <b>before humans dialed in</b>","Diversity risk flagged 3 weeks earlier"] },
+      { step:"assemble",title:"Pulled the facts", pts:["Spares by depot; vessels on <b>live AIS</b>","Marine-contract clauses — in minutes"] },
+      { step:"decide",  title:"Ranked options",   pts:["3 options, ETA &plusmn; confidence","Option 2 <b>pre-widened +3d</b> (2024 memory)"] },
+      { step:"verify",  title:"Caught itself", key:true, pts:["A parts count was <b>47 days stale</b>","Marked conditional, <b>dispatched a human</b>"] },
+      { step:"dispatch",title:"Fanned out",      pts:["On approval, hit <b>4 systems</b>","Clock: &ldquo;mitigation in motion&rdquo;"] }
+    ],
+    fast:"&#126; $1.2M / incident", slow:"30 hrs &#8594; 40 min",
+    touch:"executes into <b>4 systems</b>",
+    diff:"Supriya Iyer (Google) gave us this — <b>we built her desk.</b>"
+  }
+};
+function chips(arr){ return arr.map(s => '<span class="chip2">'+s+'</span>').join(''); }
+function render(key){
+  const d = DESKS[key];
+  document.getElementById("d-headline").innerHTML = d.headline;
+  document.getElementById("d-event").innerHTML = d.event;
+  document.getElementById("d-systems").innerHTML = chips(d.systems);
+  document.getElementById("d-flow").innerHTML = d.beats.map((b,i) => {
+    const arrow = i < d.beats.length-1 ? '<span class="arrow"><span>&rsaquo;</span><span>&rsaquo;</span></span>' : '';
+    return '<div class="beat'+(b.key?' key':'')+'"><div class="top"><span class="bnum">'+(i+1)+'</span>'
+      + '<span class="step">'+b.step+'</span></div><h3>'+b.title+'</h3><ul>'
+      + b.pts.map(p => '<li>'+p+'</li>').join('') + '</ul>'+arrow+'</div>';
+  }).join('');
+  document.getElementById("d-fast").innerHTML = d.fast;
+  document.getElementById("d-slow").innerHTML = d.slow;
+  document.getElementById("d-touch").innerHTML = d.touch;
+  document.getElementById("d-diff").innerHTML = d.diff;
+}
+document.getElementById("dtoggle").addEventListener("click", e => {
+  const btn = e.target.closest("button"); if(!btn) return;
+  document.querySelectorAll("#dtoggle button").forEach(b => b.classList.remove("on"));
+  btn.classList.add("on");
+  render(btn.dataset.d);
+});
+render("buyer");
+</script>
+<script src="../deck.js"></script>
+</body>
+</html>
