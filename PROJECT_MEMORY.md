@@ -6,6 +6,7 @@ A standalone-HTML seed pitch deck. Each slide is its own file in `slides/`, a 12
 - **Git remote:** `origin` → `git@github-org:MetaFloor-AI/metafloor_deck_v2.git` (public org repo, committed as `arun@metafloor.ai`). v1 remote preserved as `origin-v1` (`arunsanthakumar/metafloor-deck`).
 - **Hosting:** GitHub Pages off `master` / root. Custom domain **slides.metafloor.ai** via `CNAME` file + `.nojekyll`. DNS: a `CNAME slides → metafloor-ai.github.io` record must exist at the metafloor.ai registrar (owner action).
 - The published site is **public** — real champion names/roles + illustrative financials are exposed (founder-approved 2026-07-09).
+- **PDF export:** `python3 export_pdf.py [out.pdf]` — Playwright renders each visible slide (`slides.json`) at 3× off the `.stage`, waits for entrance animations, hides the theme switcher, assembles a raster PDF via `img2pdf`. Auto-tunes to a **3–9.5 MB** window (PNG @3x ≈ 4 MB; re-encodes to JPEG if over, bumps scale if under). Interactive slides (ROI, desks) are captured in their **default** state. Output `MetaFloor_Deck.pdf` committed (downloadable at slides.metafloor.ai/MetaFloor_Deck.pdf); `_deck_frames/` gitignored.
 
 ## [P1.S2] Deck v5 — story rebuild for an UNASSUMING investor (2026-07-09, in progress)
 
