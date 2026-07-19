@@ -96,6 +96,13 @@
       "visible": true
     },
     {
+      "id": "solution",
+      "path": "slides/B3-solution.html",
+      "title": "Appendix — The Loop",
+      "description": "Capture → govern → let agents act: one governed-memory loop across three planes.",
+      "visible": true
+    },
+    {
       "id": "architecture",
       "path": "slides/B1-architecture.html",
       "title": "Appendix — Architecture",

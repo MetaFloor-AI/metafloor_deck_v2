@@ -2,6 +2,12 @@
 
 A standalone-HTML seed pitch deck. Each slide is its own file in `slides/`, a 1280×720 stage scaled by `deck.js`, themed via `<html data-theme>` (sage · ember · violet), assembled by the `index.html` iframe viewer + `slides.json` manifest. `STORY.md` is the source-of-truth narrative doc; read it before editing copy.
 
+## [P1.S4] Appendix B3 — "The Loop" slide, ported (2026-07-19, done)
+- **`slides/B3-solution.html`** — ported the supply-chain loop slide (capture → govern → let agents act) from `~/projects/metafloorv2/outreach/mf-supplychain++/deck/slides/03-solution.html` into deck2 as **appendix B3**. Inserted in `slides.json` as the **last-but-one** slide (before `B1-architecture`). Order tail: …`close` · **`solution` (B3)** · `architecture` (B1) → 15 slides total.
+- Rebuilt on deck2's design system: **Inter / JetBrains Mono** fonts (swapped from Hanken Grotesk / IBM Plex Mono), deck2 slide chrome (`.deck>.slide>.stage>.canvas`, `../theme.css`, `../deck.js`), and the full **`--ac*` accent ramp** so the theme/color switcher drives the entire diagram across **sage · ember · violet**. The **capture plane stays fixed green by design** (source's "human capture" signal). Mapped the three vars deck2 lacks — `--ac-fill2`, `--ac-fill3`, `--ac-ink2` — onto deck2 tokens locally in the slide.
+- Keeps **both views** + the **"Simplify this / Full detail"** toggle (rebuilt on deck2's accent pill via `.slide:has(.simplify-input:checked)`): detailed 3-plane loop diagram ↔ live supply-chain message-feed scenario. Dropped the source deck's `deep-dive` link + `.wm` watermark (not part of deck2 vocab).
+- Verified via Playwright: both views + all three themes render correctly, fit the 1280×720 stage, switcher present. Placement per founder ("last but one"); offered to relocate if a post-appendix closing slide is intended.
+
 ## Publish / deploy (2026-07-09)
 - **Git remote:** `origin` → `git@github-org:MetaFloor-AI/metafloor_deck_v2.git` (public org repo, committed as `arun@metafloor.ai`). v1 remote preserved as `origin-v1` (`arunsanthakumar/metafloor-deck`).
 - **Hosting:** GitHub Pages off `master` / root. Custom domain **slides.metafloor.ai** via `CNAME` file + `.nojekyll`. DNS: a `CNAME slides → metafloor-ai.github.io` record must exist at the metafloor.ai registrar (owner action).

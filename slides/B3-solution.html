@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="sage">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>MetaFloor — The Loop (Appendix)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="../theme.css"/>
+<style>
+/* intermediate accent tints the source SVG expects, mapped onto deck2 tokens
+   so all three deck2 themes (sage / ember / violet) drive the whole diagram */
+.stage { --ac-fill2: var(--ac-soft); --ac-fill3: var(--ac-soft); --ac-ink2: var(--ac); }
+
+/* core region + two-view switch (ported from source brand.css, deck2 tokens) */
+.s3-core { display:flex; align-items:center; min-height:0; width:100%; }
+.view { width:100%; }
+.view-detailed { align-self:stretch; min-height:0; display:flex; align-items:center; justify-content:center; }
+.view-detailed svg { width:100%; height:auto; max-height:100%; }
+.view-simple { display:none; }
+.view-simple.s3s { width:100%; height:100%; align-items:center; justify-content:center; }
+.view-simple.s3s svg { width:100%; height:100%; display:block; }
+.slide:has(.simplify-input:checked) .view-detailed { display:none !important; }
+.slide:has(.simplify-input:checked) .view-simple { display:flex; align-self:stretch; }
+
+/* simplify toggle — macOS pill, deck2 accent ramp */
+.simplify-input { position:fixed; width:0; height:0; opacity:0; margin:0; padding:0; border:0; overflow:hidden; clip:rect(0,0,0,0); }
+.simplify-toggle {
+  display:inline-flex; align-items:center; gap:8px; cursor:pointer; user-select:none;
+  font-family:var(--mono); font-size:11px; letter-spacing:.06em; text-transform:uppercase;
+  color:var(--ac-ink); background:var(--ac-soft); border:1px solid var(--ac-bd);
+  padding:6px 14px; border-radius:var(--r-pill); transition:all .2s ease; white-space:nowrap; flex:0 0 auto;
+}
+.simplify-toggle:hover { border-color:var(--ac); box-shadow:var(--sh-card); }
+.simplify-toggle .ic { width:13px; height:13px; border-radius:50%; flex:0 0 auto;
+  background:radial-gradient(circle at 32% 30%, var(--ac-glow), var(--ac)); transition:background .2s; }
+.simplify-toggle .t-detail { display:none; }
+.slide:has(.simplify-input:checked) .simplify-toggle { background:var(--ac); color:var(--ac-on); border-color:var(--ac); }
+.slide:has(.simplify-input:checked) .simplify-toggle .ic { background:var(--ac-on); }
+.slide:has(.simplify-input:checked) .simplify-toggle .t-simplify { display:none; }
+.slide:has(.simplify-input:checked) .simplify-toggle .t-detail { display:inline; }
+
+/* five-module chip row + takeaway */
+.modrow { justify-content:center; gap:12px; flex-wrap:wrap; margin-top:12px; align-items:center; }
+.modrow .lbl { font-family:var(--mono); font-size:11px; letter-spacing:.13em; text-transform:uppercase; color:var(--text-faint); }
+.takeaway { margin-top:14px; font-size:12px; letter-spacing:.03em; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+
+@media print {
+  .simplify-toggle, .simplify-input { display:none !important; }
+  .view-simple { display:none !important; }
+  .view-detailed { display:flex !important; }
+}
+</style>
+</head>
+<body>
+<div class="deck">
+<section class="slide">
+  <div class="stage">
+    <div class="titlebar">
+      <span class="tl"><i></i><i></i><i></i></span>
+      <span class="tb-label">appendix &middot; the loop</span>
+      <span class="tb-right">APPENDIX &middot; <b>B3</b></span>
+    </div>
+    <div class="canvas">
+      <input type="checkbox" id="s3-simplify" class="simplify-input" aria-label="Show simplified version of this slide"/>
+      <div class="r head">
+        <div class="row between items-c">
+          <span class="eyebrow"><span class="dot"></span>the loop</span>
+          <label class="simplify-toggle" for="s3-simplify"><span class="ic"></span><span class="t-simplify">Simplify this</span><span class="t-detail">Full detail</span></label>
+        </div>
+        <h2>Capture it &rarr; govern it &rarr; <em>let agents act.</em> One loop.</h2>
+        <p class="sub">Work flows in from live apps and history, becomes one governed memory the company owns, and powers agents that act on real systems &mdash; and the active surfaces feed new signal back as they go.</p>
+      </div>
+
+      <div class="r grow s3-core" style="min-height:0">
+     <div class="view view-detailed" style="display:flex;align-items:center;width:100%">
+      <svg viewBox="0 0 1180 430" width="100%" height="auto" style="display:block"
+           role="img" aria-label="MetaFloor loop: work and systems feed capture modules (Lens live, Atlas history, Relay active), which build one governed memory registry with a pulsing governance ring, quality and access engine, and scope and type pills; that powers MetaFloor Headless &mdash; in-channel agents that plan, retrieve, act and approve through an action firewall and a role-scoped fleet acting on systems; outcomes and new signal flow back into memory.">
+        <defs>
+          <linearGradient id="s3-gCap" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#EEF4ED"/><stop offset="1" stop-color="#E2ECE0"/></linearGradient>
+          <linearGradient id="s3-gMem" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="var(--ac-fill2)"/><stop offset="1" stop-color="var(--ac-fill3)"/></linearGradient>
+          <linearGradient id="s3-gAct" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="var(--ac-fill)"/><stop offset="1" stop-color="var(--ac-fill2)"/></linearGradient>
+          <radialGradient id="s3-glow"><stop offset="0" stop-color="var(--ac-glow)" stop-opacity="0.55"/><stop offset="1" stop-color="var(--ac-glow)" stop-opacity="0"/></radialGradient>
+          <radialGradient id="s3-dCap"><stop offset="0" stop-color="#9DB596"/><stop offset="1" stop-color="#6C8964"/></radialGradient>
+          <radialGradient id="s3-dMem"><stop offset="0" stop-color="var(--ac-glow)"/><stop offset="1" stop-color="var(--ac)"/></radialGradient>
+          <filter id="s3-soft" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="4" stdDeviation="7" flood-color="#1D1A16" flood-opacity="0.10"/></filter>
+        </defs>
+
+        <!-- =================== PLANE LABELS =================== -->
+        <text x="277" y="20" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="10.5" fill="#6C8964" letter-spacing="1.6">CAPTURE PLANE &middot; HOW WORK HAPPENS</text>
+        <text x="866" y="20" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="10.5" fill="var(--ac)" letter-spacing="1.6">AGENTIC PLANE &middot; AGENTS THAT ACT</text>
+
+        <!-- =================== FAR LEFT: WORK & SYSTEMS =================== -->
+        <text x="62" y="50" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9.5" fill="#8C8678" letter-spacing="1.2">WORK &amp; SYSTEMS</text>
+        <g font-family="'JetBrains Mono',monospace" font-size="11" fill="#1D1A16">
+          <rect x="8" y="64" width="108" height="30" rx="8" fill="#F7F4F0" stroke="#E7E2DA"/><text x="62" y="83" text-anchor="middle">Slack &middot; email</text>
+          <rect x="8" y="138" width="108" height="30" rx="8" fill="#F7F4F0" stroke="#E7E2DA"/><text x="62" y="157" text-anchor="middle">CRM &middot; ERP</text>
+          <rect x="8" y="262" width="108" height="30" rx="8" fill="#F7F4F0" stroke="#E7E2DA"/><text x="62" y="281" text-anchor="middle">Jira &middot; docs</text>
+          <rect x="8" y="336" width="108" height="30" rx="8" fill="#F1EDE7" stroke="#E7E2DA" stroke-dasharray="4 3"/><text x="62" y="357" text-anchor="middle" font-size="15" fill="#8C8678" letter-spacing="2">&middot; &middot; &middot;</text>
+        </g>
+        <text x="62" y="382" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9" fill="#8C8678">+ many more</text>
+
+        <!-- =================== CAPTURE MODULES (sage · fixed human color) =================== -->
+        <rect x="166" y="34" width="222" height="362" rx="16" fill="#FBFDFA" stroke="#BBD0B4" stroke-width="1.4" data-plate/>
+        <rect x="166" y="34" width="222" height="30" rx="16" fill="#E7EFE6"/>
+        <rect x="166" y="48" width="222" height="16" fill="#E7EFE6"/>
+        <text x="277" y="54" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="10.5" fill="#2E5733" letter-spacing="1.4">CAPTURE MODULES</text>
+
+        <g filter="url(#s3-soft)">
+          <rect x="182" y="76" width="190" height="80" rx="11" fill="url(#s3-gCap)" stroke="#BBD0B4" stroke-width="1.3"/>
+        </g>
+        <rect x="196" y="90" width="28" height="28" rx="8" fill="#E7EFE6" stroke="#BBD0B4"/>
+        <circle cx="210" cy="104" r="6" fill="none" stroke="#4F7E54" stroke-width="2"/><line x1="214" y1="108" x2="218" y2="112" stroke="#4F7E54" stroke-width="2" stroke-linecap="round"/>
+        <text x="232" y="100" font-family="'Inter',sans-serif" font-weight="600" font-size="14" fill="#1D1A16">Lens</text>
+        <rect x="324" y="90" width="36" height="17" rx="8.5" fill="#E7EFE6" stroke="#BBD0B4"/><text x="342" y="102" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8.5" fill="#4F7E54">LIVE</text>
+        <text x="232" y="120" font-family="'JetBrains Mono',monospace" font-size="9.5" fill="#2E5733">watches approved apps,</text>
+        <text x="232" y="133" font-family="'JetBrains Mono',monospace" font-size="9.5" fill="#2E5733">infers workflow intent</text>
+
+        <g filter="url(#s3-soft)">
+          <rect x="182" y="164" width="190" height="80" rx="11" fill="url(#s3-gCap)" stroke="#BBD0B4" stroke-width="1.3"/>
+        </g>
+        <rect x="196" y="178" width="28" height="28" rx="8" fill="#E7EFE6" stroke="#BBD0B4"/>
+        <path d="M203 200 l7 -14 l7 14 z" fill="none" stroke="#4F7E54" stroke-width="1.6" stroke-linejoin="round"/>
+        <text x="232" y="188" font-family="'Inter',sans-serif" font-weight="600" font-size="14" fill="#1D1A16">Atlas</text>
+        <rect x="320" y="178" width="40" height="17" rx="8.5" fill="#EEF1EC" stroke="#CBD8C6"/><text x="340" y="190" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8.5" fill="#5A6A55">HIST.</text>
+        <text x="232" y="208" font-family="'JetBrains Mono',monospace" font-size="9.5" fill="#2E5733">builds entities, graphs</text>
+        <text x="232" y="221" font-family="'JetBrains Mono',monospace" font-size="9.5" fill="#2E5733">&amp; timelines from past</text>
+
+        <g filter="url(#s3-soft)">
+          <rect x="182" y="252" width="190" height="84" rx="11" fill="url(#s3-gMem)" stroke="var(--ac-bd)" stroke-width="1.6"/>
+        </g>
+        <rect x="196" y="266" width="28" height="28" rx="8" fill="var(--ac-soft)" stroke="var(--ac-bd)"/>
+        <circle cx="210" cy="280" r="3" fill="var(--ac)"/><path d="M210 280 L217 273 M210 280 L203 273 M210 280 L217 287" stroke="var(--ac)" stroke-width="1.6" stroke-linecap="round"/>
+        <text x="232" y="276" font-family="'Inter',sans-serif" font-weight="700" font-size="14" fill="var(--ac-ink)">Relay</text>
+        <rect x="316" y="266" width="44" height="17" rx="8.5" fill="var(--ac)"/><text x="338" y="278" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8.5" fill="var(--ac-on)" letter-spacing=".5">ACTIVE</text>
+        <text x="232" y="296" font-family="'JetBrains Mono',monospace" font-size="9.5" fill="var(--ac-ink)">fills its own gaps &mdash;</text>
+        <text x="232" y="309" font-family="'JetBrains Mono',monospace" font-size="9.5" fill="var(--ac-ink)">detects + asks the</text>
+        <text x="232" y="322" font-family="'JetBrains Mono',monospace" font-size="9.5" fill="var(--ac-ink)">person who knows</text>
+
+        <!-- =================== GOVERNED MEMORY REGISTRY (accent core) =================== -->
+        <ellipse cx="568" cy="200" rx="170" ry="150" fill="url(#s3-glow)"/>
+        <rect x="418" y="44" width="296" height="312" rx="18" fill="none" stroke="var(--ac-bd)" stroke-width="1.4"/>
+        <rect x="418" y="44" width="296" height="312" rx="18" fill="none" stroke="var(--ac)" stroke-width="5">
+          <animate attributeName="opacity" values="0.5;0.16;0.5" dur="4s" repeatCount="indefinite"/>
+        </rect>
+        <rect x="496" y="33" width="140" height="22" rx="11" fill="#FFFFFF" stroke="var(--ac-bd)"/>
+        <text x="566" y="48" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="10" fill="var(--ac-ink)" letter-spacing="1.2">GOVERNANCE RING</text>
+
+        <g filter="url(#s3-soft)">
+          <rect x="432" y="68" width="268" height="216" rx="14" fill="url(#s3-gMem)" stroke="var(--ac-bd)" stroke-width="1.8" data-plate/>
+        </g>
+        <text x="566" y="92" text-anchor="middle" font-family="'Inter',sans-serif" font-weight="700" font-size="15.5" fill="var(--ac-ink)">Governed Memory Registry</text>
+        <text x="566" y="107" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9" fill="var(--ac)" letter-spacing="1.1">THE CORE THE COMPANY OWNS</text>
+
+        <text x="446" y="128" font-family="'JetBrains Mono',monospace" font-size="8.5" fill="var(--ac-ink2)" letter-spacing=".5">SCOPE</text>
+        <g font-family="'JetBrains Mono',monospace" font-size="9.5" fill="var(--ac-ink)">
+          <rect x="444" y="134" width="50" height="18" rx="6" fill="#FFFFFF" stroke="var(--ac-bd)"/><text x="469" y="146.5" text-anchor="middle">person</text>
+          <rect x="498" y="134" width="38" height="18" rx="6" fill="#FFFFFF" stroke="var(--ac-bd)"/><text x="517" y="146.5" text-anchor="middle">team</text>
+          <rect x="540" y="134" width="58" height="18" rx="6" fill="#FFFFFF" stroke="var(--ac-bd)"/><text x="569" y="146.5" text-anchor="middle">customer</text>
+          <rect x="602" y="134" width="48" height="18" rx="6" fill="#FFFFFF" stroke="var(--ac-bd)"/><text x="626" y="146.5" text-anchor="middle">vendor</text>
+          <rect x="444" y="156" width="52" height="18" rx="6" fill="#FFFFFF" stroke="var(--ac-bd)"/><text x="470" y="168.5" text-anchor="middle">project</text>
+          <rect x="500" y="156" width="54" height="18" rx="6" fill="#FFFFFF" stroke="var(--ac-bd)"/><text x="527" y="168.5" text-anchor="middle">process</text>
+        </g>
+        <line x1="444" y1="184" x2="688" y2="184" stroke="var(--ac-bd)" stroke-dasharray="2 4"/>
+        <text x="446" y="200" font-family="'JetBrains Mono',monospace" font-size="8.5" fill="var(--ac-ink2)" letter-spacing=".5">TYPE</text>
+        <g font-family="'JetBrains Mono',monospace" font-size="9.5" fill="var(--ac-ink)">
+          <rect x="444" y="206" width="48" height="18" rx="6" fill="var(--ac-soft)" stroke="var(--ac-bd)"/><text x="468" y="218.5" text-anchor="middle">identity</text>
+          <rect x="496" y="206" width="40" height="18" rx="6" fill="var(--ac-soft)" stroke="var(--ac-bd)"/><text x="516" y="218.5" text-anchor="middle">event</text>
+          <rect x="540" y="206" width="54" height="18" rx="6" fill="var(--ac-soft)" stroke="var(--ac-bd)"/><text x="567" y="218.5" text-anchor="middle">decision</text>
+          <rect x="598" y="206" width="34" height="18" rx="6" fill="var(--ac-soft)" stroke="var(--ac-bd)"/><text x="615" y="218.5" text-anchor="middle">risk</text>
+          <rect x="444" y="228" width="62" height="18" rx="6" fill="var(--ac-soft)" stroke="var(--ac-bd)"/><text x="475" y="240.5" text-anchor="middle">exception</text>
+          <rect x="510" y="228" width="54" height="18" rx="6" fill="var(--ac-soft)" stroke="var(--ac-bd)"/><text x="537" y="240.5" text-anchor="middle">outcome</text>
+          <rect x="568" y="228" width="68" height="18" rx="6" fill="var(--ac-soft)" stroke="var(--ac-bd)"/><text x="602" y="240.5" text-anchor="middle">provenance</text>
+        </g>
+
+        <rect x="432" y="296" width="268" height="44" rx="10" fill="#FFFFFF" stroke="var(--ac-bd)" stroke-width="1.2"/>
+        <text x="566" y="314" text-anchor="middle" font-family="'Inter',sans-serif" font-weight="600" font-size="11" fill="var(--ac-ink)">Quality &amp; access engine</text>
+        <text x="566" y="329" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9" fill="var(--ac-ink2)">dedupe &middot; confidence &middot; decay &middot; permissions &middot; audit</text>
+
+        <!-- =================== AGENTS THAT ACT (lighter accent) =================== -->
+        <rect x="746" y="34" width="240" height="362" rx="16" fill="var(--ac-fill)" stroke="var(--ac-bd)" stroke-width="1.4" data-plate/>
+        <rect x="746" y="34" width="240" height="30" rx="16" fill="var(--ac-soft)"/>
+        <rect x="746" y="48" width="240" height="16" fill="var(--ac-soft)"/>
+        <text x="866" y="54" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="10.5" fill="var(--ac-ink)" letter-spacing="1.4">AGENTS THAT ACT</text>
+
+        <g filter="url(#s3-soft)">
+          <rect x="762" y="76" width="208" height="56" rx="11" fill="url(#s3-gAct)" stroke="var(--ac-bd)" stroke-width="1.3"/>
+        </g>
+        <circle cx="778" cy="96" r="4" fill="var(--ac)"><animate attributeName="opacity" values="0.4;0.95;0.4" dur="3.2s" repeatCount="indefinite"/></circle>
+        <text x="790" y="100" font-family="'Inter',sans-serif" font-weight="700" font-size="13" fill="#1D1A16">Headless</text>
+        <rect x="888" y="87" width="74" height="17" rx="8.5" fill="var(--ac-soft)" stroke="var(--ac-bd)"/><text x="925" y="99" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8.5" fill="var(--ac-ink)" letter-spacing=".3">IN-CHANNEL</text>
+        <text x="776" y="120" font-family="'JetBrains Mono',monospace" font-size="9" fill="var(--ac-ink)">plan &rarr; retrieve &rarr; act &rarr; approve</text>
+
+        <rect x="762" y="140" width="208" height="44" rx="10" fill="var(--ac-fill2)" stroke="var(--ac-bd)" stroke-width="1.3"/>
+        <path d="M773 155 l5 -3 l5 3 v6 q0 5 -5 7 q-5 -2 -5 -7 z" fill="none" stroke="var(--ac)" stroke-width="1.4" stroke-linejoin="round"/>
+        <text x="790" y="159" font-family="'Inter',sans-serif" font-weight="600" font-size="12" fill="var(--ac-ink)">Action firewall</text>
+        <text x="776" y="176" font-family="'JetBrains Mono',monospace" font-size="8.5" fill="var(--ac-ink2)">risk class &middot; approvals &middot; injection defense</text>
+
+        <g filter="url(#s3-soft)">
+          <rect x="762" y="192" width="208" height="148" rx="11" fill="url(#s3-gAct)" stroke="var(--ac-bd)" stroke-width="1.3"/>
+        </g>
+        <text x="774" y="210" font-family="'Inter',sans-serif" font-weight="600" font-size="11.5" fill="#1D1A16">Role-scoped agent fleet</text>
+        <text x="774" y="223" font-family="'JetBrains Mono',monospace" font-size="8.5" fill="var(--ac-ink2)">a managed fleet, not a chatbot</text>
+        <g font-family="'JetBrains Mono',monospace" font-size="9.5" fill="var(--ac-ink)">
+          <rect x="774" y="230" width="90" height="22" rx="7" fill="#FFFFFF" stroke="var(--ac-bd)"/><circle cx="786" cy="241" r="3" fill="var(--ac)"/><text x="794" y="244.5">Sales</text>
+          <rect x="868" y="230" width="90" height="22" rx="7" fill="#FFFFFF" stroke="var(--ac-bd)"/><circle cx="880" cy="241" r="3" fill="var(--ac)"/><text x="888" y="244.5">Support</text>
+          <rect x="774" y="256" width="90" height="22" rx="7" fill="#FFFFFF" stroke="var(--ac-bd)"/><circle cx="786" cy="267" r="3" fill="var(--ac)"/><text x="794" y="270.5">Finance</text>
+          <rect x="868" y="256" width="90" height="22" rx="7" fill="#FFFFFF" stroke="var(--ac-bd)"/><circle cx="880" cy="267" r="3" fill="var(--ac)"/><text x="888" y="270.5">Compliance</text>
+          <rect x="774" y="282" width="184" height="22" rx="7" fill="#FFFFFF" stroke="var(--ac-bd)"/><circle cx="786" cy="293" r="3" fill="var(--ac)"/><text x="794" y="296.5">IT &middot; ITSM</text>
+        </g>
+        <rect x="774" y="310" width="184" height="22" rx="7" fill="var(--ac-soft)" stroke="var(--ac-bd)"/>
+        <text x="866" y="324.5" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8.5" fill="var(--ac-ink)">always-on &middot; SLA &middot; human-in-loop &middot; audited</text>
+
+        <!-- =================== FAR RIGHT: SYSTEMS =================== -->
+        <text x="1092" y="50" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9.5" fill="#8C8678" letter-spacing="1.2">SYSTEMS</text>
+        <g font-family="'JetBrains Mono',monospace" font-size="10.5" fill="#1D1A16">
+          <rect x="1030" y="78" width="110" height="28" rx="8" fill="#F7F4F0" stroke="#E7E2DA"/><text x="1085" y="96" text-anchor="middle">CRM write-back</text>
+          <rect x="1030" y="150" width="110" height="28" rx="8" fill="#F7F4F0" stroke="#E7E2DA"/><text x="1085" y="168" text-anchor="middle">send email</text>
+          <rect x="1030" y="262" width="110" height="28" rx="8" fill="#F7F4F0" stroke="#E7E2DA"/><text x="1085" y="280" text-anchor="middle">tickets</text>
+        </g>
+
+        <!-- =================== CONNECTOR TRACKS =================== -->
+        <g fill="none" stroke-linecap="round">
+          <path d="M116 79 H166" stroke="#CBD8C6" stroke-width="1.8"/>
+          <path d="M116 153 H166" stroke="#CBD8C6" stroke-width="1.8"/>
+          <path d="M116 277 H166" stroke="#CBD8C6" stroke-width="1.8"/>
+          <path d="M116 351 H166" stroke="#CBD8C6" stroke-width="1.8"/>
+          <path d="M388 130 H434" stroke="#BBD0B4" stroke-width="2.4"/>
+          <path d="M388 250 H434" stroke="#BBD0B4" stroke-width="2.4"/>
+          <path d="M716 130 H746" stroke="var(--ac-bd)" stroke-width="2.4"/>
+          <path d="M716 250 H746" stroke="var(--ac-bd)" stroke-width="2.4"/>
+          <path d="M986 92 H1030" stroke="var(--ac-bd)" stroke-width="2"/>
+          <path d="M986 164 H1030" stroke="var(--ac-bd)" stroke-width="2"/>
+          <path d="M986 276 H1030" stroke="var(--ac-bd)" stroke-width="2"/>
+        </g>
+
+        <!-- =================== FEEDBACK LOOP =================== -->
+        <path d="M866 340 V392 H568 V348" fill="none" stroke="var(--ac)" stroke-width="2" stroke-dasharray="2 7" opacity="0.85"/>
+        <path d="M568 348 l-4.5 11 h9 z" fill="var(--ac)"/>
+        <text x="718" y="386" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9.5" fill="var(--ac-ink2)">outcomes &amp; new signal &rarr; back into memory</text>
+
+        <!-- =================== ARROWHEADS =================== -->
+        <g fill="var(--ac)">
+          <path d="M434 130 l-10 -4 v8 z"/>
+          <path d="M434 250 l-10 -4 v8 z"/>
+          <path d="M746 130 l-10 -4 v8 z"/>
+          <path d="M746 250 l-10 -4 v8 z"/>
+          <path d="M1030 92 l-9 -3.5 v7 z"/>
+          <path d="M1030 164 l-9 -3.5 v7 z"/>
+          <path d="M1030 276 l-9 -3.5 v7 z"/>
+        </g>
+
+        <!-- =================== FLOW LABELS =================== -->
+        <text x="411" y="122" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9" fill="#4F7E54">capture</text>
+        <text x="411" y="242" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9" fill="#4F7E54">signal</text>
+        <text x="724" y="122" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9" fill="var(--ac-ink2)">retrieve</text>
+        <text x="724" y="242" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9" fill="var(--ac-ink2)">context</text>
+
+        <!-- =================== ANIMATED FLOW PARTICLES =================== -->
+        <circle r="3.2" fill="url(#s3-dCap)"><animateMotion dur="2.4s" repeatCount="indefinite" path="M116 79 H166"/></circle>
+        <circle r="3.2" fill="url(#s3-dCap)"><animateMotion dur="2.4s" begin="0.6s" repeatCount="indefinite" path="M116 153 H166"/></circle>
+        <circle r="3.2" fill="url(#s3-dCap)"><animateMotion dur="2.4s" begin="1.2s" repeatCount="indefinite" path="M116 277 H166"/></circle>
+        <circle r="3.2" fill="url(#s3-dCap)"><animateMotion dur="2.4s" begin="1.8s" repeatCount="indefinite" path="M116 351 H166"/></circle>
+        <circle r="4" fill="url(#s3-dCap)"><animateMotion dur="2.6s" repeatCount="indefinite" path="M388 130 H434"/></circle>
+        <circle r="4" fill="url(#s3-dCap)"><animateMotion dur="2.6s" begin="1.3s" repeatCount="indefinite" path="M388 130 H434"/></circle>
+        <circle r="4" fill="url(#s3-dCap)"><animateMotion dur="2.6s" begin="0.7s" repeatCount="indefinite" path="M388 250 H434"/></circle>
+        <circle r="4" fill="url(#s3-dCap)"><animateMotion dur="2.6s" begin="2.0s" repeatCount="indefinite" path="M388 250 H434"/></circle>
+        <circle r="4" fill="url(#s3-dMem)"><animateMotion dur="2.6s" begin="0.4s" repeatCount="indefinite" path="M716 130 H746"/></circle>
+        <circle r="4" fill="url(#s3-dMem)"><animateMotion dur="2.6s" begin="1.7s" repeatCount="indefinite" path="M716 250 H746"/></circle>
+        <circle r="3.4" fill="url(#s3-dMem)"><animateMotion dur="2.2s" begin="0.3s" repeatCount="indefinite" path="M986 92 H1030"/></circle>
+        <circle r="3.4" fill="url(#s3-dMem)"><animateMotion dur="2.2s" begin="1.0s" repeatCount="indefinite" path="M986 164 H1030"/></circle>
+        <circle r="3.4" fill="url(#s3-dMem)"><animateMotion dur="2.2s" begin="1.7s" repeatCount="indefinite" path="M986 276 H1030"/></circle>
+        <circle r="4.2" fill="url(#s3-dMem)"><animateMotion dur="3.6s" repeatCount="indefinite" path="M866 340 V392 H568 V348"/></circle>
+        <circle r="4.2" fill="url(#s3-dMem)"><animateMotion dur="3.6s" begin="1.8s" repeatCount="indefinite" path="M866 340 V392 H568 V348"/></circle>
+      </svg>
+     </div>
+
+     <!-- SIMPLE VIEW · same loop, same five modules — calmer layout, one real
+          supply-chain moment threaded through so the structure reads fast -->
+
+     <div class="view view-simple s3s">
+       <svg viewBox="0 0 1160 392" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" style="display:block" role="img"
+            aria-label="The MetaFloor loop for a VP of Supply Chain, shown as a live message feed over the three system blocks. The blocks across the base are informative: Capture (Lens live, Atlas history, Relay active capture from ERP, Slack, email and docs), Governed Memory Registry (typed facts — decision, exception, risk, provenance — a quality and access engine, scoped to person, team, customer, vendor, process), and Headless agents (action firewall and a role-scoped fleet that plans, acts and gets approval, human-in-the-loop). Floating above the blocks, uniform speech bubbles play the scenario in sequence — each bubble anchored over the single block it concerns, three held at once at three fade levels, newest brightest and nearest its block, and that block lights up as its event plays: (1) supplier flags the X90 controller, a 3-week delay mid demand surge; (2) memory recalls the Q3 playbook that shifted 30 percent to the Texas backup, one-time; (3) variables moved — tariff up 18 percent, lead-time now 4 weeks — so the old belief decays; (4) the brain recomputes Playbook v2, 20 percent Texas plus 25 percent a newly qualified Vietnam source; (5) an agent drafts the dual-source PO, the VP signs off, and it executes; (6) the outcome and a new tariff-sensitivity weight are written back as Playbook v2 with provenance.">
+         <defs>
+           <radialGradient id="s3s-halo"><stop offset="0" stop-color="var(--ac-glow)" stop-opacity="0.30"/><stop offset="1" stop-color="var(--ac-glow)" stop-opacity="0"/></radialGradient>
+           <filter id="s3s-sh" x="-12%" y="-30%" width="124%" height="160%"><feDropShadow dx="0" dy="3" stdDeviation="5" flood-color="#1D1A16" flood-opacity="0.10"/></filter>
+           <filter id="s3s-msh" x="-8%" y="-40%" width="116%" height="180%"><feDropShadow dx="0" dy="4" stdDeviation="7" flood-color="#1D1A16" flood-opacity="0.16"/></filter>
+         </defs>
+
+         <!-- eyebrow -->
+         <circle cx="24" cy="16" r="4" fill="var(--ac)"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.8s" repeatCount="indefinite"/></circle>
+         <text x="36" y="20" font-family="'JetBrains Mono',monospace" font-size="9" fill="#4F7E54" letter-spacing="1.5">THE LOOP, LIVE &middot; VP OF SUPPLY CHAIN</text>
+         <text x="1140" y="20" text-anchor="end" font-family="'JetBrains Mono',monospace" font-size="8.5" fill="var(--ac-ink2)" letter-spacing=".6">events stream across the system &middot; newest on top</text>
+
+         <!-- =====================================================================
+              BASE LAYER · THE THREE BLOCKS — informative (what's inside each).
+              The active block lights up while its event is the front message.
+              ===================================================================== -->
+         <ellipse cx="580" cy="292" rx="240" ry="150" fill="url(#s3s-halo)"/>
+
+         <!-- CAPTURE block -->
+         <g filter="url(#s3s-sh)"><rect x="16" y="200" width="362" height="182" rx="15" fill="#FBFDFA" stroke="#BBD0B4" stroke-width="1.3" data-plate/></g>
+         <text x="34" y="222" font-family="'JetBrains Mono',monospace" font-size="8.5" fill="#6C8964" letter-spacing="1.2">CAPTURE &middot; HOW WORK HAPPENS</text>
+         <text x="34" y="242" font-family="'Inter',sans-serif" font-weight="700" font-size="14.5" fill="#1D1A16">Active capture</text>
+         <text x="34" y="266" font-family="'Inter',sans-serif" font-weight="600" font-size="11" fill="#1D1A16">Lens</text><rect x="70" y="256" width="34" height="14" rx="7" fill="#E7EFE6" stroke="#BBD0B4"/><text x="87" y="266" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="7.5" fill="#4F7E54">LIVE</text><text x="114" y="266" font-family="'JetBrains Mono',monospace" font-size="9" fill="#2E5733">watches approved apps</text>
+         <text x="34" y="290" font-family="'Inter',sans-serif" font-weight="600" font-size="11" fill="#1D1A16">Atlas</text><rect x="72" y="280" width="34" height="14" rx="7" fill="#EEF1EC" stroke="#CBD8C6"/><text x="89" y="290" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="7.5" fill="#5A6A55">HIST</text><text x="114" y="290" font-family="'JetBrains Mono',monospace" font-size="9" fill="#2E5733">entities, graphs, timelines</text>
+         <text x="34" y="314" font-family="'Inter',sans-serif" font-weight="700" font-size="11" fill="#1D1A16">Relay</text><rect x="74" y="304" width="44" height="14" rx="7" fill="var(--ac)"/><text x="96" y="314" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="7.5" fill="var(--ac-on)">ACTIVE</text><text x="126" y="314" font-family="'JetBrains Mono',monospace" font-size="9" fill="#2E5733">detects gaps, asks who knows</text>
+         <line x1="34" y1="328" x2="360" y2="328" stroke="#E7E2DA" stroke-dasharray="2 3"/>
+         <text x="34" y="346" font-family="'JetBrains Mono',monospace" font-size="9" fill="#8C8678">from ERP &middot; Slack &middot; email &middot; docs</text>
+         <text x="34" y="364" font-family="'JetBrains Mono',monospace" font-size="9" fill="#4F7E54">active capture, not passive ingest</text>
+
+         <!-- GOVERNED MEMORY block (hero) -->
+         <g filter="url(#s3s-sh)"><rect x="390" y="200" width="384" height="182" rx="15" fill="var(--ac-fill)" stroke="var(--ac-bd)" stroke-width="1.5" data-plate/></g>
+         <text x="408" y="222" font-family="'JetBrains Mono',monospace" font-size="8.5" fill="var(--ac)" letter-spacing="1.2">GOVERN &middot; MEMORY YOU OWN</text>
+         <text x="408" y="242" font-family="'Inter',sans-serif" font-weight="700" font-size="14.5" fill="var(--ac-ink)">Governed Memory Registry</text>
+         <text x="408" y="262" font-family="'JetBrains Mono',monospace" font-size="8" fill="var(--ac-ink2)" letter-spacing=".4">TYPED FACTS</text>
+         <g font-family="'JetBrains Mono',monospace" font-size="9" fill="var(--ac-ink)">
+           <rect x="408" y="267" width="62" height="18" rx="6" fill="#FFFFFF" stroke="var(--ac-bd)"/><text x="439" y="279.5" text-anchor="middle">decision</text>
+           <rect x="476" y="267" width="68" height="18" rx="6" fill="#FFFFFF" stroke="var(--ac-bd)"/><text x="510" y="279.5" text-anchor="middle">exception</text>
+           <rect x="550" y="267" width="40" height="18" rx="6" fill="var(--ac-soft)" stroke="var(--ac-bd)"/><text x="570" y="279.5" text-anchor="middle">risk</text>
+           <rect x="596" y="267" width="80" height="18" rx="6" fill="var(--ac-soft)" stroke="var(--ac-bd)"/><text x="636" y="279.5" text-anchor="middle">provenance</text>
+         </g>
+         <text x="408" y="304" font-family="'JetBrains Mono',monospace" font-size="8" fill="var(--ac-ink2)" letter-spacing=".4">QUALITY &amp; ACCESS ENGINE</text>
+         <text x="408" y="318" font-family="'JetBrains Mono',monospace" font-size="9" fill="var(--ac-ink)">dedupe &middot; confidence &middot; decay &middot; permissions &middot; audit</text>
+         <text x="408" y="340" font-family="'JetBrains Mono',monospace" font-size="8" fill="var(--ac-ink2)" letter-spacing=".4">SCOPED TO</text>
+         <text x="408" y="354" font-family="'JetBrains Mono',monospace" font-size="9" fill="var(--ac-ink)">person &middot; team &middot; customer &middot; vendor &middot; process</text>
+         <text x="408" y="372" font-family="'JetBrains Mono',monospace" font-size="9" fill="var(--ac)">the core the company owns</text>
+
+         <!-- HEADLESS / ACT block -->
+         <g filter="url(#s3s-sh)"><rect x="786" y="200" width="358" height="182" rx="15" fill="var(--ac-fill)" stroke="var(--ac-bd)" stroke-width="1.3" data-plate/></g>
+         <text x="804" y="222" font-family="'JetBrains Mono',monospace" font-size="8.5" fill="var(--ac-ink)" letter-spacing="1.2">ACT &middot; AGENTS THAT ACT</text>
+         <text x="804" y="242" font-family="'Inter',sans-serif" font-weight="700" font-size="14.5" fill="#1D1A16">Headless agents</text>
+         <text x="804" y="260" font-family="'JetBrains Mono',monospace" font-size="9" fill="var(--ac-ink2)">in-channel &middot; plan &rarr; retrieve &rarr; act &rarr; approve</text>
+         <rect x="804" y="270" width="324" height="30" rx="8" fill="#FFFFFF" stroke="var(--ac-bd)"/>
+         <text x="816" y="283" font-family="'Inter',sans-serif" font-weight="600" font-size="10.5" fill="var(--ac-ink)">Action firewall</text>
+         <text x="816" y="295" font-family="'JetBrains Mono',monospace" font-size="8" fill="var(--ac-ink2)">risk class &middot; approvals &middot; injection defense</text>
+         <text x="804" y="320" font-family="'JetBrains Mono',monospace" font-size="8" fill="var(--ac-ink2)" letter-spacing=".4">ROLE-SCOPED FLEET</text>
+         <g font-family="'JetBrains Mono',monospace" font-size="8.5" fill="var(--ac-ink)">
+           <rect x="804" y="326" width="52" height="17" rx="6" fill="#FFFFFF" stroke="var(--ac-bd)"/><text x="830" y="338" text-anchor="middle">Sales</text>
+           <rect x="862" y="326" width="64" height="17" rx="6" fill="#FFFFFF" stroke="var(--ac-bd)"/><text x="894" y="338" text-anchor="middle">Support</text>
+           <rect x="932" y="326" width="60" height="17" rx="6" fill="#FFFFFF" stroke="var(--ac-bd)"/><text x="962" y="338" text-anchor="middle">Finance</text>
+           <rect x="998" y="326" width="44" height="17" rx="6" fill="#FFFFFF" stroke="var(--ac-bd)"/><text x="1020" y="338" text-anchor="middle">IT</text>
+         </g>
+         <text x="804" y="364" font-family="'JetBrains Mono',monospace" font-size="9" fill="var(--ac-ink)">human-in-the-loop &middot; always-on &middot; audited</text>
+
+         <!-- active-block highlight rings — light up while their event is on top -->
+         <rect x="16" y="200" width="362" height="182" rx="15" fill="none" stroke="var(--ac)" stroke-width="3" opacity="0">
+           <animate attributeName="opacity" dur="12s" repeatCount="indefinite" keyTimes="0;0.02;0.16;0.18;1" values="0;0.9;0.9;0;0"/></rect>
+         <rect x="390" y="200" width="384" height="182" rx="15" fill="none" stroke="var(--ac)" stroke-width="3" opacity="0">
+           <animate attributeName="opacity" dur="12s" repeatCount="indefinite" keyTimes="0;0.17;0.18;0.66;0.67;0.83;0.84;1" values="0;0;0.9;0.9;0;0;0.9;0.9"/></rect>
+         <rect x="786" y="200" width="358" height="182" rx="15" fill="none" stroke="var(--ac)" stroke-width="3" opacity="0">
+           <animate attributeName="opacity" dur="12s" repeatCount="indefinite" keyTimes="0;0.66;0.67;0.83;0.84;1" values="0;0;0.9;0.9;0;0"/></rect>
+
+         <!-- flow direction · large translucent chevrons pulled UP into the message
+              band (y~165, the active-message level) so they're prominent. They FIRE in
+              sync with the feed, only when the logic crosses a boundary, sweeping the
+              way it moves:
+                t2  capture > memory   (3 right chevrons sweep right)
+                t8  memory  > act      (3 right chevrons sweep right)
+                t10 act     < memory   (3 left chevrons sweep left = write-back)
+              While events sit inside Memory (t2-8) nothing fires. 12s loop. -->
+         <g fill="none" stroke="var(--ac)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+           <!-- CAPTURE > MEMORY (fires ~t2, sweeps right) -->
+           <path d="M362 147 L376 165 L362 183" opacity="0"><animate attributeName="opacity" dur="12s" repeatCount="indefinite" keyTimes="0;0.140;0.158;0.178;1" values="0;0;0.55;0;0"/></path>
+           <path d="M373 147 L387 165 L373 183" opacity="0"><animate attributeName="opacity" dur="12s" repeatCount="indefinite" keyTimes="0;0.152;0.170;0.190;1" values="0;0;0.55;0;0"/></path>
+           <path d="M384 147 L398 165 L384 183" opacity="0"><animate attributeName="opacity" dur="12s" repeatCount="indefinite" keyTimes="0;0.164;0.182;0.202;1" values="0;0;0.55;0;0"/></path>
+
+           <!-- MEMORY > ACT (fires ~t8, sweeps right) -->
+           <path d="M762 147 L776 165 L762 183" opacity="0"><animate attributeName="opacity" dur="12s" repeatCount="indefinite" keyTimes="0;0.637;0.655;0.675;1" values="0;0;0.55;0;0"/></path>
+           <path d="M773 147 L787 165 L773 183" opacity="0"><animate attributeName="opacity" dur="12s" repeatCount="indefinite" keyTimes="0;0.649;0.667;0.687;1" values="0;0;0.55;0;0"/></path>
+           <path d="M784 147 L798 165 L784 183" opacity="0"><animate attributeName="opacity" dur="12s" repeatCount="indefinite" keyTimes="0;0.661;0.679;0.699;1" values="0;0;0.55;0;0"/></path>
+
+           <!-- ACT < MEMORY · write-back (fires ~t10, sweeps left) -->
+           <path d="M798 147 L784 165 L798 183" opacity="0"><animate attributeName="opacity" dur="12s" repeatCount="indefinite" keyTimes="0;0.803;0.821;0.841;1" values="0;0;0.55;0;0"/></path>
+           <path d="M787 147 L773 165 L787 183" opacity="0"><animate attributeName="opacity" dur="12s" repeatCount="indefinite" keyTimes="0;0.815;0.833;0.853;1" values="0;0;0.55;0;0"/></path>
+           <path d="M776 147 L762 165 L776 183" opacity="0"><animate attributeName="opacity" dur="12s" repeatCount="indefinite" keyTimes="0;0.827;0.845;0.865;1" values="0;0;0.55;0;0"/></path>
+         </g>
+
+         <!-- =====================================================================
+              TOP LAYER · MESSAGE FEED — each event is ONE speech bubble with a
+              downward tail, anchored ABOVE the single block it concerns:
+                E1 over CAPTURE · E2-E4,E6 over MEMORY · E5 over ACT.
+              A bubble enters at the front slot (bright, tail in its block), then
+              rises and fades through two older slots as newer events arrive:
+              3 held at once at 3 fade levels (1.0 / 0.55 / 0.3), then gone.
+              Memory's consecutive events stack above the Memory block.
+              12s loop, one new bubble every 2s. One uniform format throughout.
+                slot Y (translate):  front 0 · mid -52 · back -104 · exit -132
+              ===================================================================== -->
+
+         <!-- E1 · CAPTURE column -->
+         <g opacity="0">
+           <animate attributeName="opacity" begin="0s" dur="12s" repeatCount="indefinite" keyTimes="0;0.02;0.17;0.22;0.34;0.39;0.5;0.55;1" values="0;1;1;0.55;0.55;0.3;0.3;0;0"/>
+           <animateTransform attributeName="transform" type="translate" begin="0s" dur="12s" repeatCount="indefinite" keyTimes="0;0.02;0.17;0.22;0.34;0.39;0.5;0.55;1" values="0 18;0 0;0 0;0 -52;0 -52;0 -104;0 -104;0 -132;0 -132"/>
+           <path d="M189 188 L205 188 L197 200 Z" fill="#FFFFFF"/>
+           <rect x="41" y="138" width="312" height="54" rx="14" fill="#FFFFFF" stroke="var(--ac-bd)" stroke-width="1.3" filter="url(#s3s-msh)"/>
+           <circle cx="63" cy="161" r="13" fill="var(--ac)"/><text x="63" y="165.5" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-weight="600" font-size="12.5" fill="var(--ac-on)">1</text>
+           <text x="83" y="156" font-family="'Inter',sans-serif" font-weight="600" font-size="11.5" fill="#1D1A16">Supplier flags the X90 controller</text>
+           <text x="83" y="173" font-family="'Inter',sans-serif" font-weight="500" font-size="9.5" fill="#6E665A">3-week delay, mid demand surge</text>
+         </g>
+
+         <!-- E2 · MEMORY column -->
+         <g opacity="0">
+           <animate attributeName="opacity" begin="2s" dur="12s" repeatCount="indefinite" keyTimes="0;0.02;0.17;0.22;0.34;0.39;0.5;0.55;1" values="0;1;1;0.55;0.55;0.3;0.3;0;0"/>
+           <animateTransform attributeName="transform" type="translate" begin="2s" dur="12s" repeatCount="indefinite" keyTimes="0;0.02;0.17;0.22;0.34;0.39;0.5;0.55;1" values="0 18;0 0;0 0;0 -52;0 -52;0 -104;0 -104;0 -132;0 -132"/>
+           <path d="M574 188 L590 188 L582 200 Z" fill="#FFFFFF"/>
+           <rect x="412" y="138" width="340" height="54" rx="14" fill="#FFFFFF" stroke="var(--ac-bd)" stroke-width="1.3" filter="url(#s3s-msh)"/>
+           <circle cx="434" cy="161" r="13" fill="var(--ac)"/><text x="434" y="165.5" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-weight="600" font-size="12.5" fill="var(--ac-on)">2</text>
+           <text x="454" y="156" font-family="'Inter',sans-serif" font-weight="600" font-size="11.5" fill="#1D1A16">Memory recalls the Q3 playbook</text>
+           <text x="454" y="173" font-family="'Inter',sans-serif" font-weight="500" font-size="9.5" fill="#6E665A">shifted 30% to the Texas backup (one-time)</text>
+         </g>
+
+         <!-- E3 · MEMORY column -->
+         <g opacity="0">
+           <animate attributeName="opacity" begin="4s" dur="12s" repeatCount="indefinite" keyTimes="0;0.02;0.17;0.22;0.34;0.39;0.5;0.55;1" values="0;1;1;0.55;0.55;0.3;0.3;0;0"/>
+           <animateTransform attributeName="transform" type="translate" begin="4s" dur="12s" repeatCount="indefinite" keyTimes="0;0.02;0.17;0.22;0.34;0.39;0.5;0.55;1" values="0 18;0 0;0 0;0 -52;0 -52;0 -104;0 -104;0 -132;0 -132"/>
+           <path d="M574 188 L590 188 L582 200 Z" fill="#FFFFFF"/>
+           <rect x="412" y="138" width="340" height="54" rx="14" fill="#FFFFFF" stroke="var(--ac-bd)" stroke-width="1.3" filter="url(#s3s-msh)"/>
+           <circle cx="434" cy="161" r="13" fill="var(--ac)"/><text x="434" y="165.5" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-weight="600" font-size="12.5" fill="var(--ac-on)">3</text>
+           <text x="454" y="156" font-family="'Inter',sans-serif" font-weight="600" font-size="11.5" fill="#1D1A16">World changed &mdash; tariff +18%</text>
+           <text x="454" y="173" font-family="'Inter',sans-serif" font-weight="500" font-size="9.5" fill="#6E665A">Texas lead-time now 4 wks &rarr; old belief decays</text>
+         </g>
+
+         <!-- E4 · MEMORY column (the improved answer — accent outline) -->
+         <g opacity="0">
+           <animate attributeName="opacity" begin="6s" dur="12s" repeatCount="indefinite" keyTimes="0;0.02;0.17;0.22;0.34;0.39;0.5;0.55;1" values="0;1;1;0.55;0.55;0.3;0.3;0;0"/>
+           <animateTransform attributeName="transform" type="translate" begin="6s" dur="12s" repeatCount="indefinite" keyTimes="0;0.02;0.17;0.22;0.34;0.39;0.5;0.55;1" values="0 18;0 0;0 0;0 -52;0 -52;0 -104;0 -104;0 -132;0 -132"/>
+           <path d="M574 188 L590 188 L582 200 Z" fill="#FFFFFF"/>
+           <rect x="412" y="138" width="340" height="54" rx="14" fill="#FFFFFF" stroke="var(--ac)" stroke-width="1.7" filter="url(#s3s-msh)"/>
+           <circle cx="434" cy="161" r="13" fill="var(--ac)"/><text x="434" y="165.5" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-weight="600" font-size="12.5" fill="var(--ac-on)">4</text>
+           <text x="454" y="156" font-family="'Inter',sans-serif" font-weight="700" font-size="11.5" fill="#1D1A16">Recompute &rarr; Playbook v2</text>
+           <text x="454" y="173" font-family="'Inter',sans-serif" font-weight="600" font-size="9.5" fill="var(--ac-ink)">20% Texas + 25% Vietnam (newly qualified)</text>
+         </g>
+
+         <!-- E5 · ACT column -->
+         <g opacity="0">
+           <animate attributeName="opacity" begin="8s" dur="12s" repeatCount="indefinite" keyTimes="0;0.02;0.17;0.22;0.34;0.39;0.5;0.55;1" values="0;1;1;0.55;0.55;0.3;0.3;0;0"/>
+           <animateTransform attributeName="transform" type="translate" begin="8s" dur="12s" repeatCount="indefinite" keyTimes="0;0.02;0.17;0.22;0.34;0.39;0.5;0.55;1" values="0 18;0 0;0 0;0 -52;0 -52;0 -104;0 -104;0 -132;0 -132"/>
+           <path d="M957 188 L973 188 L965 200 Z" fill="#FFFFFF"/>
+           <rect x="809" y="138" width="312" height="54" rx="14" fill="#FFFFFF" stroke="var(--ac-bd)" stroke-width="1.3" filter="url(#s3s-msh)"/>
+           <circle cx="831" cy="161" r="13" fill="var(--ac)"/><text x="831" y="165.5" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-weight="600" font-size="12.5" fill="var(--ac-on)">5</text>
+           <text x="851" y="156" font-family="'Inter',sans-serif" font-weight="600" font-size="11.5" fill="#1D1A16">Agent drafts the dual-source PO</text>
+           <text x="851" y="173" font-family="'Inter',sans-serif" font-weight="500" font-size="9.5" fill="#6E665A">VP signs off &rarr; executes</text>
+         </g>
+
+         <!-- E6 · MEMORY column (write-back) -->
+         <g opacity="0">
+           <animate attributeName="opacity" begin="10s" dur="12s" repeatCount="indefinite" keyTimes="0;0.02;0.17;0.22;0.34;0.39;0.5;0.55;1" values="0;1;1;0.55;0.55;0.3;0.3;0;0"/>
+           <animateTransform attributeName="transform" type="translate" begin="10s" dur="12s" repeatCount="indefinite" keyTimes="0;0.02;0.17;0.22;0.34;0.39;0.5;0.55;1" values="0 18;0 0;0 0;0 -52;0 -52;0 -104;0 -104;0 -132;0 -132"/>
+           <path d="M574 188 L590 188 L582 200 Z" fill="#FFFFFF"/>
+           <rect x="412" y="138" width="340" height="54" rx="14" fill="#FFFFFF" stroke="var(--ac-bd)" stroke-width="1.3" filter="url(#s3s-msh)"/>
+           <circle cx="434" cy="161" r="13" fill="var(--ac)"/><text x="434" y="165.5" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-weight="600" font-size="12.5" fill="var(--ac-on)">6</text>
+           <text x="454" y="156" font-family="'Inter',sans-serif" font-weight="600" font-size="11.5" fill="#1D1A16">Written back as Playbook v2</text>
+           <text x="454" y="173" font-family="'Inter',sans-serif" font-weight="500" font-size="9.5" fill="#6E665A">+ tariff-sensitivity weight, with provenance</text>
+         </g>
+       </svg>
+     </div>
+      </div>
+
+      <div class="r row modrow">
+        <span class="lbl">The MetaFloor platform &mdash; five modules</span>
+        <span class="chip sm"><span class="d"></span>Lens <span class="faint">&middot; live</span></span>
+        <span class="chip sm"><span class="d"></span>Atlas <span class="faint">&middot; history</span></span>
+        <span class="chip sm"><span class="d"></span>Relay <span class="faint">&middot; active</span></span>
+        <span class="chip sm"><span class="d"></span>Memory Registry <span class="faint">&middot; core</span></span>
+        <span class="chip sm"><span class="d"></span>Headless <span class="faint">&middot; acts</span></span>
+      </div>
+
+      <p class="r mono dim takeaway">
+        THE TAKEAWAY &nbsp;&middot;&nbsp; <em>active capture, not passive ingest</em> &nbsp;&mdash;&nbsp; living owned memory, not &ldquo;we connected Slack&rdquo;
+        &nbsp;&nbsp;<span class="faint">connect &rarr; detect &rarr; ask &rarr; fill</span>
+      </p>
+    </div>
+  </div>
+</section>
+</div>
+<script src="../deck.js"></script>
+</body>
+</html>
