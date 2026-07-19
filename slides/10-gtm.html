@@ -9,11 +9,11 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="../theme.css"/>
 <style>
-.who { font-size: 17px; color: var(--text-dim); line-height: 1.45; margin-top: 8px; }
+.who { font-size: 17px; color: var(--text-dim); line-height: 1.45; margin-top: 14px; }
 .who b { color: var(--text); font-weight: 650; }
 
-/* land / prove / expand — trimmed ~10% to reclaim space for the design-partners block */
-.motion { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; margin-top: 16px; }
+/* land / prove / expand — trimmed to reclaim space; extra top margin opens up the center */
+.motion { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; margin-top: 30px; }
 .mstep { background: var(--surface); border: 1px solid var(--hairline); border-top: 2px solid var(--ac-bd); border-radius: 11px; padding: 12px 16px; position: relative; }
 .mstep .t { display: flex; align-items: center; gap: 8px; margin-bottom: 4px; }
 .mstep .t .n { font-family: var(--mono); font-size: 10.5px; color: var(--ac-ink); background: var(--ac-soft); border: 1px solid var(--ac-bd); border-radius: 5px; padding: 1px 6px; font-weight: 600; }
@@ -22,7 +22,7 @@
 .mstep p b { color: var(--text); font-weight: 650; }
 .mstep .ar { position: absolute; right: -13px; top: 50%; transform: translateY(-50%); z-index: 3; font-family: var(--mono); font-size: 17px; color: var(--ac); }
 
-.benchhead { display: flex; align-items: baseline; gap: 13px; margin: 16px 0 0; }
+.benchhead { display: flex; align-items: baseline; gap: 13px; margin: 22px 0 0; }
 .benchhead .bl { font-family: var(--mono); font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--ac); font-weight: 600; }
 .benchhead .bl-note { font-size: 13.5px; color: var(--text-dim); }
 
@@ -35,14 +35,14 @@
 .vet .nm { font-size: 14px; font-weight: 650; color: #fff; letter-spacing: -0.01em; }
 .vet .rl { font-size: 11.5px; color: #A9ADB5; line-height: 1.25; }
 
-/* design partners — highlighted block BELOW the leaders bench (already-live medium-size testbed) */
-.dp { margin-top: 13px; background: var(--ac-soft); border: 1px solid var(--ac-bd); border-left: 3px solid var(--ac); border-radius: 12px; padding: 12px 18px 13px; }
-.dp .dp-top { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
-.dp .dp-lb { font-family: var(--mono); font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--ac-ink); font-weight: 700; display: inline-flex; align-items: center; gap: 8px; flex: 0 0 auto; }
+/* design partners — highlighted block BELOW the bench; compact so the slide breathes above */
+.dp { margin-top: 13px; background: var(--ac-soft); border: 1px solid var(--ac-bd); border-left: 3px solid var(--ac); border-radius: 11px; padding: 9px 18px; display: flex; align-items: center; gap: 12px 18px; flex-wrap: wrap; }
+.dp .dp-top { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.dp .dp-lb { font-family: var(--mono); font-size: 11.5px; letter-spacing: .1em; text-transform: uppercase; color: var(--ac-ink); font-weight: 700; display: inline-flex; align-items: center; gap: 8px; flex: 0 0 auto; }
 .dp .dp-lb .live { width: 7px; height: 7px; border-radius: 50%; background: var(--ac); box-shadow: 0 0 0 3px #fff; }
-.dp .dp-chips { display: flex; gap: 9px; flex-wrap: wrap; }
-.dp .chip { font-size: 13.5px; font-weight: 650; color: var(--text); background: #fff; border: 1px solid var(--ac-bd); border-radius: 999px; padding: 5px 14px; letter-spacing: -0.01em; }
-.dp .dp-note { margin-top: 9px; font-size: 12.5px; color: var(--text-dim); line-height: 1.4; }
+.dp .dp-chips { display: flex; gap: 8px; flex-wrap: wrap; }
+.dp .chip { font-size: 13px; font-weight: 650; color: var(--text); background: #fff; border: 1px solid var(--ac-bd); border-radius: 999px; padding: 4px 13px; letter-spacing: -0.01em; }
+.dp .dp-note { margin: 0; font-size: 12px; color: var(--text-dim); line-height: 1.3; flex: 1 1 100%; }
 .dp .dp-note b { color: var(--ac-ink); font-weight: 650; }
 @keyframes fin { to { opacity: 1; } }
 .rise { opacity: 0; animation: fin .5s ease forwards; }

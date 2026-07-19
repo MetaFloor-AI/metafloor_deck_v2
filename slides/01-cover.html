@@ -41,8 +41,10 @@
 .cv-foot { margin-top: auto; display: flex; align-items: flex-end; justify-content: space-between; gap: 20px; padding-top: 22px; }
 .cv-foot .who .n { font-size: 14px; color: var(--text); font-weight: 600; }
 .cv-foot .who .c { font-family: var(--mono); font-size: 12px; color: var(--text-faint); letter-spacing: .04em; margin-top: 4px; }
+.cv-foot .cv-foot-right { display: flex; flex-direction: column; align-items: flex-end; gap: 9px; }
 .cv-foot .round { font-family: var(--mono); font-size: 12px; letter-spacing: .1em; text-transform: uppercase;
   color: var(--ac-ink); background: var(--ac-soft); border: 1px solid var(--ac-bd); border-radius: 999px; padding: 7px 15px; }
+.cv-foot .incorp { font-family: var(--mono); font-size: 11px; letter-spacing: .04em; color: var(--text-faint); }
 @keyframes cvin { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
 .ci { opacity: 0; animation: cvin .55s cubic-bezier(.2,.7,.2,1) forwards; }
 .ci.d1{animation-delay:.05s} .ci.d2{animation-delay:.16s} .ci.d3{animation-delay:.28s} .ci.d4{animation-delay:.4s} .ci.d5{animation-delay:.54s} .ci.d6{animation-delay:.68s}
@@ -86,7 +88,10 @@
             <div class="n">Anup Mehta &middot; Founder &amp; CEO</div>
             <div class="c">anup@metafloor.ai &middot; metafloor.ai</div>
           </div>
-          <span class="round">Seed Round &middot; 2026</span>
+          <div class="cv-foot-right">
+            <span class="round">Seed Round &middot; 2026</span>
+            <div class="incorp">Delaware entity &middot; Incorporated Sep 2025</div>
+          </div>
         </div>
       </div>
     </div>

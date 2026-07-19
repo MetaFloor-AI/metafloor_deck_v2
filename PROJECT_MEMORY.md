@@ -2,6 +2,12 @@
 
 A standalone-HTML seed pitch deck. Each slide is its own file in `slides/`, a 1280×720 stage scaled by `deck.js`, themed via `<html data-theme>` (sage · ember · violet), assembled by the `index.html` iframe viewer + `slides.json` manifest. `STORY.md` is the source-of-truth narrative doc; read it before editing copy.
 
+## [P1.S5] Cover incorporation line + desks footer + GTM spacing (2026-07-19, done)
+- **Cover (`01-cover.html`):** added **"Delaware entity · Incorporated Sep 2025"** as a muted mono line under the "Seed Round · 2026" pill (right footer; new `.cv-foot-right` column stacks pill + `.incorp`).
+- **Desks (`05-desks.html`):** footer right-side `.diff` was wrapping to two lines (orphan "use.") and misaligned → now a single **flush-right** line (`white-space:nowrap`, dropped `max-width:40ch`).
+- **GTM (`10-gtm.html`):** compacted the design-partners block ~20% (padding/chips/note→one line) and reclaimed the space as **center whitespace** (more air under the hero + above the Land/Prove/Expand cards).
+- PDF regenerated (15 slides incl. B3).
+
 ## [P1.S4] Appendix B3 — "The Loop" slide, ported (2026-07-19, done)
 - **`slides/B3-solution.html`** — ported the supply-chain loop slide (capture → govern → let agents act) from `~/projects/metafloorv2/outreach/mf-supplychain++/deck/slides/03-solution.html` into deck2 as **appendix B3**. Inserted in `slides.json` as the **last-but-one** slide (before `B1-architecture`). Order tail: …`close` · **`solution` (B3)** · `architecture` (B1) → 15 slides total.
 - Rebuilt on deck2's design system: **Inter / JetBrains Mono** fonts (swapped from Hanken Grotesk / IBM Plex Mono), deck2 slide chrome (`.deck>.slide>.stage>.canvas`, `../theme.css`, `../deck.js`), and the full **`--ac*` accent ramp** so the theme/color switcher drives the entire diagram across **sage · ember · violet**. The **capture plane stays fixed green by design** (source's "human capture" signal). Mapped the three vars deck2 lacks — `--ac-fill2`, `--ac-fill3`, `--ac-ink2` — onto deck2 tokens locally in the slide.
