@@ -9,6 +9,20 @@ A standalone-HTML seed pitch deck. Each slide is its own file in `slides/`, a 12
 - **Refinement pass (2026-07-10):** cover reworded to "MetaFloor holds…" + icon-chip blocks; hook numbers up (~$150K/hr · 6–8 systems · dozens of people) + cleaner gap line; tax "the quiet one" accent; **field slide (`B2-field.html`) rebuilt in the dev/field.html scorecard format** — 4 pillars (active capture · governed memory · accountable fleet · vertical depth) × 6 named competitor lanes (o9/Kinaxis/BY, Everstream/Resilinc/Interos, Glean/Copilot/Palantir, Sierra/Agentforce/ServiceNow, Guru/Notion/Starmind, Sentra/Augment/bluefabric), MetaFloor the only full row; **GTM bench → dark block, all 10 as "our champions"** (logos inverted white, no experts/legend/dots).
 - **PDF export:** `python3 export_pdf.py [out.pdf]` — Playwright renders each visible slide (`slides.json`) at 3× off the `.stage`, waits for entrance animations, hides the theme switcher, assembles a raster PDF via `img2pdf`. Auto-tunes to a **3–9.5 MB** window (PNG @3x ≈ 4 MB; re-encodes to JPEG if over, bumps scale if under). Interactive slides (ROI, desks) are captured in their **default** state. Output `MetaFloor_Deck.pdf` committed (downloadable at slides.metafloor.ai/MetaFloor_Deck.pdf); `_deck_frames/` gitignored.
 
+## [P1.S3] Anup feedback pass — design partners + Delta Group + fee (2026-07-19, done)
+
+Anup review edits to the live deck (`master`, published at slides.metafloor.ai):
+
+- **GTM (`slides/10-gtm.html`):**
+  - **Design partners** now a **highlighted block BELOW the leaders bench** (was a strip above): green-tinted (`--ac-soft`) card with accent left-border, holding **WLS Stamping · Plumage Technologies · ASM Technologies · Digicom** as white chips + a note line: *"Medium-sized companies — our product-discovery testbed. Not our ideal customer size, but they help us design the product."* (Plumage/ASM/Digicom are real entities in the history_bldr live data.)
+  - Bench relabeled **"now scaling to large customers"**; **Land/Prove/Expand trimmed ~10%** (padding/font) to reclaim the space.
+  - **Removed Microchip / Daniel Jackson; added Shane Nunes / Delta Group Electronics.** Logo is the **real** Delta Group Electronics wordmark: pulled `deltrgroup-logo.png` from deltagroupinc.com, cropped to the "DELTA GROUP" band, made bg transparent, removed a stray icon sliver → `assets/logos/deltagroup.png` (renders white via the bench `grayscale/brightness(0)/invert` filter).
+  - **OPEN:** Shane Nunes' exact **title** unverified (web only shows a "Shane Nunes" as COO@Universal Instruments; Delta Group Electronics lists no Shane) — `.rl` shows company only, flagged with a `TODO(anup)` HTML comment. Every other bench entry has a title; drop it in when Anup confirms.
+
+- **ROI (`slides/09-roi.html`):** MetaFloor **medium fee $0.20M → $0.25M** (data `PROFILES.medium.fee` + static defaults). `render("medium")` recomputes: gross $1.77M, net **$1.52M**, **~7×** value, **~7 wks** payback. Large/XL fees unchanged.
+
+- **PDF** regenerated (`MetaFloor_Deck.pdf`, 14 slides, ~3.9 MB). Both changed pages (7 ROI, 11 GTM) visually verified via 3× render.
+
 ## [P1.S2] Deck v5 — story rebuild for an UNASSUMING investor (2026-07-09, in progress)
 
 Founder verdict on v4: **too vague AND too specific** for an investor who doesn't even know supply-chain disruptions exist — opens on an insider metric ("8 people scrambling → 2 deciding") and drowns in jargon (allocation/CBAM/expedite/NRR). The PDF `~/Desktop/MetaFloor_SupplyChain_ROI_Deck.pdf` reads clearer (one grammar/slide, huge whitespace, sage restraint) but is **ungrounded** (fabricated ROI as fact) and is a *customer* deck. **Decision: steal the PDF's clarity, keep deck2's honesty, and GROUND the product story in the real `sc_v1` demos.**

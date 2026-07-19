@@ -12,16 +12,17 @@
 .who { font-size: 17px; color: var(--text-dim); line-height: 1.45; margin-top: 8px; }
 .who b { color: var(--text); font-weight: 650; }
 
-.motion { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; margin-top: 20px; }
-.mstep { background: var(--surface); border: 1px solid var(--hairline); border-top: 2px solid var(--ac-bd); border-radius: 12px; padding: 15px 18px; position: relative; }
-.mstep .t { display: flex; align-items: center; gap: 9px; margin-bottom: 6px; }
-.mstep .t .n { font-family: var(--mono); font-size: 11px; color: var(--ac-ink); background: var(--ac-soft); border: 1px solid var(--ac-bd); border-radius: 5px; padding: 1px 7px; font-weight: 600; }
-.mstep .t h3 { font-size: 18px; letter-spacing: -0.02em; }
-.mstep p { font-size: 13.5px; color: var(--text-dim); line-height: 1.4; }
+/* land / prove / expand — trimmed ~10% to reclaim space for the design-partners block */
+.motion { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; margin-top: 16px; }
+.mstep { background: var(--surface); border: 1px solid var(--hairline); border-top: 2px solid var(--ac-bd); border-radius: 11px; padding: 12px 16px; position: relative; }
+.mstep .t { display: flex; align-items: center; gap: 8px; margin-bottom: 4px; }
+.mstep .t .n { font-family: var(--mono); font-size: 10.5px; color: var(--ac-ink); background: var(--ac-soft); border: 1px solid var(--ac-bd); border-radius: 5px; padding: 1px 6px; font-weight: 600; }
+.mstep .t h3 { font-size: 16px; letter-spacing: -0.02em; }
+.mstep p { font-size: 12.5px; color: var(--text-dim); line-height: 1.35; }
 .mstep p b { color: var(--text); font-weight: 650; }
-.mstep .ar { position: absolute; right: -14px; top: 50%; transform: translateY(-50%); z-index: 3; font-family: var(--mono); font-size: 18px; color: var(--ac); }
+.mstep .ar { position: absolute; right: -13px; top: 50%; transform: translateY(-50%); z-index: 3; font-family: var(--mono); font-size: 17px; color: var(--ac); }
 
-.benchhead { display: flex; align-items: baseline; gap: 13px; margin: 22px 0 0; }
+.benchhead { display: flex; align-items: baseline; gap: 13px; margin: 16px 0 0; }
 .benchhead .bl { font-family: var(--mono); font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--ac); font-weight: 600; }
 .benchhead .bl-note { font-size: 13.5px; color: var(--text-dim); }
 
@@ -33,6 +34,16 @@
   filter: grayscale(100%) brightness(0) invert(1); }
 .vet .nm { font-size: 14px; font-weight: 650; color: #fff; letter-spacing: -0.01em; }
 .vet .rl { font-size: 11.5px; color: #A9ADB5; line-height: 1.25; }
+
+/* design partners — highlighted block BELOW the leaders bench (already-live medium-size testbed) */
+.dp { margin-top: 13px; background: var(--ac-soft); border: 1px solid var(--ac-bd); border-left: 3px solid var(--ac); border-radius: 12px; padding: 12px 18px 13px; }
+.dp .dp-top { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+.dp .dp-lb { font-family: var(--mono); font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--ac-ink); font-weight: 700; display: inline-flex; align-items: center; gap: 8px; flex: 0 0 auto; }
+.dp .dp-lb .live { width: 7px; height: 7px; border-radius: 50%; background: var(--ac); box-shadow: 0 0 0 3px #fff; }
+.dp .dp-chips { display: flex; gap: 9px; flex-wrap: wrap; }
+.dp .chip { font-size: 13.5px; font-weight: 650; color: var(--text); background: #fff; border: 1px solid var(--ac-bd); border-radius: 999px; padding: 5px 14px; letter-spacing: -0.01em; }
+.dp .dp-note { margin-top: 9px; font-size: 12.5px; color: var(--text-dim); line-height: 1.4; }
+.dp .dp-note b { color: var(--ac-ink); font-weight: 650; }
 @keyframes fin { to { opacity: 1; } }
 .rise { opacity: 0; animation: fin .5s ease forwards; }
 .rise.a{animation-delay:.08s}.rise.b{animation-delay:.22s}.rise.c{animation-delay:.36s}.rise.d{animation-delay:.5s}
@@ -66,8 +77,8 @@
       </div>
 
       <div class="benchhead rise c">
-        <span class="bl">our champions</span>
-        <span class="bl-note">10 supply-chain leaders who open the door &amp; win the pilot</span>
+        <span class="bl">now scaling to large customers</span>
+        <span class="bl-note">10 supply-chain leaders at large enterprises who open the door &amp; win the pilot</span>
       </div>
       <div class="wall rise d">
         <div class="vet"><span class="logo"><img src="../assets/logos/blueyonder.svg" alt="Blue Yonder"/></span><span class="nm">Sudarshan Seshadri</span><span class="rl">Corporate VP, Blue Yonder</span></div>
@@ -79,7 +90,21 @@
         <div class="vet"><span class="logo"><img src="../assets/logos/astrazeneca.svg" alt="AstraZeneca"/></span><span class="nm">Arun Krishnan</span><span class="rl">Sr. VP Supply Chain, AstraZeneca</span></div>
         <div class="vet"><span class="logo"><img src="../assets/logos/sanmina.svg" alt="Sanmina"/></span><span class="nm">Sundar Kamath</span><span class="rl">Sr. VP, Sanmina</span></div>
         <div class="vet"><span class="logo"><img src="../assets/logos/jabil.svg" alt="Jabil"/></span><span class="nm">Cassie Gruber</span><span class="rl">Dir. Sustainability, Jabil</span></div>
-        <div class="vet"><span class="logo"><img src="../assets/logos/microchip.svg" alt="Microchip"/></span><span class="nm">Daniel Jackson</span><span class="rl">Dir. Supply Chain, Microchip</span></div>
+        <!-- TODO(anup): confirm Shane Nunes' exact title at Delta Group — web unverified (a "Shane Nunes" is COO at Universal Instruments; Delta Group Electronics lists no Shane). Drop the title into .rl as "Title, Delta Group". -->
+        <div class="vet"><span class="logo"><img src="../assets/logos/deltagroup.png" alt="Delta Group Electronics"/></span><span class="nm">Shane Nunes</span><span class="rl">Delta Group Electronics</span></div>
+      </div>
+
+      <div class="dp rise d">
+        <div class="dp-top">
+          <span class="dp-lb"><span class="live"></span>design partners &middot; already live on their data</span>
+          <div class="dp-chips">
+            <span class="chip">WLS Stamping</span>
+            <span class="chip">Plumage Technologies</span>
+            <span class="chip">ASM Technologies</span>
+            <span class="chip">Digicom</span>
+          </div>
+        </div>
+        <p class="dp-note"><b>Medium-sized companies &mdash; our product-discovery testbed.</b> Not our ideal customer size, but they help us design the product.</p>
       </div>
     </div>
   </div>
