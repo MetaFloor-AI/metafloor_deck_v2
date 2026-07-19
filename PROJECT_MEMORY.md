@@ -2,6 +2,12 @@
 
 A standalone-HTML seed pitch deck. Each slide is its own file in `slides/`, a 1280×720 stage scaled by `deck.js`, themed via `<html data-theme>` (sage · ember · violet), assembled by the `index.html` iframe viewer + `slides.json` manifest. `STORY.md` is the source-of-truth narrative doc; read it before editing copy.
 
+## [P1.S6] Appendix B4 — "The Moat" slide, ported (2026-07-19, done)
+- **`slides/B4-moat.html`** — ported the moat slide (**"Short the model. Long the memory."**) from `~/projects/metafloorv2/outreach/mf-supplychain++/deck/slides/04-moat.html` into deck2 as **appendix B4**. Inserted in `slides.json` as the new **last-but-one** slide (after `solution`/B3, before `architecture`/B1). Order tail: …`close` · `solution` (B3) · **`moat-stack` (B4)** · `architecture` (B1) → 16 slides total.
+- Same porting method as B3: **Inter / JetBrains Mono** fonts, deck2 slide chrome, full **`--ac*` accent ramp** (theme switcher drives the MEMORY layer + all accents across sage · ember · violet; the ENTERPRISE "where value lands" band + "all ours" bracket stay fixed sage by design). Mapped the four vars deck2 lacks — `--ac-fill2`, `--ac-fill3`, `--ac-ink2`, `--ac-bd2` — onto deck2 tokens; ported the source `.vs` crowd-vs-us component into the slide's local CSS.
+- Keeps **both views** + the "Simplify this / Full detail" toggle: detailed = isometric 6-layer "all ours" stack (MEMORY compounds, MODEL is the dashed swappable slab) + trust-primitives card + crowd-vs-us table; simple = flat model-swap-⇄-chain vs compounding-memory-bars contrast.
+- Verified via Playwright: both views + all three themes render correctly, fit the 1280×720 stage. Minor known cosmetic: the simple view's far-right "value retained" edge label clips ~1px at the viewBox edge (inherited from source) — harmless, fix if it bothers.
+
 ## [P1.S5] Cover incorporation line + desks footer + GTM spacing (2026-07-19, done)
 - **Cover (`01-cover.html`):** added **"Delaware entity · Incorporated Sep 2025"** as a muted mono line under the "Seed Round · 2026" pill (right footer; new `.cv-foot-right` column stacks pill + `.incorp`).
 - **Desks (`05-desks.html`):** footer right-side `.diff` was wrapping to two lines (orphan "use.") and misaligned → now a single **flush-right** line (`white-space:nowrap`, dropped `max-width:40ch`).

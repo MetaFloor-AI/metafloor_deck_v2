@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="sage">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>MetaFloor — The Moat (Appendix)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="../theme.css"/>
+<style>
+/* intermediate accent tints the source SVG expects, mapped onto deck2 tokens */
+.stage { --ac-fill2: var(--ac-soft); --ac-fill3: var(--ac-soft); --ac-ink2: var(--ac); --ac-bd2: var(--ac-bd); }
+
+/* core region + two-view switch (ported from source brand.css, deck2 tokens) */
+.s4-core { display:flex; align-items:center; min-height:0; width:100%; }
+.view { width:100%; }
+.view-detailed { align-self:stretch; min-height:0; }
+.s4-core svg { max-height:100%; }
+.view-simple { display:none; }
+.view-simple.s4s { width:100%; height:100%; align-items:center; justify-content:center; }
+.view-simple.s4s svg { width:100%; height:100%; display:block; }
+.slide:has(.simplify-input:checked) .view-detailed { display:none !important; }
+.slide:has(.simplify-input:checked) .view-simple { display:flex; align-self:stretch; }
+
+/* simplify toggle — macOS pill, deck2 accent ramp */
+.simplify-input { position:fixed; width:0; height:0; opacity:0; margin:0; padding:0; border:0; overflow:hidden; clip:rect(0,0,0,0); }
+.simplify-toggle {
+  display:inline-flex; align-items:center; gap:8px; cursor:pointer; user-select:none;
+  font-family:var(--mono); font-size:11px; letter-spacing:.06em; text-transform:uppercase;
+  color:var(--ac-ink); background:var(--ac-soft); border:1px solid var(--ac-bd);
+  padding:6px 14px; border-radius:var(--r-pill); transition:all .2s ease; white-space:nowrap; flex:0 0 auto;
+}
+.simplify-toggle:hover { border-color:var(--ac); box-shadow:var(--sh-card); }
+.simplify-toggle .ic { width:13px; height:13px; border-radius:50%; flex:0 0 auto;
+  background:radial-gradient(circle at 32% 30%, var(--ac-glow), var(--ac)); transition:background .2s; }
+.simplify-toggle .t-detail { display:none; }
+.slide:has(.simplify-input:checked) .simplify-toggle { background:var(--ac); color:var(--ac-on); border-color:var(--ac); }
+.slide:has(.simplify-input:checked) .simplify-toggle .ic { background:var(--ac-on); }
+.slide:has(.simplify-input:checked) .simplify-toggle .t-simplify { display:none; }
+.slide:has(.simplify-input:checked) .simplify-toggle .t-detail { display:inline; }
+
+/* crowd-vs-us table (ported from source brand.css .vs) */
+.vs { display:flex; flex-direction:column; gap:6px; margin-top:2px; }
+.vs-row { display:grid; grid-template-columns:1fr 22px 1fr; align-items:center; gap:7px;
+  font-family:var(--mono); font-size:11px; line-height:1.25; }
+.vs-row.vs-head { font-size:9.5px; letter-spacing:.1em; text-transform:uppercase; }
+.vs-row.vs-head .crowd { color:var(--text-faint); }
+.vs-row.vs-head .us { color:var(--ac-ink); font-weight:600; }
+.vs-row .crowd { color:var(--text-dim); text-align:right; text-decoration:line-through;
+  text-decoration-color:color-mix(in oklab, var(--text-faint) 70%, transparent); }
+.vs-row .arr { color:var(--ac); text-align:center; font-size:13px; }
+.vs-row .us { color:var(--ac-ink); font-weight:500; }
+
+.takeaway { margin-top:13px; font-size:12px; letter-spacing:.02em; }
+
+@media print {
+  .simplify-toggle, .simplify-input { display:none !important; }
+  .view-simple { display:none !important; }
+  .view-detailed { display:flex !important; }
+}
+</style>
+</head>
+<body>
+<div class="deck">
+<section class="slide">
+  <div class="stage">
+    <div class="titlebar">
+      <span class="tl"><i></i><i></i><i></i></span>
+      <span class="tb-label">appendix &middot; the moat</span>
+      <span class="tb-right">APPENDIX &middot; <b>B4</b></span>
+    </div>
+    <div class="canvas">
+      <input type="checkbox" id="s4-simplify" class="simplify-input" aria-label="Show simplified version of this slide"/>
+      <div class="r head">
+        <div class="row between items-c">
+          <span class="eyebrow"><span class="dot"></span>the moat &middot; why us</span>
+          <label class="simplify-toggle" for="s4-simplify"><span class="ic"></span><span class="t-simplify">Simplify this</span><span class="t-detail">Full detail</span></label>
+        </div>
+        <h2>Short the model. <em>Long the memory.</em></h2>
+        <p class="sub">Reasoning is commoditizing &mdash; anyone can call a model. <b>We own the whole vertical stack;</b> the model is the only swappable layer, and memory compounds into a moat.</p>
+      </div>
+
+      <div class="r grow s4-core" style="min-height:0">
+     <div class="view view-detailed row items-s" style="gap:clamp(12px,1.6cqw,20px);width:100%">
+      <!-- the full stack: swappable model underneath, compounding memory core -->
+      <div class="card col" style="flex:1.4;min-width:0;justify-content:space-between;gap:clamp(6px,1cqh,11px)">
+        <div class="row between items-c" style="margin-bottom:1px">
+          <span class="eyebrow" style="color:var(--text-faint)">THE FULL STACK &mdash; ALL OURS</span>
+          <span class="mono faint" style="font-size:clamp(8.5px,.95cqw,10.5px);letter-spacing:.04em">one swappable layer; the rest compounds</span>
+        </div>
+
+        <!-- ============================================================
+             THE FULL STACK — six layers as isometric slabs, ALL OURS.
+             Each slab is clearly separated (pitch 64, generous gap) so
+             labels never collide. Properties are carried by color + motion,
+             not by singling one slab out:
+               · ENTERPRISE (top) → sage edge, "where value lands"
+               · MEMORY        → ember tint + subtle glow, "compounds"
+               · MODEL         → neutral/dim, dashed, drifts out "swappable"
+               · the rest stay quiet neutral.
+             The whole stack reads as one owned thing; only the model swaps.
+             ============================================================ -->
+        <svg viewBox="0 0 640 500" style="width:100%;height:auto;display:block" role="img"
+             aria-label="The full stack, all owned by MetaFloor: six isometric layers. Enterprise on top is where value lands; Agents and Governance sit above an ember-lit Memory layer that compounds; below it a dashed, muted Model layer is the one swappable, commodity layer, sliding out, over an Infra and Capture base. We own the whole stack; only the model swaps.">
+          <defs>
+            <!-- neutral slab face + depth side -->
+            <linearGradient id="m4-neutral" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FBF9F6"/><stop offset="1" stop-color="#F1EDE7"/></linearGradient>
+            <linearGradient id="m4-neutral-side" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#E7E2DA"/><stop offset="1" stop-color="#DCD6CC"/></linearGradient>
+            <!-- accent memory layer (compounds · theme-driven) -->
+            <linearGradient id="m4-ember" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="var(--ac-fill2)"/><stop offset="1" stop-color="var(--ac-fill3)"/></linearGradient>
+            <linearGradient id="m4-ember-side" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="var(--ac-bd)"/><stop offset="1" stop-color="var(--ac-bd2)"/></linearGradient>
+            <linearGradient id="m4-ember-bar" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="var(--ac-glow)"/><stop offset="1" stop-color="var(--ac)"/></linearGradient>
+            <radialGradient id="m4-dot"><stop offset="0" stop-color="var(--ac-glow)"/><stop offset="1" stop-color="var(--ac)"/></radialGradient>
+            <!-- sage enterprise layer (where value lands) -->
+            <linearGradient id="m4-sage" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F4F7F2"/><stop offset="1" stop-color="#E7EEE3"/></linearGradient>
+            <linearGradient id="m4-sage-side" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#C7D6C0"/><stop offset="1" stop-color="#B7C9AF"/></linearGradient>
+            <!-- swappable model slab (muted) -->
+            <linearGradient id="m4-swap" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F7F4F0"/><stop offset="1" stop-color="#EFEBE4"/></linearGradient>
+
+            <filter id="m4-soft" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="4" stdDeviation="7" flood-color="#1D1A16" flood-opacity="0.10"/></filter>
+            <filter id="m4-glow" x="-50%" y="-50%" width="200%" height="200%"><feDropShadow dx="0" dy="0" stdDeviation="9" flood-color="var(--ac-glow)" flood-opacity="0.40"/></filter>
+          </defs>
+
+          <!-- geometry: slab front w=442 (x 70..512), h=52, PITCH 64 (gap 12);
+               isometric depth dx=26 dy=-18. Slabs at y = 10,74,138,202,266,330. -->
+
+          <!-- ===== "all ours" ownership bracket down the left edge ===== -->
+          <g>
+            <path d="M 50 6 h -14 v 376 h 14" fill="none" stroke="#6C8964" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <text x="30" y="200" font-family="'JetBrains Mono',monospace" font-size="10" font-weight="500" letter-spacing="2.5" fill="#6C8964" transform="rotate(-90 30 200)" text-anchor="middle">ALL OURS</text>
+          </g>
+
+          <!-- ===== rising-signal particles climbing INTO the memory layer (it compounds) ===== -->
+          <g>
+            <circle r="3.2" fill="url(#m4-dot)" opacity="0"><animate attributeName="opacity" values="0;1;1;0" dur="2.8s" repeatCount="indefinite"/><animateMotion dur="2.8s" repeatCount="indefinite" path="M 150 380 V 222"/></circle>
+            <circle r="3.2" fill="url(#m4-dot)" opacity="0"><animate attributeName="opacity" values="0;1;1;0" dur="2.8s" begin="1.0s" repeatCount="indefinite"/><animateMotion dur="2.8s" begin="1.0s" repeatCount="indefinite" path="M 250 380 V 222"/></circle>
+            <circle r="3.2" fill="url(#m4-dot)" opacity="0"><animate attributeName="opacity" values="0;1;1;0" dur="2.8s" begin="1.9s" repeatCount="indefinite"/><animateMotion dur="2.8s" begin="1.9s" repeatCount="indefinite" path="M 350 380 V 222"/></circle>
+          </g>
+
+          <!-- ============ LAYER 1 · ENTERPRISE (top) — where value lands · sage ============ -->
+          <g filter="url(#m4-soft)">
+            <path d="M 512 10 l 26 -18 v 36 l -26 18 z" fill="url(#m4-sage-side)"/>
+            <path d="M 70 10 l 26 -18 h 442 l -26 18 z" fill="#F7FAF5"/>
+            <rect x="70" y="10" width="442" height="52" rx="11" fill="url(#m4-sage)" stroke="#B7C9AF" stroke-width="1.3" data-plate/>
+          </g>
+          <text x="88" y="34" font-family="'JetBrains Mono',monospace" font-size="13" font-weight="500" letter-spacing="1.4" fill="#1D1A16">ENTERPRISE</text>
+          <text x="88" y="51" font-family="'JetBrains Mono',monospace" font-size="10" fill="#8C8678">roles · org structure · access · threads</text>
+          <!-- where value lands tag (sage) -->
+          <rect x="336" y="23" width="156" height="26" rx="13" fill="#E7EEE3" stroke="#B7C9AF" stroke-width="1"/>
+          <text x="414" y="40" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9.5" letter-spacing="0.4" fill="#4F6B48">where value lands</text>
+
+          <!-- ============ LAYER 2 · AGENTS ============ -->
+          <g filter="url(#m4-soft)">
+            <path d="M 512 74 l 26 -18 v 36 l -26 18 z" fill="url(#m4-neutral-side)"/>
+            <path d="M 70 74 l 26 -18 h 442 l -26 18 z" fill="#FCFAF7"/>
+            <rect x="70" y="74" width="442" height="52" rx="11" fill="url(#m4-neutral)" stroke="#E7E2DA" stroke-width="1.2" data-plate/>
+          </g>
+          <text x="88" y="98" font-family="'JetBrains Mono',monospace" font-size="13" font-weight="500" letter-spacing="1.4" fill="#1D1A16">AGENTS</text>
+          <text x="88" y="115" font-family="'JetBrains Mono',monospace" font-size="10" fill="#8C8678">role-scoped fleet · runtime · firewall</text>
+
+          <!-- ============ LAYER 3 · GOVERNANCE ============ -->
+          <g filter="url(#m4-soft)">
+            <path d="M 512 138 l 26 -18 v 36 l -26 18 z" fill="url(#m4-neutral-side)"/>
+            <path d="M 70 138 l 26 -18 h 442 l -26 18 z" fill="#FCFAF7"/>
+            <rect x="70" y="138" width="442" height="52" rx="11" fill="url(#m4-neutral)" stroke="#E7E2DA" stroke-width="1.2" data-plate/>
+          </g>
+          <text x="88" y="162" font-family="'JetBrains Mono',monospace" font-size="13" font-weight="500" letter-spacing="1.4" fill="#1D1A16">GOVERNANCE</text>
+          <text x="88" y="179" font-family="'JetBrains Mono',monospace" font-size="10" fill="#8C8678">provenance · confidence · decay · authz</text>
+
+          <!-- ============ LAYER 4 · MEMORY — ember, subtly glowing, compounds ============ -->
+          <g filter="url(#m4-glow)">
+            <path d="M 512 202 l 26 -18 v 36 l -26 18 z" fill="url(#m4-ember-side)"/>
+            <path d="M 70 202 l 26 -18 h 442 l -26 18 z" fill="var(--ac-fill)"/>
+            <rect x="70" y="202" width="442" height="52" rx="11" fill="url(#m4-ember)" stroke="var(--ac)" stroke-width="1.4" data-plate/>
+          </g>
+          <text x="88" y="226" font-family="'JetBrains Mono',monospace" font-size="13" font-weight="500" letter-spacing="1.4" fill="var(--ac-ink)">MEMORY</text>
+          <text x="88" y="243" font-family="'JetBrains Mono',monospace" font-size="10" fill="var(--ac-ink2)">data + tribal knowledge · beliefs · time</text>
+          <!-- compounds tag (accent) -->
+          <rect x="342" y="215" width="100" height="26" rx="13" fill="var(--ac)"/>
+          <text x="392" y="232" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9.5" font-weight="500" letter-spacing="0.5" fill="var(--ac-on)">compounds</text>
+          <!-- rising-growth bars motif (compounding ↑) -->
+          <g>
+            <rect x="455" y="240" width="8" height="6" rx="2" fill="url(#m4-ember-bar)"><animate attributeName="height" values="6;13;6" dur="2.4s" repeatCount="indefinite"/><animate attributeName="y" values="240;233;240" dur="2.4s" repeatCount="indefinite"/></rect>
+            <rect x="467" y="236" width="8" height="10" rx="2" fill="url(#m4-ember-bar)"><animate attributeName="height" values="10;18;10" dur="2.4s" begin="0.3s" repeatCount="indefinite"/><animate attributeName="y" values="236;228;236" dur="2.4s" begin="0.3s" repeatCount="indefinite"/></rect>
+            <rect x="479" y="231" width="8" height="15" rx="2" fill="url(#m4-ember-bar)"><animate attributeName="height" values="15;24;15" dur="2.4s" begin="0.6s" repeatCount="indefinite"/><animate attributeName="y" values="231;222;231" dur="2.4s" begin="0.6s" repeatCount="indefinite"/></rect>
+          </g>
+
+          <!-- ============ LAYER 5 · MODEL — the one commodity layer: dashed, muted, drifts out ============ -->
+          <!-- ghost socket the model slab leaves behind when it swaps -->
+          <rect x="70" y="266" width="442" height="52" rx="11" fill="none" stroke="#D8D1C6" stroke-width="1.2" stroke-dasharray="3 5" opacity="0.45"/>
+          <g opacity="0.9">
+            <!-- the slab itself drifts sideways then resets = "swaps out" -->
+            <animateTransform attributeName="transform" type="translate" values="0 0; 0 0; 32 0; 32 0; 0 0; 0 0" keyTimes="0;0.42;0.56;0.66;0.78;1" dur="6.5s" repeatCount="indefinite"/>
+            <path d="M 512 266 l 26 -18 v 36 l -26 18 z" fill="#E3DED5" opacity="0.7"/>
+            <path d="M 70 266 l 26 -18 h 442 l -26 18 z" fill="#F8F5F1"/>
+            <rect x="70" y="266" width="442" height="52" rx="11" fill="url(#m4-swap)" stroke="#C3BCAF" stroke-width="1.3" stroke-dasharray="7 5" data-plate/>
+            <text x="88" y="290" font-family="'JetBrains Mono',monospace" font-size="13" font-weight="500" letter-spacing="1.4" fill="#6A645B">MODEL</text>
+            <text x="88" y="307" font-family="'JetBrains Mono',monospace" font-size="10" fill="#8C8678">switcher · routing · eval &middot; the commodity</text>
+            <!-- swappable tag with rotating swap glyph -->
+            <rect x="338" y="279" width="110" height="26" rx="13" fill="#EAE5DD" stroke="#C3BCAF" stroke-width="1" stroke-dasharray="4 3"/>
+            <text x="385" y="296" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9.5" letter-spacing="0.5" fill="#6A645B">swappable</text>
+            <text x="431" y="296.5" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="13" fill="var(--ac-ink)">⇄<animateTransform attributeName="transform" type="rotate" values="0 431 292; 180 431 292; 180 431 292; 360 431 292" keyTimes="0;0.3;0.7;1" dur="3.4s" repeatCount="indefinite"/></text>
+          </g>
+
+          <!-- ============ LAYER 6 · INFRA + CAPTURE (base) ============ -->
+          <g filter="url(#m4-soft)">
+            <path d="M 512 330 l 26 -18 v 36 l -26 18 z" fill="url(#m4-neutral-side)"/>
+            <path d="M 70 330 l 26 -18 h 442 l -26 18 z" fill="#FCFAF7"/>
+            <rect x="70" y="330" width="442" height="52" rx="11" fill="url(#m4-neutral)" stroke="#E7E2DA" stroke-width="1.2" data-plate/>
+          </g>
+          <text x="88" y="350" font-family="'JetBrains Mono',monospace" font-size="13" font-weight="500" letter-spacing="1.4" fill="#1D1A16">INFRA + CAPTURE</text>
+          <text x="88" y="367" font-family="'JetBrains Mono',monospace" font-size="10" fill="#8C8678">ingestion · connectors · active capture</text>
+          <!-- integrates with the systems already on the floor — small connector
+               chips + bi-directional arrows so the base reads as "plugs in", not empty -->
+          <g font-family="'JetBrains Mono',monospace">
+            <text x="300" y="338" font-size="8" letter-spacing="0.8" fill="#A39C8F">PLUGS INTO EXISTING SYSTEMS</text>
+            <!-- chip: ERP -->
+            <rect x="300" y="344" width="44" height="17" rx="5" fill="#FFFFFF" stroke="#D8D1C6" stroke-width="1"/>
+            <text x="322" y="356" text-anchor="middle" font-size="9" fill="#6A645B">ERP</text>
+            <!-- chip: MES -->
+            <rect x="350" y="344" width="44" height="17" rx="5" fill="#FFFFFF" stroke="#D8D1C6" stroke-width="1"/>
+            <text x="372" y="356" text-anchor="middle" font-size="9" fill="#6A645B">MES</text>
+            <!-- chip: WMS -->
+            <rect x="400" y="344" width="46" height="17" rx="5" fill="#FFFFFF" stroke="#D8D1C6" stroke-width="1"/>
+            <text x="423" y="356" text-anchor="middle" font-size="9" fill="#6A645B">WMS</text>
+            <!-- chip: QMS -->
+            <rect x="452" y="344" width="46" height="17" rx="5" fill="#FFFFFF" stroke="#D8D1C6" stroke-width="1"/>
+            <text x="475" y="356" text-anchor="middle" font-size="9" fill="#6A645B">QMS</text>
+          </g>
+
+          <!-- ============ ASYMMETRY ANNOTATIONS (right gutter) — every layer
+               carries a property word so the stack reads as a system, not just
+               two highlighted slabs ============ -->
+          <!-- enterprise: where value lands (up-into, sage) -->
+          <g>
+            <path d="M 560 28 H 600" fill="none" stroke="#6C8964" stroke-width="1.8" stroke-linecap="round"/>
+            <path d="M 600 28 l -10 -4.5 v 9 z" fill="#6C8964"/>
+            <text x="566" y="48" font-family="'JetBrains Mono',monospace" font-size="9.5" fill="#4F6B48">lands</text>
+          </g>
+          <!-- agents: orchestrate (loop glyph, accent) -->
+          <g>
+            <path d="M 568 92 a 8 8 0 1 1 -0.01 0" fill="none" stroke="var(--ac-ink2)" stroke-width="1.8" stroke-linecap="round" stroke-dasharray="30 8"/>
+            <path d="M 560 92 l 4 -5 1.5 6.5 z" fill="var(--ac-ink2)"/>
+            <text x="582" y="96" font-family="'JetBrains Mono',monospace" font-size="9.5" fill="var(--ac-ink2)">orchestrate</text>
+          </g>
+          <!-- governance: gates every act (gate/check glyph) -->
+          <g>
+            <path d="M 562 156 H 602" fill="none" stroke="#8C8678" stroke-width="1.8" stroke-linecap="round"/>
+            <path d="M 575 150 v 12 M 589 150 v 12" stroke="#8C8678" stroke-width="1.8" stroke-linecap="round"/>
+            <text x="566" y="176" font-family="'JetBrains Mono',monospace" font-size="9.5" fill="#6A645B">gates</text>
+          </g>
+          <!-- memory: compounds (up arrow, accent) -->
+          <g>
+            <path d="M 566 254 V 206" fill="none" stroke="var(--ac)" stroke-width="2" stroke-linecap="round"/>
+            <path d="M 566 206 l -5 11 h 10 z" fill="var(--ac)"/>
+            <text x="576" y="222" font-family="'JetBrains Mono',monospace" font-size="10" font-weight="500" fill="var(--ac-ink)">deepens</text>
+          </g>
+          <!-- model: swaps out (sideways arrow, muted) -->
+          <g>
+            <path d="M 562 292 H 602" fill="none" stroke="#8C8678" stroke-width="2" stroke-linecap="round" stroke-dasharray="5 4"/>
+            <path d="M 602 292 l -11 -5 v 10 z" fill="#8C8678"/>
+            <text x="568" y="312" font-family="'JetBrains Mono',monospace" font-size="10" fill="#6A645B">swaps out</text>
+          </g>
+          <!-- infra: plugs in (down/two-way arrow, neutral) -->
+          <g>
+            <path d="M 566 356 V 392" fill="none" stroke="#8C8678" stroke-width="1.8" stroke-linecap="round"/>
+            <path d="M 566 392 l -4.5 -10 h 9 z" fill="#8C8678"/>
+            <text x="576" y="372" font-family="'JetBrains Mono',monospace" font-size="9.5" fill="#6A645B">plugs in</text>
+          </g>
+
+          <!-- ============ FOOTER STRIP — legend (left) | takeaway (right),
+               both vertically centered, divider at the true midpoint ============ -->
+          <g transform="translate(0,414)">
+            <rect x="2" y="0" width="636" height="78" rx="13" fill="#F7F4F0" stroke="#E7E2DA" stroke-width="1.2" data-plate/>
+            <!-- LEFT column : the two legend rows, centered around y=39 -->
+            <rect x="24" y="24" width="13" height="13" rx="3.5" fill="#6C8964"/>
+            <text x="48" y="34" font-family="'JetBrains Mono',monospace" font-size="11" fill="#4F6B48">we own every layer</text>
+            <rect x="24" y="44" width="13" height="13" rx="3.5" fill="#F7F4F0" stroke="#8C8678" stroke-width="1.2" stroke-dasharray="3 2.5"/>
+            <text x="48" y="54" font-family="'JetBrains Mono',monospace" font-size="11" fill="#6A645B">the model is the only swappable part</text>
+            <!-- divider at the box midpoint (x=320) -->
+            <line x1="320" y1="16" x2="320" y2="62" stroke="#E7E2DA" stroke-width="1.2"/>
+            <!-- RIGHT column : takeaway, centered in the right half (midpoint x=479) -->
+            <text x="479" y="34" text-anchor="middle" font-family="'Inter',sans-serif" font-size="13" font-weight="700" letter-spacing="-0.01em" fill="#1D1A16">We own the whole vertical stack.</text>
+            <text x="479" y="54" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="10.5" letter-spacing="0.3" fill="var(--ac-ink)">Only the model swaps &mdash; the memory compounds.</text>
+          </g>
+        </svg>
+      </div>
+
+      <!-- governance primitives + crowd-vs-us -->
+      <div class="col" style="flex:1;min-width:0;gap:clamp(7px,1cqh,12px)">
+        <div class="card col grow" style="gap:clamp(4px,.7cqh,8px);min-height:0;justify-content:flex-start">
+          <span class="eyebrow">MEMORY AN ENTERPRISE TRUSTS</span>
+          <span class="mono faint" style="font-size:clamp(8.5px,.95cqw,10.5px);letter-spacing:.02em;line-height:1.35">The four primitives a vector store can't fake &mdash; the difference between memory you'll let an agent act on, and one you won't.</span>
+          <ul class="clean grow" style="margin-top:0;display:flex;flex-direction:column;justify-content:space-between">
+            <li><b>Provenance</b> &mdash; never &ldquo;the model said so&rdquo;</li>
+            <li><b>Typed decay + confidence</b> &mdash; a term outlives a remark</li>
+            <li><b>Timelines + audit log</b> &mdash; what we believed, and why</li>
+            <li><b>Access by org position</b> &mdash; no N&sup2; matrix to misconfigure</li>
+          </ul>
+        </div>
+        <div class="card accent col" style="gap:clamp(4px,.7cqh,8px)">
+          <span class="eyebrow">WHY US, NOT THE HORIZONTAL CROWD</span>
+          <div class="vs">
+            <div class="vs-row vs-head"><span class="crowd">the horizontal crowd</span><span class="arr"></span><span class="us">metafloor</span></div>
+            <div class="vs-row"><span class="crowd">connect everything, shallow</span><span class="arr">&rarr;</span><span class="us">one vertical, deep</span></div>
+            <div class="vs-row"><span class="crowd">ungoverned vector store</span><span class="arr">&rarr;</span><span class="us">provenance + audit</span></div>
+            <div class="vs-row"><span class="crowd">passive ingest</span><span class="arr">&rarr;</span><span class="us">active capture</span></div>
+            <div class="vs-row"><span class="crowd">a Slack connector</span><span class="arr">&rarr;</span><span class="us">enterprise trust plane</span></div>
+          </div>
+        </div>
+      </div>
+     </div>
+
+     <!-- SIMPLE VIEW · same owned stack + moat argument — flat, calm, no motion;
+          memory vs model contrast with compounding timeline + four primitives -->
+
+     <div class="view view-simple s4s">
+       <svg viewBox="0 0 1160 420" width="100%" height="auto" style="display:block" role="img"
+            aria-label="Simplified moat view: six-layer stack all owned by MetaFloor. Memory compounds over time with governed primitives; the model layer is the only swappable commodity. Horizontal crowd contrast at bottom.">
+         <defs>
+           <linearGradient id="s4s-mem" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="var(--ac-fill2)"/><stop offset="1" stop-color="var(--ac-fill3)"/></linearGradient>
+           <linearGradient id="s4s-bar" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="var(--ac-glow)"/><stop offset="1" stop-color="var(--ac)"/></linearGradient>
+           <linearGradient id="s4s-neutral" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FBF9F6"/><stop offset="1" stop-color="#F1EDE7"/></linearGradient>
+           <filter id="s4s-sh" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="3" stdDeviation="5" flood-color="#1D1A16" flood-opacity="0.08"/></filter>
+         </defs>
+
+         <path d="M 28 36 h -12 v 248 h 12" fill="none" stroke="#6C8964" stroke-width="2" stroke-linecap="round"/>
+         <text x="14" y="168" font-family="'JetBrains Mono',monospace" font-size="9.5" font-weight="500" letter-spacing="2.2" fill="#6C8964" transform="rotate(-90 14 168)" text-anchor="middle">ALL OURS</text>
+
+         <g filter="url(#s4s-sh)">
+           <rect x="44" y="28" width="420" height="52" rx="11" fill="url(#s4s-neutral)" stroke="#E7E2DA" data-plate/>
+           <text x="60" y="50" font-family="'JetBrains Mono',monospace" font-size="12" font-weight="500" letter-spacing="1.2" fill="#1D1A16">ENTERPRISE</text>
+           <text x="60" y="66" font-family="'JetBrains Mono',monospace" font-size="9.5" fill="#8C8678">roles &middot; org structure &middot; access &middot; threads</text>
+           <rect x="300" y="42" width="148" height="24" rx="12" fill="#E7EEE3" stroke="#B7C9AF"/><text x="374" y="58" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9" fill="#4F6B48">where value lands</text>
+         </g>
+         <g filter="url(#s4s-sh)">
+           <rect x="44" y="88" width="420" height="44" rx="11" fill="url(#s4s-neutral)" stroke="#E7E2DA" data-plate/>
+           <text x="60" y="108" font-family="'JetBrains Mono',monospace" font-size="12" font-weight="500" letter-spacing="1.2" fill="#1D1A16">AGENTS</text>
+           <text x="60" y="122" font-family="'JetBrains Mono',monospace" font-size="9.5" fill="#8C8678">role-scoped fleet &middot; runtime &middot; firewall</text>
+         </g>
+         <g filter="url(#s4s-sh)">
+           <rect x="44" y="140" width="420" height="44" rx="11" fill="url(#s4s-neutral)" stroke="#E7E2DA" data-plate/>
+           <text x="60" y="160" font-family="'JetBrains Mono',monospace" font-size="12" font-weight="500" letter-spacing="1.2" fill="#1D1A16">GOVERNANCE</text>
+           <text x="60" y="174" font-family="'JetBrains Mono',monospace" font-size="9.5" fill="#8C8678">provenance &middot; confidence &middot; decay &middot; authz</text>
+         </g>
+         <g filter="url(#s4s-sh)">
+           <rect x="44" y="192" width="420" height="52" rx="11" fill="url(#s4s-mem)" stroke="var(--ac)" stroke-width="1.5" data-plate/>
+           <text x="60" y="214" font-family="'JetBrains Mono',monospace" font-size="12" font-weight="600" letter-spacing="1.2" fill="var(--ac-ink)">MEMORY</text>
+           <text x="60" y="230" font-family="'JetBrains Mono',monospace" font-size="9.5" fill="var(--ac-ink2)">data + tribal knowledge &middot; beliefs &middot; time</text>
+           <rect x="330" y="204" width="118" height="26" rx="13" fill="var(--ac)"/><text x="389" y="221" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9.5" font-weight="500" fill="var(--ac-on)">compounds</text>
+         </g>
+         <g filter="url(#s4s-sh)">
+           <rect x="44" y="252" width="420" height="52" rx="11" fill="#F7F4F0" stroke="#C3BCAF" stroke-width="1.3" stroke-dasharray="7 5" data-plate/>
+           <text x="60" y="274" font-family="'JetBrains Mono',monospace" font-size="12" font-weight="500" letter-spacing="1.2" fill="#6A645B">MODEL</text>
+           <text x="60" y="290" font-family="'JetBrains Mono',monospace" font-size="9.5" fill="#8C8678">switcher &middot; routing &middot; eval &middot; the commodity</text>
+           <rect x="326" y="264" width="124" height="26" rx="13" fill="#EAE5DD" stroke="#C3BCAF" stroke-dasharray="4 3"/><text x="388" y="281" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9.5" fill="#6A645B">swappable &#8644;</text>
+         </g>
+         <g filter="url(#s4s-sh)">
+           <rect x="44" y="312" width="420" height="44" rx="11" fill="url(#s4s-neutral)" stroke="#E7E2DA" data-plate/>
+           <text x="60" y="332" font-family="'JetBrains Mono',monospace" font-size="12" font-weight="500" letter-spacing="1.2" fill="#1D1A16">INFRA + CAPTURE</text>
+           <text x="60" y="346" font-family="'JetBrains Mono',monospace" font-size="9.5" fill="#8C8678">ingestion &middot; connectors &middot; active capture &middot; ERP &middot; MES &middot; WMS</text>
+         </g>
+
+         <rect x="500" y="28" width="640" height="148" rx="16" fill="#F7F4F0" stroke="#E7E2DA" stroke-width="1.2" data-plate/>
+         <text x="520" y="52" font-family="'Inter',sans-serif" font-weight="700" font-size="16" fill="#1D1A16">The model underneath</text>
+         <text x="520" y="68" font-family="'JetBrains Mono',monospace" font-size="9.5" fill="#8C8678" letter-spacing=".4">SWAPPABLE &middot; COMMODITY &middot; ANYONE CAN CALL ONE</text>
+         <rect x="520" y="82" width="120" height="36" rx="10" fill="#FFFFFF" stroke="#D8D1C6"/><text x="580" y="104" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="11" fill="#6A645B">GPT</text>
+         <text x="652" y="104" font-family="'JetBrains Mono',monospace" font-size="16" fill="#8C8678">&#8644;</text>
+         <rect x="672" y="82" width="120" height="36" rx="10" fill="#FFFFFF" stroke="#D8D1C6"/><text x="732" y="104" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="11" fill="#6A645B">Claude</text>
+         <text x="804" y="104" font-family="'JetBrains Mono',monospace" font-size="16" fill="#8C8678">&#8644;</text>
+         <rect x="824" y="82" width="120" height="36" rx="10" fill="#FFFFFF" stroke="#D8D1C6" stroke-dasharray="4 3"/><text x="884" y="104" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="11" fill="#6A645B">next best</text>
+         <line x1="520" y1="132" x2="1120" y2="132" stroke="#E7E2DA" stroke-width="1"/>
+         <text x="520" y="152" font-family="'JetBrains Mono',monospace" font-size="10" fill="#6A645B">swap the model on Tuesday &mdash; Wednesday nothing underneath is lost</text>
+         <path d="M 520 162 H 1080" fill="none" stroke="#8C8678" stroke-width="1.5" stroke-dasharray="5 4"/>
+         <text x="1088" y="166" font-family="'JetBrains Mono',monospace" font-size="9" fill="#8C8678">value retained</text>
+
+         <rect x="500" y="188" width="640" height="168" rx="16" fill="url(#s4s-mem)" stroke="var(--ac-bd)" stroke-width="1.5" data-plate/>
+         <text x="520" y="212" font-family="'Inter',sans-serif" font-weight="700" font-size="16" fill="var(--ac-ink)">The memory on top</text>
+         <text x="520" y="228" font-family="'JetBrains Mono',monospace" font-size="9.5" fill="var(--ac-ink2)" letter-spacing=".4">COMPOUNDS &middot; THE MOAT &middot; HARDER TO LEAVE EVERY MONTH</text>
+         <text x="520" y="252" font-family="'JetBrains Mono',monospace" font-size="8.5" fill="var(--ac-ink2)">DEPTH OVER TIME</text>
+         <rect x="532" y="292" width="32" height="22" rx="4" fill="url(#s4s-bar)"/>
+         <text x="548" y="326" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8.5" fill="var(--ac-ink2)">mo 1</text>
+         <rect x="592" y="268" width="32" height="46" rx="4" fill="url(#s4s-bar)"/>
+         <text x="608" y="326" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8.5" fill="var(--ac-ink2)">mo 6</text>
+         <rect x="652" y="248" width="32" height="66" rx="4" fill="url(#s4s-bar)"/>
+         <text x="668" y="326" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8.5" fill="var(--ac-ink2)">mo 12</text>
+         <path d="M 700 310 V 254" fill="none" stroke="var(--ac)" stroke-width="2" stroke-linecap="round"/>
+         <path d="M 700 254 l-5 11 h 10 z" fill="var(--ac)"/>
+         <text x="712" y="272" font-family="'JetBrains Mono',monospace" font-size="10" font-weight="500" fill="var(--ac-ink)">deepens</text>
+         <line x1="760" y1="244" x2="760" y2="340" stroke="var(--ac-bd)" stroke-width="1"/>
+         <text x="776" y="258" font-family="'JetBrains Mono',monospace" font-size="8.5" fill="var(--ac-ink2)" letter-spacing=".5">MEMORY AN ENTERPRISE TRUSTS</text>
+         <text x="776" y="278" font-family="'JetBrains Mono',monospace" font-size="10" fill="var(--ac-ink)"><tspan font-weight="600" font-family="'Inter',sans-serif">Provenance</tspan> &mdash; never &ldquo;the model said so&rdquo;</text>
+         <text x="776" y="296" font-family="'JetBrains Mono',monospace" font-size="10" fill="var(--ac-ink)"><tspan font-weight="600" font-family="'Inter',sans-serif">Typed decay</tspan> + confidence</text>
+         <text x="776" y="314" font-family="'JetBrains Mono',monospace" font-size="10" fill="var(--ac-ink)"><tspan font-weight="600" font-family="'Inter',sans-serif">Timelines</tspan> + audit log</text>
+         <text x="776" y="332" font-family="'JetBrains Mono',monospace" font-size="10" fill="var(--ac-ink)"><tspan font-weight="600" font-family="'Inter',sans-serif">Access</tspan> by org position</text>
+
+         <rect x="44" y="368" width="1096" height="44" rx="13" fill="#F7F4F0" stroke="#E7E2DA" data-plate/>
+         <text x="64" y="388" font-family="'JetBrains Mono',monospace" font-size="10" fill="#6A645B">horizontal crowd:</text>
+         <text x="178" y="388" font-family="'JetBrains Mono',monospace" font-size="10" fill="#8C8678" text-decoration="line-through">connect everything, shallow, ungoverned vector store, passive ingest</text>
+         <text x="668" y="388" font-family="'JetBrains Mono',monospace" font-size="12" fill="var(--ac)">&rarr;</text>
+         <text x="688" y="388" font-family="'JetBrains Mono',monospace" font-size="10" font-weight="500" fill="var(--ac-ink)">metafloor: one vertical deep &middot; governed &middot; active capture &middot; enterprise trust plane</text>
+         <text x="580" y="406" text-anchor="middle" font-family="'Inter',sans-serif" font-weight="700" font-size="12" fill="#1D1A16">We own the whole vertical stack. Only the model swaps &mdash; the memory compounds.</text>
+       </svg>
+     </div>
+      </div>
+
+      <p class="r mono dim takeaway">
+        WE OWN THE FULL STACK &nbsp;&middot;&nbsp; the model is the only replaceable layer &nbsp;&mdash;&nbsp; <em>the memory underneath only gets harder to leave</em>
+      </p>
+    </div>
+  </div>
+</section>
+</div>
+<script src="../deck.js"></script>
+</body>
+</html>

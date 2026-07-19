@@ -103,6 +103,13 @@
       "visible": true
     },
     {
+      "id": "moat-stack",
+      "path": "slides/B4-moat.html",
+      "title": "Appendix — The Moat",
+      "description": "Short the model, long the memory: we own the whole vertical stack; only the model swaps.",
+      "visible": true
+    },
+    {
       "id": "architecture",
       "path": "slides/B1-architecture.html",
       "title": "Appendix — Architecture",
