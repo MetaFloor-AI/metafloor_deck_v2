@@ -12,63 +12,35 @@
       "visible": true
     },
     {
-      "id": "hook",
+      "id": "problem",
       "path": "slides/02-hook.html",
-      "title": "What a Decision Costs",
-      "description": "2 a.m., a cable snaps: $50k/hr, and the answer takes 30 hours to assemble by hand.",
+      "title": "The Problem",
+      "description": "2 a.m., a cable snaps: $150K/hr, and the answer takes 30 hours to assemble by hand.",
       "visible": true
     },
     {
-      "id": "tax",
-      "path": "slides/03-tax.html",
-      "title": "The Weekly Tax",
-      "description": "The loud crisis is rare; the same scramble leaks money in four places every week.",
+      "id": "market",
+      "path": "slides/09-prize-path.html",
+      "title": "The Market",
+      "description": "A $40B decision layer on top of supply chain, entered through a funded wedge.",
       "visible": true
     },
     {
-      "id": "model",
+      "id": "solution",
       "path": "slides/04-model.html",
-      "title": "The Model",
+      "title": "The Solution",
       "description": "Watch, assemble the answer, your people approve — and every call compounds.",
       "visible": true
     },
     {
-      "id": "desks",
-      "path": "slides/05-desks.html",
-      "title": "Three Desks, One Engine",
-      "description": "Buyer, launch war-room, incident commander — toggle between three real desks.",
-      "visible": true
-    },
-    {
-      "id": "value",
-      "path": "slides/05-value.html",
-      "title": "The Value",
-      "description": "Six ways it pays for itself — plus standing value, every day.",
-      "visible": true
-    },
-    {
-      "id": "roi",
-      "path": "slides/09-roi.html",
-      "title": "What It Adds Up To",
-      "description": "Pick your size — medium, large, extra-large — and the model rebuilds itself.",
-      "visible": true
-    },
-    {
-      "id": "why-now",
-      "path": "slides/why-now.html",
-      "title": "Why Now",
-      "description": "AI can finally read the unstructured half — and act on it.",
-      "visible": true
-    },
-    {
-      "id": "moat",
+      "id": "uniqueness",
       "path": "slides/07-moat.html",
-      "title": "The Moat",
-      "description": "The memory compounds; the model is the only swappable part.",
+      "title": "What's Unique",
+      "description": "We own the model and the framework; the memory it builds is the only thing that compounds.",
       "visible": true
     },
     {
-      "id": "field",
+      "id": "competition",
       "path": "slides/B2-field.html",
       "title": "The Field",
       "description": "Everyone owns one slice — no funded player holds all four; we run the whole decision.",
@@ -82,10 +54,38 @@
       "visible": true
     },
     {
+      "id": "proof",
+      "path": "slides/04-proof.html",
+      "title": "Proof",
+      "description": "Don't trust it forward — prove it backward on your own last 12 months, before you commit.",
+      "visible": true
+    },
+    {
+      "id": "business-model",
+      "path": "slides/09-roi.html",
+      "title": "Business Model",
+      "description": "Pick your size — an annual fee against the value it protects; the model rebuilds itself.",
+      "visible": true
+    },
+    {
+      "id": "team",
+      "path": "slides/11-team.html",
+      "title": "The Team",
+      "description": "Built by operators — vouched for by the people who run these operations.",
+      "visible": true
+    },
+    {
       "id": "ask",
       "path": "slides/10-ask.html",
       "title": "The Ask",
       "description": "Raising $2M to turn 10 champions into paid design partners.",
+      "visible": true
+    },
+    {
+      "id": "exec-summary",
+      "path": "slides/00-exec-summary.html",
+      "title": "Executive Summary",
+      "description": "The whole story on one page: problem, market, product, moat, traction, team, ask.",
       "visible": true
     },
     {
@@ -95,26 +95,76 @@
       "description": "Fewer people. Faster decisions. Every decision makes the next one better.",
       "visible": true
     },
+
     {
-      "id": "solution",
+      "id": "tax",
+      "path": "slides/03-tax.html",
+      "title": "Backup — The Weekly Tax",
+      "description": "The loud crisis is rare; the same scramble leaks money in four places every week.",
+      "visible": false
+    },
+    {
+      "id": "product",
+      "path": "slides/03-product.html",
+      "title": "Backup — The Product",
+      "description": "The decision, assembled: watch → assemble → execute, one hour, one decision.",
+      "visible": false
+    },
+    {
+      "id": "value",
+      "path": "slides/05-value.html",
+      "title": "Backup — The Value",
+      "description": "Six ways it pays for itself, plus standing value every day.",
+      "visible": false
+    },
+    {
+      "id": "numbers",
+      "path": "slides/06-numbers.html",
+      "title": "Backup — The Numbers",
+      "description": "One 40-minute decision, $3.1M protected; the rest is margin.",
+      "visible": false
+    },
+    {
+      "id": "trust",
+      "path": "slides/08-trust.html",
+      "title": "Backup — Why Trust Us",
+      "description": "It proves itself, champions vouch, we were the buyer — safe to own.",
+      "visible": false
+    },
+    {
+      "id": "why-now",
+      "path": "slides/why-now.html",
+      "title": "Backup — Why Now",
+      "description": "AI can finally read the unstructured half — and act on it.",
+      "visible": false
+    },
+    {
+      "id": "desks",
+      "path": "slides/05-desks.html",
+      "title": "Backup — Three Desks",
+      "description": "Buyer, launch war-room, incident commander — one engine, three real desks.",
+      "visible": false
+    },
+    {
+      "id": "loop",
       "path": "slides/B3-solution.html",
-      "title": "Appendix — The Loop",
+      "title": "Backup — The Loop",
       "description": "Capture → govern → let agents act: one governed-memory loop across three planes.",
-      "visible": true
+      "visible": false
     },
     {
       "id": "moat-stack",
       "path": "slides/B4-moat.html",
-      "title": "Appendix — The Moat",
+      "title": "Backup — The Moat Stack",
       "description": "Short the model, long the memory: we own the whole vertical stack; only the model swaps.",
-      "visible": true
+      "visible": false
     },
     {
       "id": "architecture",
       "path": "slides/B1-architecture.html",
-      "title": "Appendix — Architecture",
+      "title": "Backup — Architecture",
       "description": "One vertical stack; the model is the only swappable part.",
-      "visible": true
+      "visible": false
     }
   ]
 }

@@ -9,8 +9,17 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="../theme.css"/>
 <style>
+/* ---- small toggle (compact; ~1/5 the desk-toggle footprint) ---- */
+.phead { display: flex; align-items: center; justify-content: space-between; gap: 18px; }
+.stoggle { display: inline-flex; gap: 2px; background: var(--surface-3); border-radius: 7px; padding: 2px; flex: 0 0 auto; }
+.stoggle button { border: none; background: transparent; cursor: pointer; font-family: var(--mono);
+  font-size: 9px; letter-spacing: .03em; text-transform: uppercase; padding: 3px 8px; border-radius: 5px;
+  color: var(--text-dim); white-space: nowrap; transition: all .15s ease; }
+.stoggle button.on { background: var(--paper); color: var(--ac-ink); box-shadow: 0 1px 2px rgba(20,20,22,.12); }
+
+/* ---- original format ---- */
 .hookgrid { display: grid; grid-template-columns: 1.35fr .65fr; gap: 50px; align-items: center; flex: 1; min-height: 0; }
-.scene h2 { font-size: 40px; letter-spacing: -0.03em; line-height: 1.08; max-width: 20ch; }
+.canvas.pitch .scene h2 { font-size: 40px; letter-spacing: -0.03em; line-height: 1.08; max-width: 20ch; margin: 0; }
 .scene h2 em { color: var(--ac); }
 .blist { list-style: none; margin: 22px 0 0; padding: 0; }
 .blist li { position: relative; padding-left: 22px; margin: 13px 0; font-size: 16.5px; color: var(--text-dim); line-height: 1.4; max-width: 48ch; }
@@ -18,18 +27,19 @@
 .blist li b { color: var(--text); font-weight: 650; }
 .gap { margin-top: 22px; display: inline-flex; align-items: center; gap: 14px; background: var(--dark);
   color: var(--on-dark); border-radius: 11px; padding: 14px 22px; }
-.gap .lbl { font-family: var(--mono); font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: var(--ac-glow); }
 .gap .txt { font-size: 18px; font-weight: 650; color: #fff; }
+.gap .txt b { color: #fff; }
 .gap .txt em { color: var(--ac-glow); font-style: normal; }
+/* customer line at the top of the support column */
+.support .s-cust { margin-bottom: 14px; padding-bottom: 12px; border-bottom: 1px solid var(--hairline); }
+.support .s-cust .k { display: block; font-family: var(--mono); font-size: 9.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--ac-ink); margin-bottom: 3px; }
+.support .s-cust .v { font-size: 14px; font-weight: 650; color: var(--text); line-height: 1.3; }
 .realnote { flex: 0 0 auto; margin-top: 10px; padding-top: 14px; border-top: 1px solid var(--hairline);
   font-family: var(--mono); font-size: 12px; letter-spacing: .03em; color: var(--text-faint);
-  display: inline-flex; align-items: center; gap: 10px; }
+  display: flex; align-items: center; gap: 10px; }
 .realnote .rn-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--ac-glow); flex: 0 0 auto; }
 .realnote b { color: var(--ac-ink); font-weight: 600; }
-.rise { opacity: 0; animation: rz .55s cubic-bezier(.2,.7,.2,1) forwards; }
-@keyframes rz { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
-.r1{animation-delay:.06s}.r2{animation-delay:.18s}.r3{animation-delay:.3s}.r4{animation-delay:.42s}.r5{animation-delay:.56s}
-@media (prefers-reduced-motion: reduce){ .rise{opacity:1;animation:none;} }
+.realnote .ill { margin-left: auto; color: var(--text-faint); }
 </style>
 </head>
 <body>
@@ -37,33 +47,122 @@
 <section class="slide">
   <div class="stage">
     <div class="canvas pitch col">
-      <span class="eyebrow rise r1"><span class="dot"></span>what a supply-chain decision actually is</span>
-      <div class="hookgrid">
-        <div class="scene">
-          <h2 class="rise r2">2 a.m. An undersea cable snaps <em>400 km off California.</em></h2>
-          <ul class="blist">
-            <li class="rise r3">A region drops to <b>63% capacity</b> &mdash; <b>~$150,000 an hour</b>, ticking.</li>
-            <li class="rise r3">Someone must decide <b>now</b>: who has a spare? which ship is closest? what does the contract allow?</li>
-            <li class="rise r4">The answer already exists &mdash; <b>scattered across 6&ndash;8 systems and dozens of people's heads.</b></li>
-            <li class="rise r4">By hand, assembling it takes <b>~30 hours.</b></li>
-          </ul>
-          <div class="gap rise r5">
-            <span class="txt"><b>30 hours vs. minutes.</b> That <em>GAP</em> is the product.</span>
-          </div>
-        </div>
-        <div class="support rise r4">
-          <div class="s-lb">the cost of one decision</div>
-          <div class="s-row hot"><b>~$150K</b><span>burned every hour the region runs degraded</span></div>
-          <div class="s-row"><b>6&ndash;8</b><span>systems the facts are scattered across</span></div>
-          <div class="s-row"><b>dozens</b><span>of people pulled onto the bridge call</span></div>
-          <div class="s-row"><b>~30 hrs</b><span>to assemble the answer &mdash; by hand, every time</span></div>
+      <div class="phead">
+        <span class="eyebrow"><span class="dot"></span>the problem &middot; what a decision really costs</span>
+        <div class="stoggle" id="ptoggle">
+          <button data-s="slip" class="on">Quiet slip</button>
+          <button data-s="price">Price run</button>
+          <button data-s="cable">Cable cut</button>
+          <button data-s="expedite">Expedite</button>
         </div>
       </div>
-      <div class="realnote rise r5"><span class="rn-dot"></span>A <b>real use case</b> from one of our potential customers &mdash; not a hypothetical.</div>
+
+      <div class="hookgrid">
+        <div class="scene">
+          <h2 id="h-headline"></h2>
+          <ul class="blist" id="h-bullets"></ul>
+          <div class="gap"><span class="txt" id="h-gap"></span></div>
+        </div>
+        <div class="support">
+          <div class="s-cust"><span class="k" id="h-cust-k">the customer</span><span class="v" id="h-cust"></span></div>
+          <div class="s-lb">the cost / value</div>
+          <div id="h-rows"></div>
+        </div>
+      </div>
+
+      <div class="realnote"><span class="rn-dot"></span>Real use cases from our customers &mdash; you make <b>dozens a year; 12&ndash;20 put $0.5M+ on the line.</b><span class="ill">illustrative figures</span></div>
     </div>
   </div>
 </section>
 </div>
+<script>
+const STORIES = {
+  slip: {
+    headline: 'A supplier quietly slipped 8 &#8594; 11 weeks — <em>and no one noticed.</em>',
+    bullets: [
+      'PO confirmations drifted <b>8&#8594;11 weeks</b> at two suppliers — during a demand uptick.',
+      'Nobody announced it. Left alone, it&rsquo;s a <b>stockout scramble in six weeks.</b>',
+      'MetaFloor caught the drift <b>days early</b> — POs cross-checked vs the live demand plan.',
+      '3 dual-source options + the 2024 precedent, assembled — the buyer approved before it was a fire.'
+    ],
+    gap: 'Caught early vs. a six-week scramble. That <em>gap</em> is the product.',
+    cust: '$800M electronics OEM &middot; 40 buyers',
+    rows: [
+      { n:'~$0.5M', l:'scramble avoided by catching it early', hot:true },
+      { n:'8&#8594;11 wk', l:'the quiet drift, unannounced' },
+      { n:'~15 / yr', l:'adjustments like this, every year' },
+      { n:'days early', l:'not weeks late, by accident' }
+    ]
+  },
+  price: {
+    headline: 'A key component started running — <em>and margin was leaking.</em>',
+    bullets: [
+      'A critical material ticked up <b>~15%</b> and kept climbing.',
+      'The buy / hedge / timing call usually lands <b>after the margin&rsquo;s already gone.</b>',
+      'MetaFloor flagged the trend <b>early</b>, against your buy plan.',
+      'Lock-forward / re-time / pass-through options, priced — decided inside the window.'
+    ],
+    gap: 'In the window vs. after the run. That <em>gap</em> is the margin.',
+    cust: '$2B industrial manufacturer',
+    rows: [
+      { n:'~$1&ndash;2M', l:'margin protected on the buy', hot:true },
+      { n:'~15%', l:'and climbing on a key material' },
+      { n:'the window', l:'decide in it, or eat the run' },
+      { n:'every', l:'price move, caught early' }
+    ]
+  },
+  cable: {
+    headline: '2 a.m. An undersea cable snaps <em>400 km off California.</em>',
+    bullets: [
+      'A region drops to <b>63% capacity</b> &mdash; <b>~$150,000 an hour</b>, ticking.',
+      'Someone must decide <b>now</b>: who has a spare? which ship is closest? what does the contract allow?',
+      'The answer already exists &mdash; <b>scattered across 6&ndash;8 systems and dozens of heads.</b>',
+      'By hand, assembling it takes <b>~30 hours.</b>'
+    ],
+    gap: '<b>30 hours vs. 40 minutes.</b> That <em>gap</em> is the product.',
+    cust: 'Tier-1 network operator',
+    rows: [
+      { n:'~$150K', l:'burned every hour the region runs degraded', hot:true },
+      { n:'6&ndash;8', l:'systems the facts are scattered across' },
+      { n:'dozens', l:'of people pulled onto the bridge call' },
+      { n:'~30 hrs', l:'to assemble the answer — by hand, every time' }
+    ]
+  },
+  expedite: {
+    headline: '&ldquo;Should we expedite this?&rdquo; — <em>asked dozens of times a week.</em>',
+    bullets: [
+      'A part runs a few days late; a planner books <b>~$8K air freight</b> &ldquo;to be safe.&rdquo;',
+      'Most of the time the <b>buffer would have covered it.</b>',
+      'MetaFloor watches every open shipment vs live demand + <b>real buffer</b>.',
+      'It flags only the ones that truly need it — skipping the &ldquo;to be safe&rdquo; spend.'
+    ],
+    gap: 'Only when it matters vs. <b>$8K &ldquo;to be safe&rdquo;.</b> That <em>gap</em> is the year&rsquo;s budget.',
+    cust: '$500M components maker',
+    rows: [
+      { n:'~$0.5M/yr', l:'off a ~$3M expedite bill', hot:true },
+      { n:'~$8K', l:'air freight, booked &ldquo;to be safe&rdquo;' },
+      { n:'~$3M', l:'annual expedite budget' },
+      { n:'dozens', l:'of these calls, every week' }
+    ]
+  }
+};
+function render(key){
+  const d = STORIES[key];
+  document.getElementById('h-headline').innerHTML = d.headline;
+  document.getElementById('h-bullets').innerHTML = d.bullets.map(b => '<li>'+b+'</li>').join('');
+  document.getElementById('h-gap').innerHTML = d.gap;
+  document.getElementById('h-cust').innerHTML = d.cust;
+  document.getElementById('h-rows').innerHTML = d.rows.map(r =>
+    '<div class="s-row'+(r.hot?' hot':'')+'"><b>'+r.n+'</b><span>'+r.l+'</span></div>').join('');
+}
+document.getElementById('ptoggle').addEventListener('click', e => {
+  const btn = e.target.closest('button'); if(!btn) return;
+  document.querySelectorAll('#ptoggle button').forEach(b => b.classList.remove('on'));
+  btn.classList.add('on');
+  render(btn.dataset.s);
+});
+render('slip');
+</script>
 <script src="../deck.js"></script>
 </body>
 </html>

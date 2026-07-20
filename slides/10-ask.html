@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>MetaFloor — The Ask &amp; Team</title>
+<title>MetaFloor — The Ask</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
@@ -24,18 +24,14 @@
 .mile .mi .t { font-family: var(--mono); font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--ac); }
 .mile .mi b { display: block; font-size: 17px; font-weight: 650; color: var(--text); margin: 6px 0 3px; }
 .mile .mi span { font-size: 13.5px; color: var(--text-dim); line-height: 1.3; }
-.funds { margin-top: auto; padding-top: 16px; font-family: var(--mono); font-size: 13px; color: var(--text-dim); }
-.funds b { color: var(--text); font-weight: 600; }
-/* right · team */
-.team-lb { font-family: var(--mono); font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: var(--text-faint); margin-bottom: 16px; }
-.fdr { display: flex; align-items: center; gap: 16px; padding: 12px 0; border-bottom: 1px solid var(--hairline); }
-.fdr img { width: 52px; height: 52px; border-radius: 12px; object-fit: cover; border: 1px solid var(--hairline-2); }
-.fdr b { display: block; font-size: 17px; font-weight: 650; color: var(--text); }
-.fdr .rl { font-family: var(--mono); font-size: 11px; letter-spacing: .04em; text-transform: uppercase; color: var(--ac-ink); margin: 2px 0; }
-.fdr span { font-size: 13.5px; color: var(--text-dim); }
-.fdr-logos { margin-top: auto; padding-top: 16px; }
-.fdr-logos .fl-lb { font-family: var(--mono); font-size: 10.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--text-faint); margin-bottom: 11px; display: block; }
-.fdr-logos img { height: 26px; width: auto; max-width: 100%; object-fit: contain; opacity: .88; }
+/* right · use of funds */
+.uof-lb { font-family: var(--mono); font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: var(--text-faint); margin-bottom: 14px; }
+.uof-row { display: flex; align-items: baseline; gap: 18px; padding: 14px 0; border-bottom: 1px solid var(--hairline); }
+.uof-row .p { font-size: 30px; font-weight: 750; color: var(--ac); letter-spacing: -0.02em; flex: 0 0 auto; min-width: 66px; line-height: 1; }
+.uof-row .x b { display: block; font-size: 16px; font-weight: 650; color: var(--text); }
+.uof-row .x span { display: block; font-size: 13px; color: var(--text-dim); margin-top: 2px; }
+.uof-note { margin-top: auto; padding-top: 18px; font-size: 14.5px; color: var(--text-dim); line-height: 1.45; }
+.uof-note b { color: var(--text); font-weight: 650; }
 @keyframes fin { to { opacity: 1; } }
 .rise { opacity: 0; animation: fin .5s ease forwards; }
 .rise.a{animation-delay:.1s}.rise.b{animation-delay:.28s}.rise.c{animation-delay:.46s}
@@ -47,7 +43,7 @@
 <section class="slide">
   <div class="stage">
     <div class="canvas pitch col">
-      <span class="eyebrow rise a"><span class="dot"></span>the ask &middot; team</span>
+      <span class="eyebrow rise a"><span class="dot"></span>the ask</span>
       <h2 class="rise a" style="margin-top:16px; margin-bottom:2px">Raising $2M to turn 10 champions into <em>paying customers.</em></h2>
 
       <div class="agrid">
@@ -59,18 +55,14 @@
             <div class="mi"><span class="t">6&ndash;12 mo</span><b>Prove it</b><span>backtests + security passed</span></div>
             <div class="mi"><span class="t">12&ndash;18 mo</span><b>Series-A ready</b><span>reference logos + real proof</span></div>
           </div>
-          <div class="funds"><b>Use of funds:</b> 60% engineering &middot; 25% customer success &middot; 15% ops</div>
         </div>
 
         <div class="rise c acol">
-          <div class="team-lb">the team &middot; we were the buyer</div>
-          <div class="fdr"><img src="../assets/team/anup.png" alt="Anup Mehta"/><div><b>Anup Mehta</b><div class="rl">CEO &middot; business builder</div><span>25+ yrs scaling B2B &middot; 2 exits</span></div></div>
-          <div class="fdr"><img src="../assets/team/sridhar.png" alt="Sridhar Perepa"/><div><b>Sridhar Perepa</b><div class="rl">COO &middot; operations</div><span>30+ yrs, GE &middot; ran these war rooms</span></div></div>
-          <div class="fdr"><img src="../assets/team/arun.png" alt="Arun CS Kumar"/><div><b>Arun CS Kumar</b><div class="rl">Head AI &middot; architect</div><span>PhD AI &middot; ships production agent systems</span></div></div>
-          <div class="fdr-logos">
-            <span class="fl-lb">the founders have built &amp; scaled at</span>
-            <img src="../assets/team/logos.png" alt="GE · NIO · Lockheed Martin · Boeing · Ridecell"/>
-          </div>
+          <div class="uof-lb">use of funds &middot; what the raise buys</div>
+          <div class="uof-row"><span class="p">60%</span><div class="x"><b>Engineering</b><span>the product + the backtest pipeline</span></div></div>
+          <div class="uof-row"><span class="p">25%</span><div class="x"><b>Customer success</b><span>land &amp; convert the 10 champions</span></div></div>
+          <div class="uof-row"><span class="p">15%</span><div class="x"><b>Operations</b><span>security review &middot; infra &middot; G&amp;A</span></div></div>
+          <div class="uof-note">The raise buys one thing: <b>paying customers on their own data</b> &mdash; the proof that earns the Series A.</div>
         </div>
       </div>
     </div>

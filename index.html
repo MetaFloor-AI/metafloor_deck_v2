@@ -134,20 +134,19 @@ const menuBtn       = document.getElementById('menu-btn');
 
 function init(cfg) {
     let allSlides = (cfg && Array.isArray(cfg.slides)) ? cfg.slides : [
-        { id: 'cover',        path: 'slides/01-cover.html',        title: 'MetaFloor', visible: true },
-        { id: 'problem',      path: 'slides/02-problem.html',      title: 'The Decision Tax', visible: true },
-        { id: 'product',      path: 'slides/03-product.html',      title: 'The Product', visible: true },
-        { id: 'proof',        path: 'slides/04-proof.html',        title: 'The Proof', visible: true },
-        { id: 'value',        path: 'slides/05-value.html',        title: 'The Value', visible: true },
-        { id: 'numbers',      path: 'slides/06-numbers.html',      title: 'The Numbers', visible: true },
-        { id: 'moat',         path: 'slides/07-moat.html',         title: 'Full-stack AI', visible: true },
-        { id: 'why-now',      path: 'slides/why-now.html',         title: 'Why Now', visible: true },
-        { id: 'trust',        path: 'slides/08-trust.html',        title: 'Why Trust Us', visible: true },
-        { id: 'prize-path',   path: 'slides/09-prize-path.html',   title: 'The Prize & The Path', visible: true },
-        { id: 'ask',          path: 'slides/10-ask.html',          title: 'The Ask & Team', visible: true },
-        { id: 'close',        path: 'slides/11-close.html',        title: 'Thank You', visible: true },
-        { id: 'architecture', path: 'slides/B1-architecture.html', title: 'Appendix — Architecture', visible: true },
-        { id: 'field',        path: 'slides/B2-field.html',        title: 'Appendix — The Field', visible: true }
+        { id: 'cover',          path: 'slides/01-cover.html',      title: 'MetaFloor', visible: true },
+        { id: 'problem',        path: 'slides/02-hook.html',       title: 'The Problem', visible: true },
+        { id: 'market',         path: 'slides/09-prize-path.html', title: 'The Market', visible: true },
+        { id: 'solution',       path: 'slides/04-model.html',      title: 'The Solution', visible: true },
+        { id: 'uniqueness',     path: 'slides/07-moat.html',       title: "What's Unique", visible: true },
+        { id: 'competition',    path: 'slides/B2-field.html',      title: 'The Field', visible: true },
+        { id: 'gtm',            path: 'slides/10-gtm.html',        title: 'Go-to-Market', visible: true },
+        { id: 'proof',          path: 'slides/04-proof.html',      title: 'Proof', visible: true },
+        { id: 'business-model', path: 'slides/09-roi.html',        title: 'Business Model', visible: true },
+        { id: 'team',           path: 'slides/11-team.html',       title: 'The Team', visible: true },
+        { id: 'ask',            path: 'slides/10-ask.html',        title: 'The Ask', visible: true },
+        { id: 'exec-summary',   path: 'slides/00-exec-summary.html', title: 'Executive Summary', visible: true },
+        { id: 'close',          path: 'slides/11-close.html',      title: 'Thank You', visible: true }
     ];
     if (cfg && cfg.deck && cfg.deck.title) {
         document.getElementById('menu-deck-label').textContent = cfg.deck.title;
