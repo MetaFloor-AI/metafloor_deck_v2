@@ -2,6 +2,13 @@
 
 A standalone-HTML seed pitch deck. Each slide is its own file in `slides/`, a 1280×720 stage scaled by `deck.js`, themed via `<html data-theme>` (sage · ember · violet), assembled by the `index.html` iframe viewer + `slides.json` manifest. `STORY.md` is the source-of-truth narrative doc; read it before editing copy.
 
+## [P2.S2] Solution slide rebuilt concrete (2026-07-20, branch `deck/11pt-vc-variant`)
+
+Office-hours read (unassuming-investor lens) found the deck splits registers: Problem/Proof are vivid + concrete, but Cover-cards + **Solution** retreat into infra jargon (provenance / entity graph / memory governance / agent runtime) a generalist can't map to the pain — the problem→solution loop never closed.
+
+- **`slides/04-model.html` rewritten** from "Capture · Govern · Act" (jargon tags) to **Watch → Assemble → Approve**, plain English, tied to the Problem slide's supplier-slip. Middle card now *shows* the decision package (DP-2026-0731, 3 ranked options A/B/C with cost + 2024 precedent, "3 days → 40 min") instead of telling. Human gate explicit ("nothing ships without a human"); dark payoff band "40 min vs 3 days · 2 vs 8 — every decision makes the next sharper" (moat teaser, no memory jargon). Governed-memory language now lives only on the Moat slide (05). Same deck2 chrome; verified sage + ember, fits 1280×720. PDF regen (13 slides, 4.06 MB).
+- Remaining office-hours fixes (not yet done): Cover 3-cards still jargony; consider Solution-before-Market; exec-summary is late at slide 12 (founder-chosen).
+
 ## [P2.S1] 11-point VC-format variant (2026-07-20, branch `deck/11pt-vc-variant`, NOT committed/pushed)
 
 A **variant** reorganizing the deck into a colleague's standard **11-point VC format** (Pain · Market · Solution · Uniqueness · Competition · GTM · Customers · Business-model · Team · Funding · Exec-summary), merged with a YC-investor pass (lean on the two real assets = **team + champion access**; strip false precision, keep numbers honestly labelled illustrative). Master untouched.

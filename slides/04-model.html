@@ -9,7 +9,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="../theme.css"/>
 <style>
-.msub { font-size: 16.5px; color: var(--text-dim); line-height: 1.5; max-width: 84ch; margin-top: 10px; }
+.msub { font-size: 16.5px; color: var(--text-dim); line-height: 1.5; max-width: 88ch; margin-top: 10px; }
 .msub b { color: var(--text); font-weight: 650; }
 .steps { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 34px; flex: 1; min-height: 0; align-items: stretch; margin: 20px 0 0; }
 .step { background: var(--surface); border: 1px solid var(--hairline); border-radius: 14px; padding: 20px 22px;
@@ -19,15 +19,23 @@
   border-radius: 8px; background: var(--ac-soft); border: 1px solid var(--ac-bd); color: var(--ac-ink);
   font-family: var(--mono); font-size: 13px; font-weight: 600; flex: 0 0 auto; }
 .step h3 { font-size: 22px; letter-spacing: -0.02em; }
-.step .lead { font-size: 14.5px; color: var(--text-dim); line-height: 1.45; }
+.step .lead { font-size: 14px; color: var(--text-dim); line-height: 1.45; }
 .step .lead b { color: var(--text); font-weight: 650; }
-.step ul { list-style: none; margin: 11px 0 0; padding: 0; border-top: 1px solid var(--hairline); padding-top: 11px; }
-.step ul li { position: relative; padding-left: 15px; margin: 7px 0; font-size: 9.5px !important; color: var(--text-dim); line-height: 1.4 !important; }
-.step ul li::before { content: ""; position: absolute; left: 0; top: .46em; width: 5px; height: 5px; border-radius: 50%; background: var(--ac-glow); }
-.step ul li b { color: var(--text); font-weight: 600; }
-.step .tags { margin-top: auto; padding-top: 13px; display: flex; flex-wrap: wrap; gap: 6px; }
-.step .tags .tg { font-family: var(--mono); font-size: 9px; letter-spacing: .01em; color: var(--ac-ink);
-  background: var(--ac-soft); border: 1px solid var(--ac-bd); border-radius: 5px; padding: 2px 7px; }
+/* the concrete "so what" example line at the bottom of a card */
+.step .eg { margin-top: auto; padding-top: 13px; font-family: var(--mono); font-size: 10.5px; letter-spacing: .01em;
+  color: var(--ac-ink); line-height: 1.4; }
+.step .eg::before { content: "\2192\00a0\00a0"; color: var(--ac); font-weight: 600; }
+.step .eg b { color: var(--text); font-weight: 650; }
+/* the assembled decision package — the product output, shown not told */
+.pkg { margin-top: 13px; border-top: 1px dashed var(--ac-bd); padding-top: 11px; display: flex; flex-direction: column; gap: 6px; }
+.pkg-hd { font-family: var(--mono); font-size: 9px; letter-spacing: .08em; text-transform: uppercase; color: var(--text-faint); margin-bottom: 2px; }
+.pkg-opt { display: flex; align-items: baseline; gap: 8px; font-size: 12px; }
+.pkg-opt .o { font-family: var(--mono); font-size: 10px; font-weight: 600; color: var(--text-faint); width: 13px; flex: 0 0 auto; }
+.pkg-opt .ot { color: var(--text-dim); flex: 1; line-height: 1.25; }
+.pkg-opt .oc { font-family: var(--mono); font-size: 11px; color: var(--text); font-weight: 500; flex: 0 0 auto; }
+.pkg-opt.best .ot { color: var(--text); font-weight: 650; }
+.pkg-opt.best .oc { color: var(--ac); font-weight: 600; }
+.pkg-ft { font-family: var(--mono); font-size: 9.5px; color: var(--text-faint); margin-top: 4px; }
 .step .ar { position: absolute; right: -27px; top: 50%; transform: translateY(-50%); z-index: 3;
   font-family: var(--mono); font-size: 20px; font-weight: 600; color: var(--ac); }
 .step .ar span { display: inline-block; animation: chev 1.5s ease-in-out infinite; }
@@ -50,43 +58,36 @@
   <div class="stage">
     <div class="canvas pitch col">
       <span class="eyebrow rise a"><span class="dot"></span>the solution</span>
-      <h2 class="rise a">Capture it. Govern it. <em>Let agents act.</em></h2>
-      <p class="msub rise a">MetaFloor turns the know-how trapped in people and scattered apps into <b>one secure memory you own</b> — then puts supply-chain agents on top of it to do real work, <b>with a human approving anything that matters.</b></p>
+      <h2 class="rise a">Watch. Assemble. <em>You approve.</em></h2>
+      <p class="msub rise a">The same call that took <b>3 days and 8 people</b> — MetaFloor watches the signals, <b>assembles the answer in ~40 minutes</b>, and hands your people a decision to approve.</p>
       <div class="steps">
         <div class="step rise b">
-          <div class="top"><span class="badge">1</span><h3>Capture</h3></div>
-          <div class="lead">We watch the apps your team already uses and <b>learn how work actually gets done.</b></div>
-          <ul>
-            <li>Email, Slack, ERP, CRM</li>
-            <li>When something's missing, <b>we ask the person who knows</b></li>
-          </ul>
-          <div class="tags"><span class="tg">connectors</span><span class="tg">entity graph</span><span class="tg">signal capture</span></div>
+          <div class="top"><span class="badge">1</span><h3>Watch</h3></div>
+          <div class="lead">It watches your signals across the apps you already use — <b>POs, demand, prices, lead times</b> — and catches the drift before anyone announces it.</div>
+          <div class="eg">the supplier that slipped <b>8&#8594;11 weeks</b>, caught days early</div>
           <span class="ar"><span>&rsaquo;</span><span>&rsaquo;</span></span>
         </div>
         <div class="step rise c">
-          <div class="top"><span class="badge">2</span><h3>Govern</h3></div>
-          <div class="lead">Every fact is stored with its provenance. <b>You own all of it.</b></div>
-          <ul>
-            <li>Where it came from · how confident · who may see it</li>
-            <li><b>Old beliefs fade</b> as the world changes</li>
-          </ul>
-          <div class="tags"><span class="tg">memory governance</span><span class="tg">access control</span><span class="tg">provenance</span></div>
+          <div class="top"><span class="badge">2</span><h3>Assemble</h3></div>
+          <div class="lead">It builds the <b>decision package</b>: ranked options, each with cost and the precedent from last time.</div>
+          <div class="pkg">
+            <div class="pkg-hd">DP-2026-0731 &middot; ready in ~40 min</div>
+            <div class="pkg-opt"><span class="o">A</span><span class="ot">Dual-source, widen the ETA</span><span class="oc">+$180K</span></div>
+            <div class="pkg-opt best"><span class="o">B</span><span class="ot">Re-time + partial expedite</span><span class="oc">+$95K</span></div>
+            <div class="pkg-opt"><span class="o">C</span><span class="ot">Hold and absorb the risk</span><span class="oc">risk</span></div>
+            <div class="pkg-ft">precedent: 2024 panel squeeze &middot; 3 days &#8594; 40 min</div>
+          </div>
           <span class="ar"><span>&rsaquo;</span><span>&rsaquo;</span></span>
         </div>
         <div class="step rise d">
-          <div class="top"><span class="badge">3</span><h3>Act</h3></div>
-          <div class="lead">Agents run the real <b>process flows</b> in your systems — end to end.</div>
-          <ul>
-            <li>Ship orders, follow up threads, file exceptions</li>
-            <li>Optimize flows, automate workflows, back decisions</li>
-            <li><b>A person signs off</b> before anything ships</li>
-          </ul>
-          <div class="tags"><span class="tg">agent runtime</span><span class="tg">human-in-the-loop</span><span class="tg">execution</span></div>
+          <div class="top"><span class="badge">3</span><h3>Approve</h3></div>
+          <div class="lead">Your people <b>review and approve</b> — then it executes into your systems: drafts the POs, sends the comms, and records the why.</div>
+          <div class="eg"><b>Nothing ships without a human.</b> Your call, every time.</div>
         </div>
       </div>
       <div class="loop rise e">
-        <span class="k">one loop</span>
-        <span class="t">The work agents do <b>feeds new signal back into memory</b> — so it keeps getting sharper, and the moat compounds per account.</span>
+        <span class="k">the payoff</span>
+        <span class="t"><b>40 minutes vs. 3 days &middot; 2 people vs. 8</b> — and every decision you approve makes the next one sharper.</span>
       </div>
     </div>
   </div>
