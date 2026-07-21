@@ -2,6 +2,15 @@
 
 A standalone-HTML seed pitch deck. Each slide is its own file in `slides/`, a 1280×720 stage scaled by `deck.js`, themed via `<html data-theme>` (sage · ember · violet), assembled by the `index.html` iframe viewer + `slides.json` manifest. `STORY.md` is the source-of-truth narrative doc; read it before editing copy.
 
+## [P2.S3] Cover positioning + Field/Market upgrades (2026-07-21, branch `deck/11pt-vc-variant`, pushed)
+
+Founder ask: get the positioning ("what we build") glanceable on **page 1**, and work in two investor points as *content* (no names/attribution) — (1) why traditional ISVs can't/won't do this, (3) the investment window as the market shifts fast.
+
+- **Cover (`01-cover.html`):** replaced the flat gray one-liner with a **colored, arrow-driven thesis** — line 1 `Scattered know-how, trapped in people and apps → one secure memory you own.`; line 2 `Supply-chain agents act on it — you approve anything that matters.` (accent on the two anchor phrases). **Flow rail (Capture/Govern/Act) shrunk ~20%** (icon inlined with the label via new `.mf-head`, smaller cards) and dropped to the lower third (`.mf-blocks{margin-top:auto}`, `.cv-foot` back to fixed margin) so the upper zone reads *problem*, lower zone reads *flow*. Block copy made **generic-but-real** (grounded in Watch/Assemble/Approve): *learns how the calls get made · every fact kept with its source, memory you own · agents assemble each call, your people approve* — an earlier draft (emails/chats/sheets · "agents draft the decision") was rejected as email-drafter/status-updater nonsense.
+- **The Field (`B2-field.html`):** added a full-width **"why no incumbent crosses over"** accent-tint bar (replaces the thin verdict line) — the structural reason ISVs can't/won't: *they sell per-seat modules on siloed data; governed decision-memory + an accountable agent fleet is a different architecture that cannibalizes that model.* Fixed the **MetaFloor-row label wrap** (was overflowing under the grid) by shortening its descriptor to `all four at once — one vertical, deep` (one line, aligned with its four checks); reclaimed space let the why-bar breathe as two full-width lines.
+- **The Market (`09-prize-path.html`):** added a closing **"the window"** band under the path — investment timing (*the decision layer is being drawn right now; memory compounds per account; window open today, not in three years*) with a `the window · now` mono pill.
+- All three verified via Playwright (sage), no cramping. **PDF regenerated** (13 slides, ~4.13 MB). Public repo → pushing `master` would republish slides.metafloor.ai; kept on branch. Prod (`master`) tagged **v1.0.0** this session (was untagged).
+
 ## [P2.S2] Solution slide rebuilt concrete (2026-07-20, branch `deck/11pt-vc-variant`)
 
 Office-hours read (unassuming-investor lens) found the deck splits registers: Problem/Proof are vivid + concrete, but Cover-cards + **Solution** retreat into infra jargon (provenance / entity graph / memory governance / agent runtime) a generalist can't map to the pain — the problem→solution loop never closed.
