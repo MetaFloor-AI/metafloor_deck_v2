@@ -2,6 +2,16 @@
 
 A standalone-HTML seed pitch deck. Each slide is its own file in `slides/`, a 1280×720 stage scaled by `deck.js`, themed via `<html data-theme>` (sage · ember · violet), assembled by the `index.html` iframe viewer + `slides.json` manifest. `STORY.md` is the source-of-truth narrative doc; read it before editing copy.
 
+## [P2.S4] Cover tagline + slide fixes, shipped v2.1.0 (2026-07-21, `master`, tag `v2.1.0`)
+
+Founder round of small edits (all shipped to prod):
+- **Cover (`01-cover.html`):** replaced the two arrow-lines with **one paragraph = the full verbatim tagline** ("MetaFloor turns the know-how *trapped in people and scattered apps* into *one secure memory you own* — then puts *supply-chain agents* on top of it to do real work, *with a human approving anything that matters*"), key phrases lit in accent (`.thesis` restyled to a single `<p>`). Founder wanted the paragraph form, not bullets/arrows.
+- **`your people` → `your team`** (with verb agreement) on cover, `04-model.html` (×2), `00-exec-summary.html` (×2). Generic headcount uses ("8 people", "people who run these ops") left alone.
+- **Slide 2 problem/hook (`02-hook.html`):** the bottom `.realnote` footer was hardcoded static across all 4 toggles — now **per-scenario** (added `note` to each STORY object + `#h-note` span + render wiring). Each of Quiet-slip / Price-run / Cable-cut / Expedite has its own footer line.
+- **Slide 3 market (`09-prize-path.html`):** "baseline vs. after, for the **CFO**" → "for the **head of supply chain**" (the real buyer isn't the CFO).
+- **Ask slide (`10-ask.html`) + exec-summary:** made the funnel ambitious — **10 champions → 10 paying flagship customers** (was 3–4 paid design partners); headline/funnel/milestone aligned.
+- Verified via Playwright (incl. both hook toggle states). PDF regen (13 slides, 4.14 MB). Shipped: branch → FF `master` → tag **v2.1.0**.
+
 ## [P2.S3] Cover positioning + Field/Market upgrades (2026-07-21, branch `deck/11pt-vc-variant`, pushed)
 
 Founder ask: get the positioning ("what we build") glanceable on **page 1**, and work in two investor points as *content* (no names/attribution) — (1) why traditional ISVs can't/won't do this, (3) the investment window as the market shifts fast.

@@ -18,14 +18,11 @@
 .cv-eyebrow::before { content: ""; width: 34px; height: 1px; background: var(--ac-bd); }
 .cv h1 { font-size: 44px; letter-spacing: -0.035em; line-height: 1.06; max-width: 20ch; }
 .cv h1 em { color: var(--ac); }
-/* the thesis — what we build, told as a two-beat move, not a flat sentence */
-.cv .thesis { margin-top: 20px; max-width: 44ch; }
-.cv .thesis .th { font-size: 25px; font-weight: 650; letter-spacing: -0.022em; line-height: 1.28;
-  color: var(--text); margin: 0; }
-.cv .thesis .th.two { font-size: 22px; font-weight: 500; color: var(--text-dim); margin-top: 5px; }
-.cv .thesis .th em { color: var(--ac); font-weight: 750; font-style: normal; }
-.cv .thesis .arw { color: var(--ac-glow); font-weight: 700; padding: 0 5px; }
-.cv .thesis .th.two em { color: var(--ac-ink); }
+/* the thesis — an extended tagline: one confident paragraph, key phrases lit */
+.cv .thesis { margin-top: 18px; max-width: 63ch; font-size: 20.5px; font-weight: 440;
+  letter-spacing: -0.015em; line-height: 1.46; color: var(--text); }
+.cv .thesis b { color: var(--text); font-weight: 680; }
+.cv .thesis em { color: var(--ac); font-weight: 720; font-style: normal; }
 
 /* flow rail — the mechanism, ~20% tighter, dropped to the lower third */
 .mf-blocks { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; margin-top: auto; }
@@ -71,10 +68,7 @@
         </div>
         <span class="cv-eyebrow ci d2">The decision layer for supply chain</span>
         <h1 class="ci d3">Million-dollar calls, made in a panic —<br/><em>then forgotten.</em></h1>
-        <div class="thesis ci d4">
-          <p class="th">Scattered know-how, trapped in people and apps <span class="arw">&rarr;</span> <em>one secure memory you own.</em></p>
-          <p class="th two">Supply-chain agents act on it &mdash; <em>you approve anything that matters.</em></p>
-        </div>
+        <p class="thesis ci d4">MetaFloor turns the know-how <b>trapped in people and scattered apps</b> into <em>one secure memory you own</em> &mdash; then puts <em>supply-chain agents</em> on top of it to do real work, <em>with a human approving anything that matters.</em></p>
         <div class="mf-blocks">
           <div class="mf-block ci d5">
             <div class="mf-head">
@@ -97,7 +91,7 @@
               <div class="mf-icon"><svg viewBox="0 0 24 24"><path d="M13 2.5L4.5 13.5H10l-1 8 8.5-11.5H12l1-7.5z"/></svg></div>
               <h4><span class="num">03</span>Act</h4>
             </div>
-            <p>Agents assemble each call; your people approve before anything ships.</p>
+            <p>Agents assemble each call; your team approves before anything ships.</p>
           </div>
         </div>
         <div class="cv-foot ci d6">

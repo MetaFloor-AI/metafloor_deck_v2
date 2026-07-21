@@ -70,7 +70,7 @@
         </div>
       </div>
 
-      <div class="realnote"><span class="rn-dot"></span>Real use cases from our customers &mdash; you make <b>dozens a year; 12&ndash;20 put $0.5M+ on the line.</b><span class="ill">illustrative figures</span></div>
+      <div class="realnote"><span class="rn-dot"></span><span id="h-note"></span><span class="ill">illustrative figures</span></div>
     </div>
   </div>
 </section>
@@ -86,6 +86,7 @@ const STORIES = {
       '3 dual-source options + the 2024 precedent, assembled — the buyer approved before it was a fire.'
     ],
     gap: 'Caught early vs. a six-week scramble. That <em>gap</em> is the product.',
+    note: 'The quiet slips never announce themselves &mdash; <b>~15 a year</b>, each a six-week scramble stopped before it starts.',
     cust: '$800M electronics OEM &middot; 40 buyers',
     rows: [
       { n:'~$0.5M', l:'scramble avoided by catching it early', hot:true },
@@ -103,6 +104,7 @@ const STORIES = {
       'Lock-forward / re-time / pass-through options, priced — decided inside the window.'
     ],
     gap: 'In the window vs. after the run. That <em>gap</em> is the margin.',
+    note: 'Every price move is a decision on a clock &mdash; <b>miss the window, eat the run.</b> Dozens land each year.',
     cust: '$2B industrial manufacturer',
     rows: [
       { n:'~$1&ndash;2M', l:'margin protected on the buy', hot:true },
@@ -120,6 +122,7 @@ const STORIES = {
       'By hand, assembling it takes <b>~30 hours.</b>'
     ],
     gap: '<b>30 hours vs. 40 minutes.</b> That <em>gap</em> is the product.',
+    note: 'The rare, loud one &mdash; but when it hits it&rsquo;s <b>$150K/hr and ~30 hours by hand.</b> The call you can&rsquo;t fumble.',
     cust: 'Tier-1 network operator',
     rows: [
       { n:'~$150K', l:'burned every hour the region runs degraded', hot:true },
@@ -137,6 +140,7 @@ const STORIES = {
       'It flags only the ones that truly need it — skipping the &ldquo;to be safe&rdquo; spend.'
     ],
     gap: 'Only when it matters vs. <b>$8K &ldquo;to be safe&rdquo;.</b> That <em>gap</em> is the year&rsquo;s budget.',
+    note: 'The small calls compound &mdash; <b>dozens a week</b>, a few $K each, <b>~$3M a year</b> in &ldquo;to be safe&rdquo; spend.',
     cust: '$500M components maker',
     rows: [
       { n:'~$0.5M/yr', l:'off a ~$3M expedite bill', hot:true },
@@ -151,6 +155,7 @@ function render(key){
   document.getElementById('h-headline').innerHTML = d.headline;
   document.getElementById('h-bullets').innerHTML = d.bullets.map(b => '<li>'+b+'</li>').join('');
   document.getElementById('h-gap').innerHTML = d.gap;
+  document.getElementById('h-note').innerHTML = d.note;
   document.getElementById('h-cust').innerHTML = d.cust;
   document.getElementById('h-rows').innerHTML = d.rows.map(r =>
     '<div class="s-row'+(r.hot?' hot':'')+'"><b>'+r.n+'</b><span>'+r.l+'</span></div>').join('');
