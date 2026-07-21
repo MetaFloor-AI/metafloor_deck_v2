@@ -48,6 +48,14 @@
 .fcell .wb b { color: var(--text); font-weight: 600; } .fcell .wb .ac { color: var(--ac-ink); font-weight: 600; }
 .verdict-line { margin-top: 12px; font-family: var(--mono); font-size: 11.5px; letter-spacing: .02em; color: var(--text-faint); }
 .verdict-line b { color: var(--text); font-weight: 600; } .verdict-line .ac { color: var(--ac); font-weight: 600; }
+/* why no incumbent crosses over — structural reason, full-width accent-tint bar */
+.why-bar { margin-top: 13px; padding: 12px 18px; background: var(--ac-fill); border-left: 3px solid var(--ac);
+  border-radius: 0 8px 8px 0; }
+.why-bar p { margin: 0; font-size: 13px; color: var(--text-dim); line-height: 1.48; }
+.why-bar .wb-head { font-family: var(--mono); font-size: 11px; letter-spacing: .05em; text-transform: uppercase;
+  color: var(--ac-ink); font-weight: 700; }
+.why-bar p b { color: var(--text); font-weight: 650; }
+.why-bar p .ac { color: var(--ac-ink); font-weight: 700; }
 @keyframes fin { to { opacity: 1; } }
 .rise { opacity: 0; animation: fin .5s ease forwards; }
 .rise.a{animation-delay:.08s}.rise.b{animation-delay:.24s}.rise.c{animation-delay:.4s}
@@ -89,7 +97,7 @@
         <div class="lab"><span class="ln">Direct thesis-twins <span style="color:var(--ac-ink);font-weight:700">&larr; closest</span></span><span class="nm"><span class="ac">Sentra &middot; Augment &middot; bluefabric</span></span></div>
         <div class="cell"><span class="mk full">&check;</span></div><div class="cell"><span class="mk part">~</span></div><div class="cell"><span class="mk part">~</span></div><div class="cell c4"><span class="mk part">~</span></div>
 
-        <div class="us lab"><span class="ln">MetaFloor</span><span class="nm">active capture &times; governed memory &times; acting fleet &times; one vertical, deep</span></div>
+        <div class="us lab"><span class="ln">MetaFloor</span><span class="nm">all four at once &mdash; one vertical, deep</span></div>
         <div class="us cell"><span class="mk full">&check;</span></div><div class="us cell"><span class="mk full">&check;</span></div><div class="us cell"><span class="mk full">&check;</span></div><div class="us cell c4"><span class="mk full">&check;</span></div>
       </div>
 
@@ -112,7 +120,9 @@
         </div>
       </div>
 
-      <div class="verdict-line rise c">NO FUNDED PLAYER HOLDS ALL FOUR &nbsp;&middot;&nbsp; the field validates the thesis &mdash; <span class="ac">we win on the intersection, not the absence.</span></div>
+      <div class="why-bar rise c">
+        <p><span class="wb-head">Why no incumbent crosses over —</span> they sell <b>per-seat modules on siloed data</b>, and a governed decision-memory plus an accountable agent fleet is a different architecture that <b>cannibalizes that model</b>. So they deepen one slice and call it strategy; <span class="ac">we own the whole decision, and the memory it leaves behind.</span></p>
+      </div>
     </div>
   </div>
 </section>
