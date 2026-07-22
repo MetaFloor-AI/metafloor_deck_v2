@@ -9,12 +9,12 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="../theme.css"/>
 <style>
-.who { font-size: 17px; color: var(--text-dim); line-height: 1.45; margin-top: 14px; }
+.who { font-size: 16px; color: var(--text-dim); line-height: 1.4; margin-top: 10px; }
 .who b { color: var(--text); font-weight: 650; }
 
 /* land / prove / expand — trimmed to reclaim space; extra top margin opens up the center */
-.motion { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; margin-top: 30px; }
-.mstep { background: var(--surface); border: 1px solid var(--hairline); border-top: 2px solid var(--ac-bd); border-radius: 11px; padding: 12px 16px; position: relative; }
+.motion { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; margin-top: 16px; }
+.mstep { background: var(--surface); border: 1px solid var(--hairline); border-top: 2px solid var(--ac-bd); border-radius: 11px; padding: 11px 16px; position: relative; }
 .mstep .t { display: flex; align-items: center; gap: 8px; margin-bottom: 4px; }
 .mstep .t .n { font-family: var(--mono); font-size: 10.5px; color: var(--ac-ink); background: var(--ac-soft); border: 1px solid var(--ac-bd); border-radius: 5px; padding: 1px 6px; font-weight: 600; }
 .mstep .t h3 { font-size: 16px; letter-spacing: -0.02em; }
@@ -22,21 +22,25 @@
 .mstep p b { color: var(--text); font-weight: 650; }
 .mstep .ar { position: absolute; right: -13px; top: 50%; transform: translateY(-50%); z-index: 3; font-family: var(--mono); font-size: 17px; color: var(--ac); }
 
-.benchhead { display: flex; align-items: baseline; gap: 13px; margin: 22px 0 0; }
+.benchhead { display: flex; align-items: baseline; gap: 13px; margin: 16px 0 0; }
 .benchhead .bl { font-family: var(--mono); font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--ac); font-weight: 600; }
 .benchhead .bl-note { font-size: 13.5px; color: var(--text-dim); }
 
-.wall { display: grid; grid-template-columns: repeat(5,1fr); gap: 17px 26px; align-items: start;
-  background: var(--dark); border-radius: 16px; padding: 22px 26px; margin-top: 13px; }
-.vet { display: flex; flex-direction: column; gap: 3px; }
-.vet .logo { height: 20px; display: flex; align-items: center; margin-bottom: 6px; }
-.vet .logo img { max-height: 18px; max-width: 92px; width: auto; object-fit: contain; opacity: .92;
-  filter: grayscale(100%) brightness(0) invert(1); }
-.vet .nm { font-size: 14px; font-weight: 650; color: #fff; letter-spacing: -0.01em; }
+.wall { display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; align-items: stretch;
+  background: var(--dark); border-radius: 16px; padding: 12px; margin-top: 11px; }
+.vet { display: flex; align-items: center; gap: 0; background: rgba(255,255,255,.05);
+  border: 1px solid var(--dark-line); border-radius: 10px; padding: 11px 16px; }
+.vet .logo { flex: 0 0 88px; height: 36px; background: #fff; border-radius: 8px; display: flex;
+  align-items: center; justify-content: center; padding: 5px 10px; }
+.vet .logo img { max-height: 24px; max-width: 68px; width: auto; object-fit: contain; opacity: 1; }
+.vet .v-txt { position: relative; margin-left: 16px; padding-left: 16px; display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+.vet .v-txt::before { content: ''; position: absolute; left: 0; top: 2px; bottom: 2px; width: 1px;
+  background: linear-gradient(to bottom, transparent, rgba(255,255,255,.22) 22%, rgba(255,255,255,.22) 78%, transparent); }
+.vet .nm { font-size: 15px; font-weight: 650; color: #fff; letter-spacing: -0.01em; }
 .vet .rl { font-size: 11.5px; color: #A9ADB5; line-height: 1.25; }
 
 /* design partners — highlighted block BELOW the bench; compact so the slide breathes above */
-.dp { margin-top: 13px; background: var(--ac-soft); border: 1px solid var(--ac-bd); border-left: 3px solid var(--ac); border-radius: 11px; padding: 9px 18px; display: flex; align-items: center; gap: 12px 18px; flex-wrap: wrap; }
+.dp { margin-top: 14px; background: var(--ac-soft); border: 1px solid var(--ac-bd); border-left: 3px solid var(--ac); border-radius: 11px; padding: 9px 18px; display: flex; align-items: center; gap: 12px 18px; flex-wrap: wrap; }
 .dp .dp-top { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
 .dp .dp-lb { font-family: var(--mono); font-size: 11.5px; letter-spacing: .1em; text-transform: uppercase; color: var(--ac-ink); font-weight: 700; display: inline-flex; align-items: center; gap: 8px; flex: 0 0 auto; }
 .dp .dp-lb .live { width: 7px; height: 7px; border-radius: 50%; background: var(--ac); box-shadow: 0 0 0 3px #fff; }
@@ -54,9 +58,9 @@
 <div class="deck">
 <section class="slide">
   <div class="stage">
-    <div class="canvas pitch col" style="padding:44px 60px 32px;">
+    <div class="canvas pitch col" style="padding:24px 60px 22px;">
       <span class="eyebrow rise a"><span class="dot"></span>go-to-market</span>
-      <h2 class="rise a" style="margin-top:12px; margin-bottom:0">We land through the people who <em>run these operations.</em></h2>
+      <h2 class="rise a" style="margin-top:10px; margin-bottom:0; font-size:31px; line-height:1.08">We land through the people who <em>run these operations.</em></h2>
       <p class="who rise a"><b>Medium-to-large enterprises</b> &middot; OEM / ODM &middot; supply-chain &amp; ops leaders. Champions clear IT/security and sponsor the pilot; experts vouch the problem.</p>
 
       <div class="motion">
@@ -78,20 +82,19 @@
 
       <div class="benchhead rise c">
         <span class="bl">now scaling to large customers</span>
-        <span class="bl-note">10 supply-chain leaders at large enterprises who open the door &amp; win the pilot</span>
+        <span class="bl-note">9 supply-chain champions inside large enterprises who open the door &amp; win the pilot &middot; a 4-person Board of Advisors backs them</span>
       </div>
       <div class="wall rise d">
-        <div class="vet"><span class="logo"><img src="../assets/logos/blueyonder.svg" alt="Blue Yonder"/></span><span class="nm">Sudarshan Seshadri</span><span class="rl">Corporate VP, Blue Yonder</span></div>
-        <div class="vet"><span class="logo"><img src="../assets/logos/google.svg" alt="Google"/></span><span class="nm">Supriya Iyer</span><span class="rl">Dir. Global Supply Chain, Google</span></div>
-        <div class="vet"><span class="logo"><img src="../assets/logos/amd.svg" alt="AMD"/></span><span class="nm">Prem Jain</span><span class="rl">Sr. VP &amp; GM, AMD &middot; ex-Cisco</span></div>
-        <div class="vet"><span class="logo"><img src="../assets/logos/netapp.svg" alt="NetApp"/></span><span class="nm">Mondher Ben-Hamida</span><span class="rl">VP Global Supply Chain, NetApp</span></div>
-        <div class="vet"><span class="logo"><img src="../assets/logos/gevernova.svg" alt="GE Vernova"/></span><span class="nm">Prakash Seshadri</span><span class="rl">Chief Digital Tech Officer, GE Vernova</span></div>
-        <div class="vet"><span class="logo"><img src="../assets/logos/juniper.svg" alt="Juniper"/></span><span class="nm">Mitch Haynes</span><span class="rl">VP Supply Chain, Juniper</span></div>
-        <div class="vet"><span class="logo"><img src="../assets/logos/astrazeneca.svg" alt="AstraZeneca"/></span><span class="nm">Arun Krishnan</span><span class="rl">Sr. VP Supply Chain, AstraZeneca</span></div>
-        <div class="vet"><span class="logo"><img src="../assets/logos/sanmina.svg" alt="Sanmina"/></span><span class="nm">Sundar Kamath</span><span class="rl">Sr. VP, Sanmina</span></div>
-        <div class="vet"><span class="logo"><img src="../assets/logos/jabil.svg" alt="Jabil"/></span><span class="nm">Cassie Gruber</span><span class="rl">Dir. Sustainability, Jabil</span></div>
+        <div class="vet"><span class="logo"><img src="../assets/logos/google.svg" alt="Google"/></span><div class="v-txt"><span class="nm">Supriya Iyer</span><span class="rl">Dir. Global Supply Chain, Google</span></div></div>
+        <div class="vet"><span class="logo"><img src="../assets/logos/netapp.svg" alt="NetApp"/></span><div class="v-txt"><span class="nm">Mondher Ben-Hamida</span><span class="rl">VP Global Supply Chain, NetApp</span></div></div>
+        <div class="vet"><span class="logo"><img src="../assets/logos/gevernova.svg" alt="GE Vernova"/></span><div class="v-txt"><span class="nm">Prakash Seshadri</span><span class="rl">Chief Digital Tech Officer, GE Vernova</span></div></div>
+        <div class="vet"><span class="logo"><img src="../assets/logos/juniper.svg" alt="Juniper"/></span><div class="v-txt"><span class="nm">Mitch Haynes</span><span class="rl">VP Supply Chain, Juniper</span></div></div>
+        <div class="vet"><span class="logo"><img src="../assets/logos/astrazeneca.svg" alt="AstraZeneca"/></span><div class="v-txt"><span class="nm">Arun Krishnan</span><span class="rl">Sr. VP Supply Chain, AstraZeneca</span></div></div>
         <!-- TODO(anup): confirm Shane Nunes' exact title at Delta Group — web unverified (a "Shane Nunes" is COO at Universal Instruments; Delta Group Electronics lists no Shane). Drop the title into .rl as "Title, Delta Group". -->
-        <div class="vet"><span class="logo"><img src="../assets/logos/deltagroup.png" alt="Delta Group Electronics"/></span><span class="nm">Shane Nunes</span><span class="rl">Delta Group Electronics</span></div>
+        <div class="vet"><span class="logo"><img src="../assets/logos/deltagroup.png" alt="Delta Group Electronics"/></span><div class="v-txt"><span class="nm">Shane Nunes</span><span class="rl">Delta Group Electronics</span></div></div>
+        <div class="vet"><span class="logo"><img src="../assets/logos/hpe.svg" alt="HPE"/></span><div class="v-txt"><span class="nm">Michael Haynes</span><span class="rl">VP Supply Chain Planning &amp; Fulfillment, HPE</span></div></div>
+        <div class="vet"><span class="logo"><img src="../assets/logos/celestica.png" alt="Celestica"/></span><div class="v-txt"><span class="nm">Wayne Richings</span><span class="rl">IT Director &amp; IT Business Partner, Celestica</span></div></div>
+        <div class="vet"><span class="logo"><img src="../assets/logos/macnica.png" alt="Macnica"/></span><div class="v-txt"><span class="nm">Sebastien Dignard</span><span class="rl">CEO, Macnica Americas &amp; EMEA</span></div></div>
       </div>
 
       <div class="dp rise d">
