@@ -13,7 +13,8 @@
 .cv-brand { display: flex; align-items: center; gap: 13px; margin-bottom: 28px; }
 .cv-brand .logo { height: 38px; width: auto; display: block; }
 .cv-brand .wordmark { font-size: 26px; font-weight: 650; letter-spacing: -0.02em; color: var(--text); }
-.cv-eyebrow { font-family: var(--mono); font-size: 12px; letter-spacing: .2em; text-transform: uppercase;
+.cv-brand .wordmark .tm { font-size: 0.46em; font-weight: 500; letter-spacing: 0; vertical-align: super; margin-left: 1px; }
+.cv-eyebrow { font-family: var(--mono); font-size: 15px; letter-spacing: .2em; text-transform: uppercase;
   color: var(--ac); font-weight: 500; display: inline-flex; align-items: center; gap: 12px; margin-bottom: 22px; }
 .cv-eyebrow::before { content: ""; width: 34px; height: 1px; background: var(--ac-bd); }
 .cv h1 { font-size: 44px; letter-spacing: -0.035em; line-height: 1.06; max-width: 20ch; }
@@ -64,7 +65,7 @@
       <div class="cover">
         <div class="cv-brand ci d1">
           <img class="logo" src="../assets/logo_only_transparent.png" alt="MetaFloor logo"/>
-          <span class="wordmark">MetaFloor</span>
+          <span class="wordmark">MetaFloor<span class="tm">&trade;</span></span>
         </div>
         <span class="cv-eyebrow ci d2">The decision layer for supply chain</span>
         <h1 class="ci d3">Million-dollar calls, made in a panic —<br/><em>then forgotten.</em></h1>
